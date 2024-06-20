@@ -21,11 +21,9 @@ const Header = () => {
                 <span><a href="#Program">Programs</a></span><span className='disinHeader'> |</span>
                 {/* <Programs /> */}
                 {/* <span><a href="#Location">Locations</a></span>     */}
-                
-                <span><a onClick={()=>{navigate(`/Login`)}}>Login</a></span>
+                <span><a href="#footer">Contact</a></span>
                 {/* <span><a href="/Login">Login</a></span> */}
-                 <span><a href="#footer">Contact</a></span>
-
+                <span><a href="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard">Login</a></span>
             </Nav>
             <Bars onClick={() => setBar(!bar)} bar={bar}>
                 <div className="bar"></div>
