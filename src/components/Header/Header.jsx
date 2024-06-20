@@ -1,9 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+
 
 const Header = () => {
     const [bar, setBar] = useState(false);
+    const navigate = useNavigate();
+
 
     const handleBackgroundClick = () => {
         setBar(false); // Close the menu when background is clicked
@@ -15,9 +19,11 @@ const Header = () => {
                 <span><a href="#About">About Us</a></span> <span className='disinHeader'> |   </span>     
                 <span><a href="#FAQ">FAQ</a></span><span className='disinHeader'> | </span>
                 <span><a href="#Program">Programs</a></span><span className='disinHeader'> |</span>
-                {/* <Programs />
-                <span><a href="#Location">Locations</a></span>    
-                <span><a href="/Login">Login</a></span>*/}
+                {/* <Programs /> */}
+                {/* <span><a href="#Location">Locations</a></span>     */}
+                
+                <span><a onClick={()=>{navigate(`/Login`)}}>Login</a></span>
+                {/* <span><a href="/Login">Login</a></span> */}
                  <span><a href="#footer">Contact</a></span>
 
             </Nav>

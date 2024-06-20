@@ -33,7 +33,7 @@ function App() {
         {/* Define routes */}
         <Route path="/" element={<Home />} />
         <Route path="/Login" element={<Login />} />
-        <Route path="/Registration" element={<Registration />} />
+        {/* <Route path="/Registration" element={<Registration />} /> */}
         <Route path="/Registration1" element={<Registration1 />} />
         <Route path="/Registration2" element={<Registration2 />} />
         <Route path='/coach' element={<Users />}></Route>
