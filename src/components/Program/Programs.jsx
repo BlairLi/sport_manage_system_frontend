@@ -75,11 +75,9 @@ function Programs() {
   const [sportFilter, setSportFilter] = useState('');
   const [locationFilter, setLocationFilter] = useState('');
   const [genderFilter, setGenderFilter] = useState('');
-  const url = import.meta.env.VITE_MONGODB_URL ;
-
 
   useEffect(() => {
-    axios.get(`${url}/programs`)
+    axios.get('http://localhost:3001/programs')
       .then(result => setPrograms(result.data || []))
       .catch(err => console.log(err));
   }, []);
@@ -129,7 +127,7 @@ function Programs() {
   const handleBuy = async (programId) => {
     const stripe = await stripePromise;
 
-    const response = await axios.post(`${url}/create-checkout-session`, { programId });
+    const response = await axios.post('http://localhost:3001/create-checkout-session', { programId });
 
     const sessionId = response.data.id;
 

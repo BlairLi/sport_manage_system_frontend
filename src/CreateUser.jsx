@@ -14,8 +14,6 @@ function CreateUser() {
   const [gender, setGender] = useState("");
 
   const navigate = useNavigate();
-  const url = import.meta.env.VITE_MONGODB_URL;
-
 
   useEffect(() => {
     const calculateTotalSalary = () => {
@@ -34,7 +32,7 @@ function CreateUser() {
       return;
     }
     // If all fields are filled, proceed with submitting the form
-    axios.post(`${url}/createUser`, { name, email, phone, location, hour, hourlyWage, totalSalary, gender })
+    axios.post("http://localhost:3001/createUser", { name, email, phone, location, hour, hourlyWage, totalSalary, gender })
       .then(() => {
         // Show success message
         window.alert("User created successfully!");

@@ -11,11 +11,9 @@ function UpdateUser() {
   const [phone, setPhone] = useState("");
   const [gender, setGender] = useState("");
   const navigate = useNavigate();
-  const url = import.meta.env.VITE_MONGODB_URL;
-
 
   useEffect(() => {
-    axios.get(`${url}/getUser/` + id)
+    axios.get("http://localhost:3001/getUser/" + id)
       .then((result) => {
         console.log(result);
         setName(result.data.name);
@@ -30,7 +28,7 @@ function UpdateUser() {
   const Update = (e) => {
     e.preventDefault();
     axios
-      .put(`${url}/updateUser/` + id, {
+      .put("http://localhost:3001/updateUser/" + id, {
         name,
         location,
         email,

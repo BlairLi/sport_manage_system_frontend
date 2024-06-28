@@ -56,11 +56,9 @@ const Payroll = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortColumn, setSortColumn] = useState(null);
   const [sortOrder, setSortOrder] = useState('asc');
-  const url = import.meta.env.VITE_MONGODB_URL;
-
 
   useEffect(() => {
-    axios.get(`${url}`)
+    axios.get('http://localhost:3001')
       .then(result => setUsers(result.data))
       .catch(err => console.log(err));
   }, []);

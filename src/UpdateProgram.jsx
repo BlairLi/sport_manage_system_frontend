@@ -14,12 +14,8 @@ function UpdateProgram() {
   const [gender, setGender] = useState("");
   const navigate = useNavigate();
 
-  // const url = import.meta.env.MONGODB_URL || "http://localhost:3001";
-  const url = import.meta.env.MONGODB_URL;
-
-
   useEffect(() => {
-    axios.get(`${url}/programs` + id)
+    axios.get("http://localhost:3001/programs/" + id)
       .then((result) => {
         setName(result.data.name);
         setTime(new Date(result.data.time).toISOString().slice(0, 16)); // Convert Date to string in the required format
@@ -36,7 +32,7 @@ function UpdateProgram() {
   const Update = (e) => {
     e.preventDefault();
     axios
-      .put(`${url}/programs` + id, {
+      .put("http://localhost:3001/programs/" + id, {
         name,
         time,
         place,
@@ -94,6 +90,9 @@ function UpdateProgram() {
               <option value="Basketball">Basketball</option>
               <option value="Soccer">Soccer</option>
               <option value="Baseball">Baseball</option>
+              <option value="Basketball Group Academy Training">Basketball Group Academy Training</option>
+              <option value="House Leagues">House Leagues</option>
+              <option value="Leadership Retreats">Leadership Retreats</option>
             </select>
           </div>
           <div className="mb-2">

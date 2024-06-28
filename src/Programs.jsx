@@ -77,11 +77,8 @@ function Programs() {
   const [locationFilter, setLocationFilter] = useState('');
   const [genderFilter, setGenderFilter] = useState('');
 
-  const url = import.meta.env.VITE_MONGODB_URL;
-
-
   useEffect(() => {
-    axios.get(`${url}/programs`)
+    axios.get('http://localhost:3001/programs')
       .then(result => setPrograms(result.data || []))
       .catch(err => console.log(err));
   }, []);
@@ -90,7 +87,7 @@ function Programs() {
     const isConfirmed = window.confirm("Are you sure you want to delete this program?");
     
     if (isConfirmed) {
-      axios.delete(`${url}/programs` + id)
+      axios.delete('http://localhost:3001/programs/' + id)
         .then(result => {
           console.log(result);
           setPrograms(programs.filter(program => program._id !== id));

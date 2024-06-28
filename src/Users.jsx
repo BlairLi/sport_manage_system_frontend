@@ -72,12 +72,9 @@ function Users() {
   const [sortKey, setSortKey] = useState(null);
   const [sortOrder, setSortOrder] = useState(1);
   const [filterGender, setFilterGender] = useState('');
-  const url = import.meta.env.VITE_MONGODB_URL;
-
-  
 
   useEffect(() => {
-    axios.get(`${url}/`)
+    axios.get('http://localhost:3001')
       .then(result => setUsers(result.data || []))
       .catch(err => console.log(err));
   }, []);
@@ -86,7 +83,7 @@ function Users() {
     const isConfirmed = window.confirm("Are you sure you want to delete this user?");
     
     if (isConfirmed) {
-      axios.delete(`${url}/deleteUser/` + id)
+      axios.delete('http://localhost:3001/deleteUser/' + id)
         .then(result => {
           console.log(result);
           setUsers(users.filter(user => user._id !== id));

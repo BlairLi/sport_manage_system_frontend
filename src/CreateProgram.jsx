@@ -14,7 +14,6 @@ function CreateProgram() {
   const [gender, setGender] = useState("");
 
   const navigate = useNavigate();
-  const url = import.meta.env.VITE_MONGODB_URL;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +21,7 @@ function CreateProgram() {
       window.alert("Please fill in all fields.");
       return;
     }
-    axios.post(`${url}/programs`, { name, time, place, fees, age, sport, location, gender })
+    axios.post("http://localhost:3001/programs", { name, time, place, fees, age, sport, location, gender })
       .then(() => {
         window.alert("Program created successfully!");
         setName("");
@@ -83,6 +82,9 @@ function CreateProgram() {
               <option value="Basketball">Basketball</option>
               <option value="Soccer">Soccer</option>
               <option value="Baseball">Baseball</option>
+              <option value="Basketball Group Academy Training">Basketball Group Academy Training</option>
+              <option value="House Leagues">House Leagues</option>
+              <option value="Leadership Retreats">Leadership Retreats</option>
             </select>
           </div>
           <div className='mb-2'>

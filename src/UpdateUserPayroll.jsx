@@ -13,11 +13,9 @@ function UpdateUserPayroll() {
   const [hourlyWage, setHourlyWage] = useState("");
   const [totalSalary, setTotalSalary] = useState("");
   const navigate = useNavigate();
-  const url = import.meta.env.VITE_MONGODB_URL;
-
 
   useEffect(() => {
-    axios.get(`${url}/getUser/` + id)
+    axios.get("http://localhost:3001/getUser/" + id)
       .then((result) => {
         console.log(result);
         setName(result.data.name);
@@ -42,7 +40,7 @@ function UpdateUserPayroll() {
 
   const Update = (e) => {
     e.preventDefault();
-    axios.put(`${url}/updateUser/` + id, {
+    axios.put("http://localhost:3001/updateUser/" + id, {
       name,
       location,
       email,

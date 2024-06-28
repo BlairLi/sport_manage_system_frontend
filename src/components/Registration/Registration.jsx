@@ -27,11 +27,9 @@ const RegistrationForm = () => {
   const [selectedProgramFees, setSelectedProgramFees] = useState([null, null, null, null, null]);
   const [selectedPrograms, setSelectedPrograms] = useState([{ programID, programFees, programName, programPlace, programSport: queryParams.get("sport") }]);
   const [discountCode, setDiscountCode] = useState("");
-  const url = import.meta.env.VITE_MONGODB_URL;
-
 
   useEffect(() => {
-    axios.get(`${url}/programs`)
+    axios.get('http://localhost:3001/programs')
       .then(result => setPrograms(result.data || []))
       .catch(err => console.log(err));
   }, []);
@@ -126,7 +124,7 @@ const RegistrationForm = () => {
     console.log("Line Items:", lineItems);
   
     try {
-      const response = await axios.post(`${url}/create-checkout-session`, { lineItems, discountCode });
+      const response = await axios.post('http://localhost:3001/create-checkout-session', { lineItems, discountCode });
   
       console.log("Stripe Response:", response.data);
   
