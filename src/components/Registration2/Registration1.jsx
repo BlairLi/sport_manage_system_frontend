@@ -262,9 +262,6 @@ const RegistrationForm = () => {
     }
   };
 
-  // const handleBuy = async (e) => {
-  // };
-
   const handleNextClick = async (e) => {
     e.preventDefault();
     
@@ -329,7 +326,6 @@ const RegistrationForm = () => {
         quantity: 1,
       }));
       
-      console.log("e.target:", e.target.parentName.value);
 
       // *************** Create a new registration to backend registration form ***************
       // TODO: Add parentAddress to backend
@@ -528,9 +524,9 @@ const RegistrationForm = () => {
                     placeholder="Enter any additional comments or requests here..."
                   />
                   <ButtonRow>
-                    <ConfirmButton type="submit" >
+                    <ConfirmButton type="submit">
                       Next
-                      <img src={arrow} alt="Next" />
+                      <img src={arrow} alt="Next"/>
                     </ConfirmButton>
                   </ButtonRow>
                 </FormRowHorizontal>
