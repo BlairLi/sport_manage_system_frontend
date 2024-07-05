@@ -28,7 +28,7 @@ const Header = () => {
 
             <ContactInfo>
                 <span style={{ color: 'white', marginRight: '20px' }}>+1 (416) 453-8814</span>
-                <NavLink to="/" className="activeLink"><SignInButton>SIGN IN</SignInButton></NavLink>
+                <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink"><SignInButton>SIGN IN</SignInButton></NavLink>
             </ContactInfo>
             <Bars onClick={() => setBar(!bar)} bar={bar}>
                 <div className="bar"></div>

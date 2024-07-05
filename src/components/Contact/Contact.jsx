@@ -138,8 +138,8 @@ function ContactPage() {
                   <Section marginRight>
                       <p>Questions about our programs? Feel free to get in touch using any of the information below, we look forward to hearing from you!</p>
                       <Address>
-                          123 Anywhere Street, TO<br />
-                          L4D 3W3<br />
+                          {/* 123 Anywhere Street, TO<br /> */}
+                          {/* L4D 3W3<br /> */}
                           +1 (416) 453-8814<br />
                           JuniorAthletics.ca
                       </Address>
