@@ -40,10 +40,9 @@ const RegistrationForm = () => {
   const [locationFilter, setLocationFilter] = useState(programLocation || '');
   const [genderFilter, setGenderFilter] = useState(gender || '');
   const [dayFilter, setDayFilter] = useState(day || '');
-  const url = import.meta.env.VITE_MONGODB_URL;
 
   useEffect(() => {
-    axios.get(`${url}/programs`)
+    axios.get('http://localhost:3001/programs')
       .then(result => setPrograms(result.data || []))
       .catch(err => console.log(err));
   }, []);
@@ -223,8 +222,7 @@ const RegistrationForm = () => {
     });
   };
 
-  const handleRegisterSelected = (e) => {
-    e.preventDefault();
+  const handleRegisterSelected = () => {
 
     const selectedProgramIds = Object.keys(selectedPrograms).filter(id => selectedPrograms[id]);
 
@@ -253,7 +251,6 @@ const RegistrationForm = () => {
           setSecondDay("");
         }
         // After registering, reset selected programs to allow new selections
-        console.log("Selected programs:", selectedDetails);
       }
     } else {
       // Log or handle the cancellation case
@@ -262,20 +259,109 @@ const RegistrationForm = () => {
     }
   };
 
+  const handleBuy = async (e) => {
+    e.preventDefault();
+    const stripe = await stripePromise;
+  
+    const parentEmail = document.querySelector('input[name="parentEmail"]').value;
+    const parentName = document.querySelector('input[name="parentName"]').value;
+    const parentPhone = document.querySelector('input[name="parentPhone"]').value;
+    const parentAddress = document.querySelector('input[name="parentAddress"]').value;
+    const childName = document.querySelector('input[name="childName"]').value;
+    const childDOB = document.querySelector('input[name="childDOB"]').value;
+    const childClassInput = document.querySelector('input[name="childClass"]').value;
+    const childDayOfClass = document.querySelector('input[name="childDayOfClass"]').value;
+  
+    if (!parentEmail || !parentName || !parentPhone || !parentAddress || !childName || !childDOB || !childClassInput || !childDayOfClass ||
+      (secondClass && (!document.querySelector('input[name="secondClass"]').value || !document.querySelector('input[name="secondDayOfClass"]').value))) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+  
+    let totalAmount = selectedPrograms.reduce((total, program) => total + program.fees, 0);
+    let discount = 0;
+  
+    if (selectedPrograms.length >= 2) {
+      discount = totalAmount * 0.10; // 10% discount
+    }
+  
+    const discountedTotal = totalAmount - discount;
+    const discountRate = discountedTotal / totalAmount;
+  
+    const lineItems = selectedPrograms.map((program) => ({
+      price_data: {
+        currency: 'cad',
+        product_data: {
+          name: program.name,
+          description: `${program.sport} at ${program.place}`,
+        },
+        recurring: {
+          interval: 'week',  // Set the billing interval to 'week'
+        },
+        unit_amount: Math.round(program.fees * discountRate * 100),
+      },
+      quantity: 1,
+    }));
+  
+    const newRegistration = {
+      bookingID: 1,
+      parentName: e.target.parentName.value,
+      childName: e.target.childName.value,
+      childBirth: e.target.childDOB.value,
+      email: e.target.parentEmail.value,
+      phone: e.target.parentPhone.value,
+      program: e.target.childClass.value,
+      amount: lineItems[0].price_data.unit_amount / 100,
+      start: e.target.childDayOfClass.value,
+      end: "2029-12-31",
+      secondProgram: e.target.secondClass ? e.target.secondClass.value : "",
+      secondAmount: lineItems.length > 1 ? lineItems[1].price_data.unit_amount / 100 : 0,
+      secondStart: e.target.secondDayOfClass ? e.target.secondDayOfClass.value : "",
+      makeupClasses: "None",
+      notes: e.target.additionalComments.value,
+    };
+  
+    const url = 'http://localhost:8000';
+    try {
+      const response = await axios.post(`${url}/api/createRegistration`, newRegistration);
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        console.error('Error creating Registration:', error.response.data.message);
+        alert(`Registration Error: ${error.response.data.message}`);
+      } else {
+        console.error('Error creating Registration:', error.message);
+        alert('An error occurred while creating the registration. Please try again.');
+      }
+      return;
+    }
+  
+    try {
+      const response = await axios.post('http://localhost:3001/create-checkout-session', { lineItems });
+  
+      const sessionId = response.data.id;
+  
+      const { error } = await stripe.redirectToCheckout({
+        sessionId,
+      });
+  
+      if (error) {
+        console.error("Stripe checkout error:", error);
+      }
+    } catch (error) {
+      console.error("Error creating checkout session:", error);
+    }
+  };
+  
   const handleNextClick = async (e) => {
     e.preventDefault();
-    
-    // Retrieve the form element
+  
     const form = e.target.closest('form');
-    
-    // Check if the form is valid
+  
     if (!form.checkValidity()) {
-      // If the form is invalid, display validation messages
       form.reportValidity();
       return;
     }
   
-    // Proceed with existing logic if the form is valid
     const parentEmail = document.querySelector('input[name="parentEmail"]').value;
     const parentName = document.querySelector('input[name="parentName"]').value;
     const parentPhone = document.querySelector('input[name="parentPhone"]').value;
@@ -297,7 +383,6 @@ const RegistrationForm = () => {
       return;
     }
   
-    // Retrieve the selected programs details
     const selectedDetails = programs.filter(program => selectedProgramIds.includes(program._id));
   
     if (selectedDetails.length > 0) {
@@ -306,7 +391,6 @@ const RegistrationForm = () => {
       let totalAmount = selectedDetails.reduce((total, program) => total + program.fees, 0);
       let discount = 0;
   
-      // Apply a discount if more than one program is selected
       if (selectedDetails.length >= 2) {
         discount = totalAmount * 0.10; // 10% discount
       }
@@ -321,57 +405,14 @@ const RegistrationForm = () => {
             name: program.name,
             description: `${program.sport} at ${program.place}`,
           },
+          recurring: {
+            interval: 'month',  // Set the billing interval to 'week'
+          },
           unit_amount: Math.round(program.fees * discountRate * 100),
         },
         quantity: 1,
       }));
-      
-
-      // *************** Create a new registration to backend registration form ***************
-      // TODO: Add parentAddress to backend
-      // console.log("e.target.parentAddress:", e.target.parentAddress.value);
-      // TODO: ** amount and program is different if second program is applied **
-      const newRegistration = {
-        bookingID: 1, // TODO: Update bookingID to be unique
-        parentName: e.target.parentName.value,
-        email: e.target.parentEmail.value,
-        phone: e.target.parentPhone.value,
-        child1Name: e.target.childName.value,
-        child1Birth: e.target.childDOB.value,
-        child1Program: e.target.childClass.value,
-        child1Amount: lineItems[0].price_data.unit_amount / 100, 
-        child1Start: e.target.childDayOfClass.value,
-        child1End: "2029-12-31", // TODO: Update end date
-        child1Program2: e.target.secondClass ? e.target.secondClass.value : "",
-        child1Amount2: lineItems.length > 1 ? lineItems[1].price_data.unit_amount / 100 : 0,
-        child1Start2: e.target.secondDayOfClass ? e.target.secondDayOfClass.value : "",
-        child1End2: "2029-12-31", // TODO: Update end date
-        makeupClasses: "None",
-        notes: e.target.additionalComments.value,
-      };
-
-      // Create a new registration to backend registration form
-      // TODO: Add feature to handle amount when successful registration and unsuccessful registration (determine by stripe payment status)
-      try {
-        const response = await axios.post(`${url}/api/createRegistration`, newRegistration);
-      } catch (error) {
-        if (error.response && error.response.status === 400) {
-          // Handle 400 error (Capacity reached)
-          console.error('Error creating Registration:', error.response.data.message);
-          alert(`Registration Error: ${error.response.data.message}`);
-        } else {
-          // Handle other errors
-          console.error('Error creating Registration:', error.message);
-          alert('An error occurred while creating the registration. Please try again.');
-        }
-        // Stop the process if there is an error
-        return;
-      }
-      // *************** End of creating a new registration to backend registration form ***************
-
-      // should be removed, use for prevent redirect to stripe
-      return
-
+  
       try {
         const response = await axios.post('http://localhost:3001/create-checkout-session', { lineItems });
         const sessionId = response.data.id;
@@ -386,6 +427,7 @@ const RegistrationForm = () => {
       console.log("No programs selected or an error occurred.");
     }
   };
+  
   
 
   return (
@@ -402,7 +444,7 @@ const RegistrationForm = () => {
           <BackButton href="/survey">Back</BackButton>
         </Header>
 
-        <Container onSubmit={handleNextClick}>
+        <Container onSubmit={handleBuy}>
           <FormSection>
             <Column>
               <Step>
@@ -508,7 +550,7 @@ const RegistrationForm = () => {
                 ))}
               </tbody>
             </StyledTable>
-            <RegisterButton onClick={(e) => handleRegisterSelected(e)}>Register</RegisterButton>
+            <RegisterButton onClick={handleRegisterSelected}>Register</RegisterButton>
           </TableContainer>
           <FormSection>
             <Column>
@@ -524,9 +566,9 @@ const RegistrationForm = () => {
                     placeholder="Enter any additional comments or requests here..."
                   />
                   <ButtonRow>
-                    <ConfirmButton type="submit">
+                    <ConfirmButton onClick={handleNextClick}>
                       Next
-                      <img src={arrow} alt="Next"/>
+                      <img src={arrow} alt="Next" />
                     </ConfirmButton>
                   </ButtonRow>
                 </FormRowHorizontal>
