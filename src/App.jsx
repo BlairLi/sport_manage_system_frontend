@@ -11,7 +11,7 @@ import UpdateUserPayroll from './UpdateUserPayroll'
 import Home from "./components/Home";
 import Header from "./components/Header/Header";
 import Login from "./components/Login/Login";
-import Registration from "./components/Registration/Registration";
+// import Registration from "./components/Registration/Registration";
 import Registration1 from "./components/Registration2/Registration1";
 import Registration2 from "./components/Registration2/Registration2";
 
@@ -47,7 +47,7 @@ function App() {
         {/* Define routes */}
         <Route path="/" element={<Home />} />
         <Route path="/Login" element={<Login />} />
-        <Route path="/Registration" element={<Registration />} />
+        {/* <Route path="/Registration" element={<Registration />} /> */}
         <Route path="/Registration1" element={<Registration1 />} />
         <Route path="/Registration2" element={<Registration2 />} />
         <Route path='/coach' element={<Users />}></Route>

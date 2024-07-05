@@ -19,16 +19,16 @@ const Header = () => {
     return (
         <Container bar={bar}>
             <Nav bar={bar}>
-                <span><NavLink to="/OurProgram" activeClassName="activeLink">Programs</NavLink></span><span className='disinHeader'> |</span>
-                <span><NavLink to="/FAQ" activeClassName="activeLink">FAQ</NavLink></span><span className='disinHeader'> | </span>
-                <span><NavLink to="/Contact" activeClassName="activeLink">Contact</NavLink></span>
+                <span><NavLink to="/OurProgram" className="activeLink">Programs</NavLink></span><span className='disinHeader'> |</span>
+                <span><NavLink to="/FAQ" className="activeLink">FAQ</NavLink></span><span className='disinHeader'> | </span>
+                <span><NavLink to="/Contact" className="activeLink">Contact</NavLink></span>
                 {bar && <button style={{ marginLeft:'100px',padding: '10px 20px', backgroundColor: '#95071A', color: 'white', border: 'none', borderRadius: '25px', cursor: 'pointer' }}>Sign Up</button>}
             </Nav>
             <NavLink to="/" > <Logo src={logo} alt="logo" /></NavLink>
 
             <ContactInfo>
                 <span style={{ color: 'white', marginRight: '20px' }}>+1 (416) 453-8814</span>
-                <NavLink to="/" activeClassName="activeLink"><SignInButton>SIGN IN</SignInButton></NavLink>
+                <NavLink to="/" className="activeLink"><SignInButton>SIGN IN</SignInButton></NavLink>
             </ContactInfo>
             <Bars onClick={() => setBar(!bar)} bar={bar}>
                 <div className="bar"></div>
