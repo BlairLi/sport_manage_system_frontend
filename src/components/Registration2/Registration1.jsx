@@ -215,9 +215,7 @@ const RegistrationForm = () => {
     };
 
     // Create a new registration to backend registration form
-    // TODO: save the following url in environment variable
     // TODO: Add feature to handle amount when successful registration and unsuccessful registration (determine by stripe payment status)
-    // const url = 'http://localhost:8000';
     try {
       const response = await axios.post(`${url}/api/createRegistration`, newRegistration);
     } catch (error) {
