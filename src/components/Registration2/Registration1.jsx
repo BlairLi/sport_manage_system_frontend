@@ -526,40 +526,7 @@ const RegistrationForm = () => {
                 )}
               </Step>
             </Column>
-            {addMoreChildren && Array.from({ length: numberOfChildren - 1 }, (_, index) => (
-              <Column key={index + 1}>
-                <Step>
-                  <StepTitle>{index + 2}nd Child Details</StepTitle>
-                  <FormRow>
-                    <InputLabel>Full Name:</InputLabel>
-                    <StyledInput type="text" name="childName" required />
-                    <InputLabel>Date of Birth:</InputLabel>
-                    <StyledInput type="date" name="childDOB" required onChange={(e) => handleDOBChange(index + 1, e)} />
-                    <InputLabel>Class:</InputLabel>
-                    <select name="childClass" required onChange={(e) => handleClassChange(index + 1, e)}>
-                      <option value="">Select a class</option>
-                      {childSelectedClasses[index + 1].map(program => (
-                        <option key={program._id} value={program.name}>
-                          {program.name}
-                        </option>
-                      ))}
-                    </select>
-                    <InputLabel>Day:</InputLabel>
-                    <select name="childDayOfClass" required onChange={(e) => handleTimeChange(index + 1, e)}>
-                      <option value="">Select a day</option>
-                      {childSelectedTimes[index + 1].map(program => (
-                        <option key={program._id} value={new Date(program.time).toLocaleDateString()}>
-                          {new Date(program.time).toLocaleDateString()}
-                        </option>
-                      ))}
-                    </select>
-                    {selectedProgramFees[index + 1] !== null && (
-                      <p>Fees: ${selectedProgramFees[index + 1]}</p>
-                    )}
-                  </FormRow>
-                </Step>
-              </Column>
-            ))}
+           
           </FormSection>
           <StepTitle2>Program select : click for register</StepTitle2>
           <TableContainer>
