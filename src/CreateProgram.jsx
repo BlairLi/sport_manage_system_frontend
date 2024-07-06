@@ -69,11 +69,11 @@ function CreateProgram() {
             <label htmlFor="">Age</label>
             <select className='form-control' required value={age} onChange={(e) => setAge(e.target.value)}>
               <option value="">Select Age Group</option>
-              <option value="3-4">3-4</option>
               <option value="5-6">5-6</option>
               <option value="7-8">7-8</option>
               <option value="9-10">9-10</option>
-            </select>
+              <option value="11-13">11-13</option>
+              </select>
           </div>
           <div className='mb-2'>
             <label htmlFor="">Sport</label>
@@ -84,6 +84,7 @@ function CreateProgram() {
               <option value="Baseball">Baseball</option>
               <option value="Basketball Group Academy Training">Basketball Group Academy Training</option>
               <option value="House Leagues">House Leagues</option>
+              <option value="All-Girls Training Academy">All-Girls Training Academy</option>
               <option value="Leadership Retreats">Leadership Retreats</option>
             </select>
           </div>
@@ -91,14 +92,10 @@ function CreateProgram() {
             <label htmlFor="">Location</label>
             <select className='form-control' required value={location} onChange={(e) => setLocation(e.target.value)}>
               <option value="">Select Location</option>
-              <option value="Vaughan">Vaughan</option>
-              <option value="Markham">Markham</option>
-              <option value="Aurora">Aurora</option>
-              <option value="Newmarket">Newmarket</option>
-              <option value="Mississauga">Mississauga</option>
-              <option value="Brampton">Brampton</option>
-              <option value="East York">East York</option>
-              <option value="Midtown">Midtown</option>
+              <option value="Meadowvale">Meadowvale</option>
+              <option value="Port Credit">Port Credit</option>
+              <option value="Dixie">Dixie</option>
+              <option value="Etobicoke">Etobicoke</option>
             </select>
           </div>
           <div className='mb-2'>

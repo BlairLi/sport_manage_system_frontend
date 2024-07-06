@@ -21,7 +21,7 @@ const BTraining = () => {
         </ColumnLeft>
         <ColumnRight>
           <Box>
-            <LittleTitle>Perfect Starting Point for your child</LittleTitle>
+            <LittleTitle>PERFECT STARTING POINT FOR YOUR CHILD</LittleTitle>
             <ContentText>
               Welcome to our dynamic Beginner’s Basketball Program, designed to support the beginning of your child's basketball journey! We focus on building fundamental skills, fostering fun, and connecting young players with new friends. This program is perfect for, introducing physical literacy and skill development.
               <br /><br />
@@ -101,6 +101,7 @@ const LittleTitle = styled.h2`
   font-size: 1.5rem;
   color: #333;
   margin: 0;
+  font-weight: 700;
 `;
 
 const ContentText = styled.p`

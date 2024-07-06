@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
-import logo from './logo.jpg';
+import logo from './logo2.png';
 import arrow from './arrow.png';
 
 const stripePromise = loadStripe("pk_test_51PNSST2KpyYZmvZEQWr6oqPxWFqTeH6KbyUOQEYblEKHM3U7XhTCYl4GU6YJ2lYJgmIHB2n0od0V28dGPfw0sXSP00BKh7CEYT");

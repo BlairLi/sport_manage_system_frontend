@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from './logo.jpg';
+import logo from './logo2.png';
 import arrow from './arrow.png'
 
 const Survey = () => {
@@ -83,7 +83,7 @@ const Survey = () => {
         <FormRow>
           <InputLabel>Age<tag> * </tag></InputLabel>
           <RadioGroup>
-            {['5-6', '7-8', '9-10', '11-12'].map(ageOption => (
+            {['5-6', '7-8', '9-10', '11-13'].map(ageOption => (
               <RadioButton key={ageOption}>
                 <input type="radio" name="age" value={ageOption} checked={age === ageOption} onChange={handleRadioButtonChange(setAge)} />
                 {ageOption}
@@ -117,7 +117,7 @@ const Survey = () => {
         <FormRow>
           <InputLabel>Desired Location<tag> * </tag></InputLabel>
           <RadioGroup>
-            {['Vaughan', 'Markham', 'Aurora', 'Newmarket', 'Mississauga', 'Brampton', 'East York', 'Midtown'].map(locationOption => (
+            {['Meadowvale', 'Port Credit', 'Dixie', 'Etobicoke'].map(locationOption => (
               <RadioButton key={locationOption}>
                 <input type="radio" name="location" value={locationOption} checked={location === locationOption} onChange={handleRadioButtonChange(setLocation)} />
                 {locationOption}

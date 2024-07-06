@@ -64,6 +64,7 @@ const Image1 = styled.img`
   max-width: 350px;
 `;
 
+{/*   
 const TextContainer = styled.div`
   text-align: left;
   color: white;
@@ -79,6 +80,9 @@ const Subtitle = styled.div`
   text-align: center;
   white-space: nowrap;
 `;
+
+*/}
+
 const ParagraphContainer = styled.div`
   max-width: 100%;
   text-align: left;
@@ -220,9 +224,9 @@ const Main = () => {
             <Link to="/Content2"><ReadMoreLink>Read more</ReadMoreLink></Link>
           </GalleryItem>
           <GalleryItem>
-            <GalleryImage src={main3} alt="Hello" />
-            <ImageDescription>Hello</ImageDescription>
-            <ReadMoreLink>Read more</ReadMoreLink>
+            <GalleryImage src={main3} alt="Coming Soon" />
+            <ImageDescription>Coming Soon</ImageDescription>
+            <Link to="/Content2"><ReadMoreLink>Read more</ReadMoreLink></Link>
           </GalleryItem>
         </ImageGallery>
         <SocialMediaIcons>

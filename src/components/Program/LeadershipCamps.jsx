@@ -20,7 +20,7 @@ const LeadershipCamps = () => {
         </ColumnLeft>
         <ColumnRight>
           <Box>
-            <LittleTitle>Build skills on and off the court</LittleTitle>
+            <LittleTitle>BUILD SKILLS ON AND OFF THE COURT</LittleTitle>
           </Box>
           <Box>
             <ContentTextSmallMargin>

@@ -19,7 +19,7 @@ const AllGirlsTrainingAcademy = () => {
         </ColumnLeft>
         <ColumnRight>
           <Box>
-            <LittleTitle>Great way to apply Skills in-game</LittleTitle>
+            <LittleTitle>GREAT WAY TO APPLY SKILLS IN-GAME</LittleTitle>
           </Box>
           <Box>
             <ContentTextSmallMargin>

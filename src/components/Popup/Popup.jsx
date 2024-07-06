@@ -82,7 +82,7 @@ const Popup = ({ onClose }) => {
           <Button onClick={() => handleOptionClick('5-6')}>5-6 YEARS OLD</Button>
           <Button onClick={() => handleOptionClick('7-8')}>7-8 YEARS OLD</Button>
           <Button onClick={() => handleOptionClick('9-10')}>9-10 YEARS OLD</Button>
-          <Button onClick={() => handleOptionClick('11-12')}>11-12 YEARS OLD</Button>
+          <Button onClick={() => handleOptionClick('11-13')}>11-13 YEARS OLD</Button>
         </ButtonContainer>
       </PopupContent>
     </PopupContainer>
