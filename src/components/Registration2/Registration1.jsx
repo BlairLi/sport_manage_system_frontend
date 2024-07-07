@@ -616,11 +616,10 @@ const BGI = styled.div`
 `;
 
 const Title = styled.h1`
-    font-weight: 800;
-    margin: 0;
-    color: #95071A; 
+  color: #95071A;
   font-family: 'League Spartan', sans-serif;
-
+  font-weight: bold;
+  font-size: 53px;
 `;
 
 const D_title = styled.div`
