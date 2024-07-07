@@ -49,7 +49,7 @@ const Faq = () => {
           <GalleryImage src={main3} alt="Hello" />
           <ImageDescription>Coming Soon</ImageDescription>
           <Link to="/Content2"><ReadMoreLink>Read more</ReadMoreLink></Link>
-          </GalleryItem>
+        </GalleryItem>
       </ImageGallery>
       <SocialMediaIcons>
         <BsFacebook /><BsTwitter /><AiOutlineInstagram /><AiFillLinkedin />
@@ -77,6 +77,9 @@ const NewTitle = styled.h2`
   padding-right: 20px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  @media (max-width: 640px) {
+    font-size: 24px;
+  }
 `;
 
 const StyledHorizontalLine = styled.hr`
@@ -84,8 +87,9 @@ const StyledHorizontalLine = styled.hr`
   height: 4px;
   background-color: black;
   flex-grow: 1;
-  margin: 0 20px;  color: black; /* Ensure the color is black */
-  opacity: 1; /* Ensure the opacity is set to 1 */
+  margin: 0 20px;  
+  color: black;
+  opacity: 1;
 `;
 
 const ImageGallery = styled.div`
@@ -93,18 +97,30 @@ const ImageGallery = styled.div`
   justify-content: space-between;
   margin: 1cm;
   gap: 10px;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const GalleryItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
+  @media (max-width: 1024px) {
+    width: 100%;
+    align-items: center;
+  }
 `;
 
 const GalleryImage = styled.img`
   height: 305px;
   width: 475px;
   margin-bottom: 10px;
+  @media (max-width: 640px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const ImageDescription = styled.div`
@@ -123,29 +139,33 @@ const ReadMoreLink = styled.div`
   text-align: left;
   width: 250px;
   font-size: 1.2rem;
+  @media (max-width: 640px) {
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 const SocialMediaIcons = styled.div`
   display: flex;
-  justify-content: center; // Centers the icons horizontally
-  align-items: center; // Centers the icons vertically if needed
-  margin: 20px; // Adds space above the icons
-  font-size: 32px; // Increase the size of the icons
-  gap: 20px; // Adds space between each icon
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  font-size: 32px;
+  gap: 20px;
 `;
 
 const StyledHorizontalLine2 = styled.hr`
   border: none;
   height: 4px;
   background-color: black;
-  width: 100%; // Ensure it spans the full width
-  margin: 20px 0; // Adds margin to top and bottom
-  color: black; /* Ensure the color is black */
-  opacity: 1; /* Ensure the opacity is set to 1 */
+  width: 100%;
+  margin: 20px 0;
+  color: black;
+  opacity: 1;
 `;
 
 const BGC = styled.div`
-  background-color: rgba(255, 255, 255, 0.756);  // Background with opacity
+  background-color: rgba(255, 255, 255, 0.756);
   padding-top: 7rem;
   padding-bottom: 3rem;
   display: flex;
@@ -168,53 +188,67 @@ const BGC = styled.div`
   }
 `;
 
-
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  width: 90%;  // Uses 90% of the page width
+  width: 90%;
   max-width: 1400px;
   margin: 0 auto;
+  @media (max-width: 640px) {
+    width: 100%;
+    padding: 0 10px;
+  }
 `;
 
 const Content = styled.div`
   display: flex;
   width: 100%;
-  justify-content: center;  // Center the content
+  justify-content: center;
 `;
 
 const Texts = styled.div`
   flex: 1;
-  background-color: transparent;  // No background color
+  background-color: transparent;
   padding: 1rem;
-  width: 100%;  // Utilize the full width of the content area
-  font-size: 1.2rem;  // Larger base font size for better readability
-  h1{
+  width: 100%;
+  font-size: 1.2rem;
+
+  h1 {
     font-family: 'League Spartan', sans-serif;
     font-weight: bold;
   }
 `;
 
 const QuestionBlock = styled.div`
-  border-bottom: 1px solid #ccc; // Adds a line below each question
-  padding-bottom: 0.5em;  // Space below the text above the line
-  margin-bottom: 2em;  // Space below the line to the next question
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5em;  
+  margin-bottom: 2em;
   cursor: pointer;
+
   h3 {
-    font-size: 1.3rem;  // Larger font for subheadings
+    font-size: 1.3rem;
     margin-top: 0.5em;
     font-weight: bold;
-    margin-bottom: 0.5em; // Space above the question text
+    margin-bottom: 0.5em;
     font-family: 'Poppins', sans-serif;
-    
+    @media (max-width: 640px) {
+      font-size: 0.7rem;
+    }
   }
 
   p {
-    line-height: 1.5;  // Increased line height for readability
-    padding-left: 20px;  // Indent the answer for better visual separation
+    line-height: 1.5;
+    padding-left: 20px;
     font-family: 'Poppins', sans-serif;
-  };`
-
+    @media (max-width: 640px) {
+      font-size: 0.6rem;
+    }
+  }
+  @media (max-width: 640px) {
+    margin-bottom: 0em;
+  padding-bottom: 0em;  
+  }
+`;
 
 // Questions data
 const questions = [

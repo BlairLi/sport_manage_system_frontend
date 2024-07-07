@@ -65,7 +65,7 @@ const Content = styled.div`
 const Texts = styled.div`
   flex: 1;
   padding: 2rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
   font-family: 'Poppins', sans-serif;
 
@@ -77,21 +77,56 @@ const Texts = styled.div`
     padding-top: 10px;
     font-weight: 800;
     font-family: 'League Spartan', sans-serif;
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+    @media (max-width: 480px) {
+      font-size: 1.3rem;
+    }
+  }
 
+  p {
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
+    @media (max-width: 480px) {
+      font-size: 0.7rem;
+    }
   }
 `;
 
 const Logo = styled.img`
-  height: 100px;
-  width: auto;
-  margin-top: 10px;
-  display: block;
+  height: 100px;  // Sets the height of the logo
+  width: auto;  // Maintains the aspect ratio of the image
+  margin-top: 10px;  // Adds some space between the text and the logo
+  display: block;  // Makes the logo a block element to properly manage margins
+
+  @media (max-width: 768px) {
+    height: 80px;  // Smaller logo on smaller screens
+  }
+
+  @media (max-width: 480px) {
+    height: 60px;  // Even smaller logo on the smallest screens
+  }
 `;
 
 const StyledHorizontalLine2 = styled.hr`
   border: none;
-  height: 5px;
+  height: 4px;
   background-color: black;
+  color: black;
+  opacity: 1;
   flex-grow: 1;
   margin: 15px 10px 80px 15px;
+
+  @media (max-width: 768px) {
+    height: 3px;  // Thinner line on smaller screens
+    margin: 10px 5px 40px 10px;
+  }
+
+  @media (max-width: 480px) {
+    height: 2px;  // Even thinner line on the smallest screens
+    margin: 5px 2px 20px 5px;
+  }
 `;
