@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
+import axios from 'axios';
 import logo from './headerlogo.png';
 import contactBg from './contactBg.png';
 import send from './send.png';
@@ -60,8 +62,7 @@ const Section = styled.div`
     flex: 1;
     padding: 10px;
     text-align: left;
-    margin-right: ${props => props.marginRight ? '80px' : '0'}; /* Adjusted for closer spacing */
-
+    margin-right: ${props => props.marginRight ? '80px' : '0'};
 `;
 
 const Address = styled.p`
@@ -92,13 +93,11 @@ const FormGroup = styled.div`
     row-gap: 10px;
     margin-bottom: 20px;
     font-size: 18px;
-
 `;
 
 const Label = styled.label`
     grid-column: span 1;
 `;
-
 
 const Label2 = styled.label`
     grid-column: span 2;
@@ -134,6 +133,34 @@ const Button = styled.button`
 `;
 
 function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const url = import.meta.env.VITE_MONGODB_URL; 
+    try {
+    //   const response = await axios.post(`${url}/api/send-email`, formData);
+    // TODO
+      const response = await axios.post(`http://localhost:3001/api/sendEmail`, formData);
+      alert('Email sent successfully!');
+    } catch (error) {
+      alert('Failed to send email. Please try again.');
+    }
+  };
+
   return (
       <Containerr>
           <Container>
@@ -142,8 +169,6 @@ function ContactPage() {
                   <Section marginRight>
                       <p>Questions about our programs? Feel free to get in touch using any of the information below, we look forward to hearing from you!</p>
                       <Address>
-                          {/* 123 Anywhere Street, TO<br /> */}
-                          {/* L4D 3W3<br /> */}
                           +1 (416) 453-8814<br />
                           JuniorAthletics.ca
                       </Address>
@@ -156,16 +181,16 @@ function ContactPage() {
                       <UserName>@JuniorAthletics</UserName>
                   </Section>
                   <Section>
-                      <form>
+                      <form onSubmit={handleSubmit}>
                           <FormGroup>
                               <Label htmlFor="firstName">First Name</Label>
                               <Label htmlFor="lastName">Last Name</Label>
-                              <Input type="text" id="firstName" />
-                              <Input type="text" id="lastName" />
-                              <Label htmlFor="email">Email</Label><br />
-                              <Input2 type="email" id="email" />
+                              <Input type="text" id="firstName" value={formData.firstName} onChange={handleChange} />
+                              <Input type="text" id="lastName" value={formData.lastName} onChange={handleChange} />
+                              <Label htmlFor="email">Email</Label>
+                              <Input2 type="email" id="email" value={formData.email} onChange={handleChange} />
                               <Label2 htmlFor="message">Message</Label2>
-                              <TextArea id="message" rows="4"></TextArea>
+                              <TextArea id="message" rows="4" value={formData.message} onChange={handleChange}></TextArea>
                           </FormGroup>
                           <Button type="submit"><Logo2 src={send} alt="send" /></Button>
                       </form>
