@@ -47,9 +47,9 @@ const Faq = () => {
         </GalleryItem>
         <GalleryItem>
           <GalleryImage src={main3} alt="Hello" />
-          <ImageDescription>Hello</ImageDescription>
-          <ReadMoreLink>Read more</ReadMoreLink>
-        </GalleryItem>
+          <ImageDescription>Coming Soon</ImageDescription>
+          <Link to="/Content2"><ReadMoreLink>Read more</ReadMoreLink></Link>
+          </GalleryItem>
       </ImageGallery>
       <SocialMediaIcons>
         <BsFacebook /><BsTwitter /><AiOutlineInstagram /><AiFillLinkedin />
@@ -71,18 +71,21 @@ const TitleContainer = styled.div`
 `;
 
 const NewTitle = styled.h2`
-  font-size: 2vw;
+  font-size: 31px;
   text-align: left;
   margin: 0;
   padding-right: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
 `;
 
 const StyledHorizontalLine = styled.hr`
   border: none;
-  height: 5px;
+  height: 4px;
   background-color: black;
   flex-grow: 1;
-  margin: 0 20px;
+  margin: 0 20px;  color: black; /* Ensure the color is black */
+  opacity: 1; /* Ensure the opacity is set to 1 */
 `;
 
 const ImageGallery = styled.div`
@@ -106,10 +109,10 @@ const GalleryImage = styled.img`
 
 const ImageDescription = styled.div`
   text-align: left;
-  width: 475px;
   margin-bottom: 5px;
-  font-size: 1.5rem;
+  font-size: 20px;
   font-weight: 800;
+  font-family: 'Poppins', sans-serif;
   padding: 20px 0px;
 `;
 
@@ -119,7 +122,7 @@ const ReadMoreLink = styled.div`
   color: black;
   text-align: left;
   width: 250px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 `;
 
 const SocialMediaIcons = styled.div`
@@ -133,10 +136,12 @@ const SocialMediaIcons = styled.div`
 
 const StyledHorizontalLine2 = styled.hr`
   border: none;
-  height: 5px;
+  height: 4px;
   background-color: black;
   width: 100%; // Ensure it spans the full width
   margin: 20px 0; // Adds margin to top and bottom
+  color: black; /* Ensure the color is black */
+  opacity: 1; /* Ensure the opacity is set to 1 */
 `;
 
 const BGC = styled.div`
@@ -184,6 +189,10 @@ const Texts = styled.div`
   padding: 1rem;
   width: 100%;  // Utilize the full width of the content area
   font-size: 1.2rem;  // Larger base font size for better readability
+  h1{
+    font-family: 'League Spartan', sans-serif;
+    font-weight: bold;
+  }
 `;
 
 const QuestionBlock = styled.div`
@@ -192,14 +201,18 @@ const QuestionBlock = styled.div`
   margin-bottom: 2em;  // Space below the line to the next question
   cursor: pointer;
   h3 {
-    font-size: 1.5rem;  // Larger font for subheadings
+    font-size: 1.3rem;  // Larger font for subheadings
     margin-top: 0.5em;
+    font-weight: bold;
     margin-bottom: 0.5em; // Space above the question text
+    font-family: 'Poppins', sans-serif;
+    
   }
 
   p {
     line-height: 1.5;  // Increased line height for readability
     padding-left: 20px;  // Indent the answer for better visual separation
+    font-family: 'Poppins', sans-serif;
   };`
 
 

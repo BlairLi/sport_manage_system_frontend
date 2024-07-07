@@ -171,6 +171,7 @@ const BackgroundContainer = styled.div`
     opacity: 0.4;
     z-index: -1; // Ensures the background is behind the content
   }
+  
 `;
 
 const Container = styled.div`
@@ -182,6 +183,7 @@ const Container = styled.div`
   z-index: 1; // Make sure content is above the background
   position: relative;
   tag{color:red}
+
 `;
 
 
@@ -189,7 +191,9 @@ const Container = styled.div`
 const Title = styled.h2`
   margin-bottom: 20px;
   color: #95071A;
-
+  font-family: 'League Spartan', sans-serif;
+  font-weight: bold;
+  font-size: 53px;
 `;
 
 const FormSection = styled.div`
@@ -201,6 +205,7 @@ const FormRow = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 20px;
+
 `;
 
 const InputLabel = styled.label`
@@ -262,9 +267,9 @@ const NextLink = styled.span`
 const P = styled.div` 
  margin-bottom: 5px; // Reduced margin
   font-weight: bold;
-  font-size: 20px;
+  font-size: 23px;
   color: #95071A;
-
+  font-family: 'League Spartan', sans-serif;
 `
  
 

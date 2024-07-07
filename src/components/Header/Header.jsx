@@ -41,6 +41,7 @@ const Header = () => {
 export default Header;
 
 const Container = styled.div`
+    font-family: 'League Spartan', sans-serif;
     position: fixed;
     top: 0;
     left: 0;

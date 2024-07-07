@@ -37,7 +37,7 @@ const BottomSection = styled.div`
   flex: 4;
   background-color: white;
   display: flex;
-  padding: 40px 40px 0px 40px;
+  padding: 40px 40px 40px 40px;
 `;
 
 const LeftColumn = styled.div`
@@ -89,13 +89,16 @@ const ParagraphContainer = styled.div`
 `;
 
 const ParagraphTitle = styled.h2`
-  font-size: 2vw;
+  font-size: 31px;
   margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
   font-weight: 800;
 `;
 
 const ParagraphText = styled.p`
-  font-size: 1.5vw;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+
 `;
 
 const LinkContainer = styled.div`
@@ -103,13 +106,14 @@ const LinkContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   background-color: white;
-  padding-left: 40px;
+  margin-top: 78px;
 `;
 
 const ImageGallery = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 1cm;
+  gap:10px;
 `;
 
 const GalleryItem = styled.div`
@@ -126,10 +130,10 @@ const GalleryImage = styled.img`
 
 const ImageDescription = styled.div`
   text-align: left;
-  width: 475px;
   margin-bottom: 5px;
-  font-size: 1.5rem;
+  font-size: 20px;
   font-weight: 800;
+  font-family: 'Poppins', sans-serif;
   padding: 20px 0px;
 `;
 
@@ -139,7 +143,7 @@ const ReadMoreLink = styled.div`
   color: black;
   text-align: left;
   width: 250px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 `;
 
 const TitleContainer = styled.div`
@@ -151,26 +155,33 @@ const TitleContainer = styled.div`
 `;
 
 const NewTitle = styled.h2`
-  font-size: 2vw;
+  font-size: 31px;
   text-align: left;
   margin: 0;
   padding-right: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
 `;
 
 const StyledHorizontalLine = styled.hr`
   border: none;
-  height: 5px;
+  height: 4px;
   background-color: black;
+  color: black; /* Ensure the color is black */
   flex-grow: 1;
   margin: 0 20px;
+  opacity: 1; /* Ensure the opacity is set to 1 */
 `;
+
 
 const StyledHorizontalLine2 = styled.hr`
   border: none;
-  height: 5px;
+  height: 4px;
   background-color: black;
   flex-grow: 1;
   margin: 15px 10px 100px 15px;
+  color: black; /* Ensure the color is black */
+  opacity: 1; /* Ensure the opacity is set to 1 */
 `;
 
 const SocialMediaIcons = styled.div`
@@ -198,14 +209,15 @@ const Main = () => {
             <ParagraphText>
             At Junior Athletics, we give your child the opportunity to make achievements outside of the classroom. Our mission is to create a fun, safe, and supportive environment where young athletes can thrive; building confidence, and forming lasting friendships. We emphasize teamwork, sportsmanship, and personal growth. We offer Basketball Training, House Leagues, and Camps, within the GTA! Join us and watch your child shine!            </ParagraphText>
           </ParagraphContainer>
+          <LinkContainer>
+        <Link to={`/survey`}><Image src={registernow} alt="registernow" /></Link>
+      </LinkContainer>
         </LeftColumn>
         <RightColumn>
           <Image1 src={p13} alt="p13" />
         </RightColumn>
       </BottomSection>
-      <LinkContainer>
-        <Link to={`/survey`}><Image src={registernow} alt="registernow" /></Link>
-      </LinkContainer>
+
       <TitleContainer>
         <NewTitle>Is Your Child New to Sports?</NewTitle>
         <StyledHorizontalLine />

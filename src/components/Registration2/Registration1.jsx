@@ -610,7 +610,7 @@ const BGI = styled.div`
     bottom: 0;
     background: url(${logo}) no-repeat center center;
     background-size: 45%; // Adjusts the background image to be 90% of the element size
-    opacity: 0.4;
+    opacity: 0.2;
     z-index: -1; // Ensures the background is behind the content
   }
 `;
@@ -619,12 +619,16 @@ const Title = styled.h1`
     font-weight: 800;
     margin: 0;
     color: #95071A; 
+  font-family: 'League Spartan', sans-serif;
+
 `;
 
 const D_title = styled.div`
   margin: 0;
   color: #95071A; 
   font-weight: 800;
+  font-size: 20px;
+  font-family: 'League Spartan', sans-serif;
 `;
 
 const SecondClassRow = styled.div`
@@ -636,6 +640,9 @@ const Description = styled.p`
   margin: 10px 0;
   color: #000000;
   font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+
 `;
 
 const BackButton = styled.a`

@@ -65,11 +65,13 @@ const Title = styled.h1`
   margin-bottom: 2rem;
   font-weight: 800;
   padding-left: 7.5vw;
+  font-family: 'League Spartan', sans-serif;
 `;
 
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
+  font-family: 'Poppins', sans-serif;
 `;
 
 const ColumnLeft = styled.div`

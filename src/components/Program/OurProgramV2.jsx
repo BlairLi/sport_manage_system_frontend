@@ -8,11 +8,11 @@ const Containerr = styled.div`  padding-top: 50px;
 `
 
 const Container = styled.div`
-  height: 100vh;
   display: flex;
   flex-direction: column;
   margin: 0;
   padding-top: 0;
+  
 `;
 
 const TopSection = styled.div`
@@ -46,12 +46,15 @@ const ImageContainer = styled.div`
 const FullSizeImage = styled.img`
   width: 100%;  // Each image takes about a third of the container width
   height: auto;  // Maintain aspect ratio
+
 `;
 
 
 const Title = styled.h1`
-  font-size: 100px;
+  font-size: 70px;
   margin: 0;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 800;
 `;
 
 const OurProgram = () => {

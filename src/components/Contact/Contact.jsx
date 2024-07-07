@@ -12,6 +12,7 @@ const Containerr = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    font-family: 'Poppins', sans-serif;
 `;
 
 const Container = styled.div`
@@ -22,8 +23,10 @@ const Container = styled.div`
     border-radius: 25px;
     padding: 25px;
     h1 {
-        font-size: 120px;
+        font-size: 150px;
         color: #95071A;
+        font-family: 'League Spartan', sans-serif;
+        font-weight: bold;
     }
     p {
         font-size: 25px;
@@ -64,13 +67,14 @@ const Section = styled.div`
 const Address = styled.p`
     color: #95071A;
     font-size: 25px;
+    margin-top: 30px;
     font-weight: 800;
     margin-bottom: 25px;
 `;
 
 const SocialIcons = styled.div`
     font-size: 24px;
-    margin-top: 10px;
+    margin-top: 60px;
     margin-bottom: 10px;
     display: flex;
     justify-content: start;

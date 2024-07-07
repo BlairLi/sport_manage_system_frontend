@@ -1,5 +1,7 @@
 import './App.css'
 // eslint-disable-next-line no-unused-vars
+import React, { useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import CreateUser from './CreateUser'
@@ -38,6 +40,7 @@ import LeadershipCamps from './components/Program/LeadershipCamps';
 
 
 function App() {
+
   return (
     <Router>
       {/* Conditionally render Header */}

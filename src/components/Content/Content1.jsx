@@ -81,6 +81,7 @@ const Texts = styled.div`
   padding: 2rem;
   font-size: 1.1rem;
   line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
 
   h1 {
     color: #95071A;
@@ -89,6 +90,8 @@ const Texts = styled.div`
     padding-bottom: 10px;
     padding-top: 10px;
     font-weight: 800;
+    font-family: 'League Spartan', sans-serif;
+    
   }
 `;
 const Logo = styled.img`
