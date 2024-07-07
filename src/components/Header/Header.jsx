@@ -2,8 +2,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import logo from './headerlogo.png';
-import { Link } from "react-router-dom";
-import { NavLink } from 'react-router-dom';
+import {Link, NavLink } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
@@ -22,17 +21,17 @@ const Header = () => {
                 <span><NavLink to="/OurProgram" className="activeLink">Programs</NavLink></span><span className='disinHeader'> |</span>
                 <span><NavLink to="/FAQ" className="activeLink">FAQ</NavLink></span><span className='disinHeader'> | </span>
                 <span><NavLink to="/Contact" className="activeLink">Contact</NavLink></span>
-                {bar && <button style={{ marginLeft:'100px',padding: '10px 20px', backgroundColor: '#95071A', color: 'white', border: 'none', borderRadius: '25px', cursor: 'pointer' }}>Sign Up</button>}
+                {/*   {bar && <button style={{ marginLeft:'100px',padding: '10px 20px', backgroundColor: '#95071A', color: 'white', border: 'none', borderRadius: '25px', cursor: 'pointer' }}>Sign Up</button>}*/} 
             </Nav>
             <NavLink to="/" > <Logo src={logo} alt="logo" /></NavLink>
 
             <ContactInfo>
-                <span style={{ color: 'white', marginRight: '20px' }}>+1 (416) 453-8814</span>
+                <span >+1 (416) 453-8814</span>
                 <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink"><SignInButton>SIGN IN</SignInButton></NavLink>
             </ContactInfo>
-            <Bars onClick={() => setBar(!bar)} bar={bar}>
+       {/*  <Bars onClick={() => setBar(!bar)} bar={bar}>
                 <div className="bar"></div>
-            </Bars>
+            </Bars> */}   
         </Container>
     );
 };
@@ -52,14 +51,16 @@ const Container = styled.div`
     padding: 0rem 10px;
     color: white;
     display: flex;
-    justify-content: space-between; // Ensures elements are spaced out evenly
+    justify-content: space-between; 
     align-items: center;
     animation: header 500ms ease-in-out;
     border-bottom-style: solid;
     border-bottom-color: #000000;
     @media(max-width: 640px){
-        justify-content: space-around; // Centers the logo better on small screens
-        padding: 1rem;
+        //justify-content: space-around; 
+        //padding: 1rem;
+                height: 5vh;
+        padding: 0 1vw;
     }
 `;
 
@@ -71,11 +72,11 @@ const Logo = styled.img`
     top: 1px;
     left: 45.5%;
     @media(max-width: 640px){
-    position:relative;
-    top: auto;
-    left: auto;
-    height: 60px;
-    width: 60px;
+    position:absolute;
+    top: 20%;
+    left: 40%;
+    height: 65px;
+    width: 65px;
     }
 `;
 
@@ -84,9 +85,23 @@ const ContactInfo = styled.div`
     font-size: 1.5rem;
     font-weight: 400;
     align-items: center;
-    order: 2; // Moves contact info to the right
+    order: 2;
+
     @media(max-width: 640px){
-        flex: 1 0 auto; // Ensures elements are evenly spaced
+        font-size: 1.5vh;
+    }
+
+    .contact-number {
+        @media(max-width: 640px){
+            margin-left: 1vw;
+        }
+    }
+
+    span{
+        margin-Right:20px;
+        @media(max-width: 640px){
+            margin-Right:1.5vw;
+    }
     }
 `;
 
@@ -100,7 +115,9 @@ const SignInButton = styled.button`
     borderRadius: 5px;
     cursor: pointer;
     @media(max-width: 640px){
-        display: none; // Hides the button on small screens
+       // display: none; // Hides the button on small screens
+       padding: 0.5vh 1.5vw;
+       font-size: 1.3vh;
     }
 `;
 
@@ -145,12 +162,12 @@ const Nav = styled.div`
     gap: 1rem;
     font-size: 1.5rem;
     font-weight: 500;
-    order: 0; // Ensures navigation stays on the left
-    display: flex; // Make sure to declare display flex here for the default view
-    align-items: center; // Center items vertically
+    order: 0; 
+    display: flex; 
+    align-items: center; 
 
     @media(max-width: 640px){
-        position: fixed;
+        /* position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -178,11 +195,17 @@ const Nav = styled.div`
             cursor: pointer; // Pointer cursor on hover
             margin: 0 auto; // Center the button horizontally
             text-align: center; // Center the text inside the button
-        }
+        } */
+            gap: 0.5vw;
+            font-size: 1.2vh;
     }
 
     span {
         margin-left: 1rem;
+        @media(max-width: 640px){
+            margin-left: 1vw;
+            font-size: 3.5vw;
+        }
         a {
             color: #fff;
             text-decoration: none;
@@ -214,7 +237,7 @@ const Nav = styled.div`
         color: #fff;
 
         &.activeLink {
-            text-decoration: underline;  // Underline for active link
+      //      text-decoration: underline;  // Underline for active link
         }
     }
 `;
