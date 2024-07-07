@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useEffect } from "react";
+import axios from "axios";
 
 const Container = styled.div`
   display: flex;
@@ -22,8 +24,52 @@ const HomeButton = styled(Link)`
   border-radius: 5px;
   margin-top: 20px;
 `;
+const url = import.meta.env.VITE_MONGODB_URL;
 
 const Success = () => {
+  useEffect(() => {
+    // Extract session ID from URL
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session_id');
+    const bookingId = params.get('booking_id');
+    const child1Amount = params.get('child1Amount');
+    const child1Amount2 = params.get('child1Amount2');
+    if (sessionId) {
+      // Verify the session with Stripe
+      verifySession(sessionId, bookingId, child1Amount, child1Amount2);
+    }
+  }, []);
+
+  const verifySession = async (sessionId, bookingID, child1Amount, child1Amount2) => {
+    try {
+      const response = await axios.post(`${url}/verify-checkout-session`, { sessionId });
+      if (response.data.success) {
+        // Call your updatedRegistration function here
+        updatedRegistration(bookingID, child1Amount, child1Amount2);
+        console.log('Payment confirmed.');
+      } else {
+        console.error('Payment not confirmed.');
+      }
+    } catch (error) {
+      console.error('Error verifying session:', error);
+    }
+  };
+
+  const updatedRegistration = async (id, child1Amount, child1Amount2) => {
+    const updateRegistration = {
+      child1Amount: child1Amount,
+      child1Amount2: child1Amount2,
+  };
+    try {
+      await axios.put(`${url}/api/updateRegistration/${id}`, updateRegistration);
+    } catch (error) {
+        console.error('Error updating schedule:', error);
+        throw error;
+    } 
+    console.log('Payment successful, registration updated!');
+  };
+
+
   return (
     <Container>
       <Message>Payment Successful!</Message>

@@ -126,7 +126,7 @@ const RegistrationForm2 = () => {
 
   const handleNextClick = async (e) => {
     e.preventDefault();
-    console.log("e.target:", e.target);
+    await handleRegisterSelections(e);
 
     if (
       !parentEmail ||
@@ -227,7 +227,7 @@ const RegistrationForm2 = () => {
     return
 
     try {
-      const response = await axios.post('http://localhost:3001/create-checkout-session', {
+      const response = await axios.post(`${url}/create-checkout-session`, {
         lineItems,
         customerEmail: parentEmail
       });
@@ -423,7 +423,8 @@ const RegistrationForm2 = () => {
           ) : (
             <NoProgramsMessage>No programs are available for the selected criteria.</NoProgramsMessage>
           )}
-          <RegisterButton type="button" onClick={handleRegisterSelections}>Register</RegisterButton>
+          {/* disabled */}
+          {/* <RegisterButton type="button" onClick={handleRegisterSelections}>Register</RegisterButton> */}
         </TableContainer>
         <FormSection>
           <Column>

@@ -7,7 +7,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import logo from './logo2.png';
 import arrow from './arrow.png';
 
-const stripePromise = loadStripe("pk_test_51PNSST2KpyYZmvZEQWr6oqPxWFqTeH6KbyUOQEYblEKHM3U7XhTCYl4GU6YJ2lYJgmIHB2n0od0V28dGPfw0sXSP00BKh7CEYT");
+// const stripePromise = loadStripe(`${import.meta.env.VITE_STRIPE_PUBLIC_KEY}`); // Yucan's pk
+const stripePromise = loadStripe("pk_test_51OgII1FhlO3bVzIRzph02dE9M2d2aqUlLVyBRjqPAYR6nGeznJ5v0KDLi5xXGtwKbzee7H6yfWyyHf52cqKIoGb600YBD9q9qj"); // Yucan's pk
 
 const RegistrationForm = () => {
   const location = useLocation();
@@ -76,72 +77,6 @@ const RegistrationForm = () => {
     setChildSelectedClasses(newChildSelectedClasses);
   };
 
-  const handleTimeChange = (index, event) => {
-    const selectedDay = event.target.value;
-    const filtered = childSelectedTimes[index].filter(program => {
-      const programDate = new Date(program.time).toLocaleDateString();
-      return programDate === selectedDay;
-    });
-
-    const newChildSelectedClasses = [...childSelectedClasses];
-    newChildSelectedClasses[index] = filtered;
-    setChildSelectedClasses(newChildSelectedClasses);
-
-    // Clear the selected class and fees when the day changes
-    const newSelectedProgramFees = [...selectedProgramFees];
-    newSelectedProgramFees[index] = null;
-    setSelectedProgramFees(newSelectedProgramFees);
-  };
-
-  const handleClassChange = (index, event) => {
-    const selectedClassName = event.target.value;
-    const selectedProgram = programs.find(program => program.name === selectedClassName);
-
-    const newSelectedProgramFees = [...selectedProgramFees];
-    newSelectedProgramFees[index] = selectedProgram ? selectedProgram.fees : null;
-    setSelectedProgramFees(newSelectedProgramFees);
-
-    const newSelectedPrograms = [...selectedPrograms];
-    newSelectedPrograms[index] = { programID: selectedProgram._id, programFees: selectedProgram.fees, programName: selectedProgram.name, programPlace: selectedProgram.place, programSport: selectedProgram.sport };
-    setSelectedPrograms(newSelectedPrograms);
-
-    console.log("Selected Programs:", newSelectedPrograms);
-  };
-
-  const handleRedButtonClick = (program) => {
-    if (secondClass === program.name) {
-      alert("You cannot select the same program for the 1st program that is already selected as the 2nd program. Please choose a different program.");
-      return;
-    }
-
-    if (window.confirm("Do you want to add 1st program?")) {
-      setChildClass(program.name);
-      setChildDay(new Date(program.time).toLocaleString());
-      if (!selectedPrograms.some(p => p.programID === program._id)) {
-        setSelectedPrograms([{ ...program }]);
-      }
-    }
-  };
-
-  const handleBlueButtonClick = (program) => {
-    if (!childClass || !childDay) {
-      alert("You should select 1st program first");
-      return;
-    }
-
-    if (childClass === program.name) {
-      alert("You cannot select the same program for the 2nd program. Please choose a different program.");
-      return;
-    }
-
-    if (window.confirm("Do you want to add 2nd program?")) {
-      setSecondClass(program.name);
-      setSecondDay(new Date(program.time).toLocaleString());
-      if (!selectedPrograms.some(p => p.programID === program._id)) {
-        setSelectedPrograms([...selectedPrograms, { ...program }]);
-      }
-    }
-  };
 
   const handleRemoveSecondProgram = () => {
     if (window.confirm("Are you sure you want to remove the 2nd program?")) {
@@ -354,6 +289,7 @@ const RegistrationForm = () => {
   
   const handleNextClick = async (e) => {
     e.preventDefault();
+    await handleRegisterSelected(e)
   
     const form = e.target.closest('form');
   
@@ -412,9 +348,62 @@ const RegistrationForm = () => {
         },
         quantity: 1,
       }));
-  
+      
+
+      // *************** Create a new registration to backend registration form ***************
+      // TODO: Add parentAddress to backend
+      // console.log("e.target.parentAddress:", e.target.parentAddress.value);
+      // TODO: ** amount and program is different if second program is applied **
+      const newRegistration = {
+        bookingID: 1, // TODO: Update bookingID to be unique
+        parentName: e.target.parentName.value,
+        email: e.target.parentEmail.value,
+        phone: e.target.parentPhone.value,
+        child1Name: e.target.childName.value,
+        child1Birth: e.target.childDOB.value,
+        child1Program: e.target.childClass.value,
+        child1Amount: lineItems[0].price_data.unit_amount / 100, 
+        child1Start: e.target.childDayOfClass.value,
+        child1End: "2029-12-31", // TODO: Update end date
+        child1Program2: e.target.secondClass ? e.target.secondClass.value : "",
+        child1Amount2: lineItems.length > 1 ? lineItems[1].price_data.unit_amount / 100 : 0,
+        child1Start2: e.target.secondDayOfClass ? e.target.secondDayOfClass.value : "",
+        child1End2: "2029-12-31", // TODO: Update end date
+        makeupClasses: "None",
+        notes: e.target.additionalComments.value,
+      };
+
+      // Create a new registration to backend registration form
+      // TODO: Add feature to handle amount when successful registration and unsuccessful registration (determine by stripe payment status)
       try {
-        const response = await axios.post('http://localhost:3001/create-checkout-session', { lineItems });
+        const response = await axios.post(`${url}/api/createRegistration`, newRegistration);
+      } catch (error) {
+        if (error.response && error.response.status === 400) {
+          // Handle 400 error (Capacity reached)
+          console.error('Error creating Registration:', error.response.data.message);
+          alert(`Registration Error: ${error.response.data.message}`);
+        } else {
+          // Handle other errors
+          console.error('Error creating Registration:', error.message);
+          alert('An error occurred while creating the registration. Please try again.');
+        }
+        // Stop the process if there is an error
+        return;
+      }
+      // *************** End of creating a new registration to backend registration form ***************
+
+      // should be removed, use for prevent redirect to stripe
+      // return
+
+      try {
+        const response = await axios.post(`${url}/create-checkout-session`, { 
+          lineItems, 
+          successUrl: `${window.location.origin}/success/`, 
+          cancelUrl: `${window.location.origin}/cancel/`,
+          bookingID: newRegistration.bookingID,
+          child1Amount: lineItems[0].price_data.unit_amount / 100,
+          child1Amount2: lineItems.length > 1 ? lineItems[1].price_data.unit_amount / 100 : 0        
+        });
         const sessionId = response.data.id;
         const { error } = await stripe.redirectToCheckout({ sessionId });
         if (error) {
@@ -550,7 +539,8 @@ const RegistrationForm = () => {
                 ))}
               </tbody>
             </StyledTable>
-            <RegisterButton onClick={handleRegisterSelected}>Register</RegisterButton>
+            {/* disabled */}
+            {/* <RegisterButton onClick={handleRegisterSelected}>Register</RegisterButton> */}
           </TableContainer>
           <FormSection>
             <Column>
