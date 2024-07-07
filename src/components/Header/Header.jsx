@@ -22,8 +22,8 @@ const Header = () => {
                 <span><NavLink to="/FAQ" className="activeLink">FAQ</NavLink></span><span className='disinHeader'> | </span>
                 <span><NavLink to="/Contact" className="activeLink">Contact</NavLink></span>
                 {/*   {bar && <button style={{ marginLeft:'100px',padding: '10px 20px', backgroundColor: '#95071A', color: 'white', border: 'none', borderRadius: '25px', cursor: 'pointer' }}>Sign Up</button>}*/} 
-            </Nav>
-            <NavLink to="/" > <Logo src={logo} alt="logo" /></NavLink>
+                </Nav>
+                <NavLink to="/" > <Logo src={logo} alt="logo" /></NavLink>
 
             <ContactInfo>
                 <span >+1 (416) 453-8814</span>
@@ -70,11 +70,18 @@ const Logo = styled.img`
     order: 1; // Keeps logo in the center
     position: absolute;
     top: 1px;
-    left: 45.5%;
+    left:45.7%;    
     @media(max-width: 640px){
     position:absolute;
     top: 20%;
-    left: 40%;
+    left:44%;    
+    height: 65px;
+    width: 65px;
+    }
+    @media(max-width: 480px){
+    position:absolute;
+    top: 20%;
+    left:40%;    
     height: 65px;
     width: 65px;
     }
