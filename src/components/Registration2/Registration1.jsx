@@ -333,15 +333,20 @@ const RegistrationForm = () => {
   return (
     <>
       <BGI>
-        <Header>
+      <Header>
           <div>
             <Title>REGISTRATION FORM ({numberOfChildren} {numberOfChildren > 1 ? 'Children' : 'Child'})</Title>
             <Description>
-              <D_title>SELECTED: <br /></D_title>
+              <D_title>
+                <FlexContainer>
+                  <span>SELECTED:</span>
+                  <BackButton href="/survey">Back</BackButton>
+                </FlexContainer>
+              </D_title>
               {gender} | Age: {age} | Class: {sport} | Location: {programLocation} | {addMoreChildren ? "child added" : "No child added"}
             </Description>
           </div>
-          <BackButton href="/survey">Back</BackButton>
+          {/* <BackButton href="/survey">Back</BackButton> */}
         </Header>
 
         <Container onSubmit={handleNextClick}>
@@ -350,72 +355,72 @@ const RegistrationForm = () => {
               <Step>
                 <StepTitle>STEP 1 - Parent/Guardian Information</StepTitle>
                 <FormRow>
-                  <InputField>
-                    <InputLabel>Email:</InputLabel>
-                    <InputLabel>Full Name:</InputLabel>
-                    <InputLabel>Phone Number:</InputLabel>
-                    <InputLabel>Address:</InputLabel>
-                  </InputField>
-                  <InputField>
-                    <InputLabel>
-                      <StyledInput type="email" name="parentEmail" required /></InputLabel>
-                    <InputLabel>
-                      <StyledInput type="text" name="parentName" required /></InputLabel>
-                    <InputLabel>
-                      <StyledInput type="tel" name="parentPhone" required /></InputLabel>
-                    <InputLabel>
-                      <StyledInput type="text" name="parentAddress" required /></InputLabel>
-                  </InputField>
-                </FormRow>
+                    <InputField>
+                      <InputLabel>Email:</InputLabel>
+                      <StyledInput type="email" name="parentEmail" required />
+                    </InputField>
+                    <InputField>
+                      <InputLabel>Full Name:</InputLabel>
+                      <StyledInput type="text" name="parentName" required />
+                    </InputField>
+                    <InputField>
+                      <InputLabel>Phone Number:</InputLabel>
+                      <StyledInput type="tel" name="parentPhone" required />
+                    </InputField>
+                    <InputField>
+                      <InputLabel>Address:</InputLabel>
+                      <StyledInput type="text" name="parentAddress" required />
+                    </InputField>
+                  </FormRow>
+
               </Step>
             </Column>
             <Column>
-              <Step>
-                <StepTitle>STEP 2 - Child Details</StepTitle>
-                <Step2FormRow>
-                  <InputField>
-                    <Step2InputLabel>Full Name:</Step2InputLabel>
-                    <Step2InputLabel>Date of Birth:</Step2InputLabel>
-                    <Step2InputLabel>Class:</Step2InputLabel>
-                    <Step2InputLabel>Start Day:</Step2InputLabel>
-                  </InputField>
-                  <InputField>
-                    <Step2InputField>
-                      <StyledInput type="text" name="childName" required />
-                    </Step2InputField>
-                    <Step2InputField>
-                      <StyledInput type="date" name="childDOB" required onChange={(e) => handleDOBChange(0, e)} />
-                    </Step2InputField>
-                    <Step2InputField>
-                      <StyledInput type="text" name="childClass" value={childClass} readOnly required />
-                    </Step2InputField>
-                    <Step2InputField>
-                      <StyledInput type="text" name="childDayOfClass" value={childDay} readOnly required />
-                    </Step2InputField>
-                  </InputField>
-                </Step2FormRow>
-                {secondClass && (
-                  <Step2FormRow>
-                    <InputField>
-                    <Step2InputLabel></Step2InputLabel>
-                    <Step2InputLabel></Step2InputLabel>
-                    <Step2InputLabel>2nd Class:</Step2InputLabel>
-                    <Step2InputLabel>2nd Start Day: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <RemoveButton onClick={handleRemoveSecondProgram}>x</RemoveButton>
-                    </Step2InputLabel>
-                    </InputField>
-                    <InputField>
-                    <Step2InputField></Step2InputField>
-                    <Step2InputField></Step2InputField>
-                      <Step2InputField>
-                        <StyledInput type="text" name="secondClass" value={secondClass} readOnly required />
-                      </Step2InputField>
-                      <Step2InputField>
-                        <StyledInput type="text" name="secondDayOfClass" value={secondDay} readOnly required />
-                      </Step2InputField>
-                    </InputField>
-                  </Step2FormRow>
-                )}
-              </Step>
+<Step>
+  <StepTitle>STEP 2 - Child Details</StepTitle>
+  <Step2FormRow>
+  <InputField>
+    <Step2InputLabel>Full Name:</Step2InputLabel>
+    <StyledInput type="text" name="childName" required />
+  </InputField>
+  <InputField>
+    <Step2InputLabel>Date of Birth:</Step2InputLabel>
+    <StyledInput type="date" name="childDOB" required onChange={(e) => handleDOBChange(0, e)} />
+  </InputField>
+  <InputField>
+    <Step2InputLabel>Class:</Step2InputLabel>
+    <StyledInput type="text" name="childClass" value={childClass} readOnly required />
+  </InputField>
+  <InputField>
+    <Step2InputLabel>Start Day:</Step2InputLabel>
+    <StyledInput type="text" name="childDayOfClass" value={childDay} readOnly required />
+  </InputField>
+</Step2FormRow>
+
+  {secondClass && (
+  <Step2FormRow>
+  <InputField className="noo">
+    <Step2InputLabel>testing1</Step2InputLabel>
+    <StyledInput readOnly />
+  </InputField>
+  <InputField className="noo">
+    <Step2InputLabel>testing2</Step2InputLabel>
+    <StyledInput readOnly />
+  </InputField>
+  <InputField>
+    <Step2InputLabel>2nd Class:</Step2InputLabel>
+    <StyledInput type="text" name="secondClass" value={secondClass} readOnly required />
+  </InputField>
+  <InputField>
+    <Step2InputLabel>2nd Start Day:    <RemoveButton onClick={handleRemoveSecondProgram}>x</RemoveButton>
+</Step2InputLabel>
+    <StyledInput type="text" name="secondDayOfClass" value={secondDay} readOnly required />
+  </InputField>
+</Step2FormRow>
+
+  )}
+</Step>
+
             </Column>
            
           </FormSection>
@@ -485,11 +490,16 @@ const RegistrationForm = () => {
 const Header = styled.div`
   padding:  0px 20px 0px 20px ;
   padding-top: 60px;
-  display: flex;        // Enable flexbox
   justify-content: space-between; // Space out the back button and the title
   align-items: center;  // Vertically align the items in the middle
   max-width: 90%;
   margin: 20px auto;
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15vw 0 0 0;
+  }
 `;
 
 const BGI = styled.div`
@@ -514,6 +524,13 @@ const BGI = styled.div`
     opacity: 0.2;
     z-index: -1; // Ensures the background is behind the content
   }
+
+  @media(max-width: 480px) {
+    &::before {
+      top: -50px; // Move the background image 50px up, adjust as needed
+      background-size: 100%; // Adjusts the background image to be 100% of the element size
+    }
+  }
 `;
 
 const Title = styled.h1`
@@ -521,6 +538,14 @@ const Title = styled.h1`
   font-family: 'League Spartan', sans-serif;
   font-weight: bold;
   font-size: 53px;
+
+  @media(max-width: 768px) {
+    font-size: 32px;
+  }
+
+  @media(max-width: 480px) {
+    font-size: 8vw;
+  }
 `;
 
 const D_title = styled.div`
@@ -529,6 +554,21 @@ const D_title = styled.div`
   font-weight: 800;
   font-size: 20px;
   font-family: 'League Spartan', sans-serif;
+
+  @media(max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media(max-width: 480px) {
+    font-size: 3.5vw;
+  }
+`;
+
+const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align items vertically center */
+  width: 100%; /* Ensure it takes up the full width */
 `;
 
 const SecondClassRow = styled.div`
@@ -543,11 +583,17 @@ const Description = styled.p`
   font-family: 'Poppins', sans-serif;
   font-size: 20px;
 
+  @media(max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media(max-width: 480px) {
+    font-size: 3vw;
+  }
 `;
 
 const BackButton = styled.a`
   display: inline-block;
-  margin-top: 10px;
   padding: 10px 20px;
   background-color: #ffffff;
   color: black;
@@ -561,12 +607,29 @@ const BackButton = styled.a`
   &:hover {
     color: #5e0511;
   }
+
+  @media(max-width: 768px) {
+    padding: 8px 16px;
+  }
+
+  @media(max-width: 480px) {
+    padding: 6px 12px;
+  }
 `;
 
 const Container = styled.form`
   max-width: 90%;
   margin: 0px auto;
   padding: 0px 20px;  
+
+  @media(max-width: 768px) {
+    padding: 0px 10px;
+  }
+
+  @media(max-width: 480px) {
+    padding: 0px 5px;
+    max-width: 93%;
+  }
 `;
 
 const FormSection = styled.div`
@@ -584,30 +647,62 @@ const StepTitle = styled.div`
   color: #95071A; 
   font-size: 19.5px;
   font-weight: bold;
+
+  @media(max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media(max-width: 480px) {
+    font-size: 4vw;
+  }
 `;
 
 const StepTitle2 = styled.h6`
   margin-top: 3vw;
   margin-left: 1vw;
 
+  @media(max-width: 768px) {
+    margin-top: 10px;
+    margin-left: 5px;
+  }
+
+  @media(max-width: 480px) {
+    margin-top: 8px;
+    margin-left: 4px;
+    font-size: 4vw;
+
+  }
 `;
 
 const StepTitle3 = styled.h5`
   margin-bottom: 10px;
   font-weight: 600;
+
+  @media(max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media(max-width: 480px) {
+    font-size: 4vw;
+  }
 `;
 
 const FormRow = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  // Default to column layout
   align-items: flex-start;
   width: 100%;
+
+  @media(min-width: 768px) {  // Switch to row layout for larger screens
+    flex-direction: row;
+  }
 `;
 
 const FormRowHorizontal = styled.div`
   display: flex;
   align-items: flex-end ;
   width: 100%;
+  flex-wrap: wrap;
 `;
 
 const InputLabel = styled.label`
@@ -615,31 +710,78 @@ const InputLabel = styled.label`
   margin-bottom: 0;
   color: #000000;
   padding: 10px 0;
+
+  @media(max-width: 768px) {
+    padding: 8px 0;
+  }
+
+  @media(max-width: 480px) {
+    padding: 6px 0;
+    font-size: 3vw;
+
+  }
 `;
 
 const InputField = styled.div`
   display: flex;
+  flex-direction: column;
   width: 100%;
+  opacity: ${props => props.className === 'noo' ? 0 : 1};  // Sets opacity to 0 if className is 'noo'
+
+  @media(min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+  }
+
+    @media(max-width: 460px) {
+    display: ${props => props.className === 'noo' ? 'none' : 'flex'};  // Hide if className is 'noo'
+
+}
 `;
+
 
 const Step2FormRow = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  // Default to column on smaller screens
   align-items: flex-start;
   width: 100%;
+
+  @media(min-width: 768px) {  // Switch to row layout for larger screens
+    flex-direction: row;
+  }
 `;
 
 const Step2InputLabel = styled.label`
-  flex: 1 1 25%;
+  flex: 1 1 25%;  // Adjust to control label width
   margin-bottom: 0;
   color: #000000;
   padding: 10px 0;
-`;
 
+  @media(max-width: 768px) {
+    padding: 8px 0;
+  }
+
+  @media(max-width: 480px) {
+    padding: 6px 0;
+    font-size: 3vw;
+  }
+`;
 const Step2InputField = styled.div`
-  flex: 1 1 25%;
+  display: flex;
+  flex-direction: column;
+  flex: 3 1 75%;  // Adjust to control input field width, ensuring it takes more space
   margin-bottom: 0;
-  padding: 10px 0;
+
+  @media(max-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @media(max-width: 480px) {
+    padding: 6px 0;
+    font-size: 3vw;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -648,6 +790,14 @@ const TextArea = styled.textarea`
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+
+  @media(max-width: 768px) {
+    margin-bottom: 8px;
+  }
+
+  @media(max-width: 480px) {
+    margin-bottom: 6px;
+  }
 `;
 
 const ButtonRow = styled.div`
@@ -655,6 +805,14 @@ const ButtonRow = styled.div`
   flex: 1 1 20%;
   display: flex;
   justify-content: flex-end; /* Align items to the right */
+
+  @media(max-width: 768px) {
+    margin-top: 16px;
+  }
+
+  @media(max-width: 480px) {
+    margin-top: 12px;
+  }
 `;
 
 const ConfirmButton = styled.button`
@@ -676,6 +834,21 @@ const ConfirmButton = styled.button`
     margin-left: 5px;
     width: 20px; // Adjust size as necessary
     height: auto;
+  }
+
+  @media(max-width: 768px) {
+    padding: 8px 16px;
+  }
+
+  @media(max-width: 480px) {
+    padding: 2vw 4vw;
+    margin-bottom: 0px;
+    font-size: 3.8vw;
+    img {
+    margin-left: 5px;
+    width: 3vw; // Adjust size as necessary
+    height: auto;
+  }
   }
 `;
 
@@ -703,6 +876,14 @@ const StyledTable = styled.table`
   width: 100%;
   table-layout: fixed;
   tr { text-align: center; }
+
+  @media(max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media(max-width: 480px) {
+    font-size: 3vw;
+  }
 `;
 
 const StyledTh = styled.th`
@@ -755,6 +936,14 @@ const RemoveButton = styled.button`
   &:hover {
     color: darkred;
   }
+
+  @media(max-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media(max-width: 480px) {
+    font-size: 16px;
+  }
 `;
 
 const RegisterButton = styled.button`
@@ -772,17 +961,36 @@ const RegisterButton = styled.button`
   &:hover {
     background-color: #45a049;  // Darker green on hover
   }
+
+  @media(max-width: 768px) {
+    padding: 8px 16px;
+    margin-right: calc(5.2%);  // Adjust based on your column widths to align under 'Selection'
+  }
+
+  @media(max-width: 480px) {
+    padding: 6px 12px;
+    margin-right: calc(3.2%);  // Adjust based on your column widths to align under 'Selection'
+  }
 `;
 
 const StyledInput = styled.input`
   border-radius: 50px;
   border: 1px solid;
-  flex: 1 1 25%;
-  margin-right: 140px;
+  flex: 1 1 100%;  // Ensure input takes full width of its container
+  margin-right: 140px;  // Adjust spacing on the right
+
+  @media(max-width: 768px) {
+    margin-right: 70px;
+  }
+
+  @media(max-width: 480px) {
+    margin-right: 35px;
+  }
 `;
 
 const Displaynone = styled.div`
 opacity:0%
 `;
+
 
 export default RegistrationForm;
