@@ -731,6 +731,11 @@ const InputLabel = styled.label`
     flex: 1 1 25%;  // Adjust width on larger screens
     margin-bottom: 0;  // Remove bottom margin on larger screens
     padding: 10px 0;
+
+  }
+
+  @media(max-width: 460px) {
+  font-size: 3vw;
   }
 `;
 
