@@ -116,6 +116,7 @@ const GalleryItem = styled.div`
   align-items: start;
   @media (max-width: 1024px) {
     width: 100%;
+    padding-bottom: 5vw;
   }
 `;
 
@@ -201,8 +202,8 @@ const BGC = styled.div`
     }
   }
   @media (max-width: 640px) {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 12vw;
+    padding-bottom: 0rem;
   }
 `;
 
@@ -234,6 +235,7 @@ const Texts = styled.div`
   h1 {
     font-family: 'League Spartan', sans-serif;
     font-weight: bold;
+    padding-top: 7vw;
   }
 `;
 

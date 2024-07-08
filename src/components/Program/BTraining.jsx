@@ -27,9 +27,7 @@ const BTraining = () => {
               <br /><br />
               <ul>
                 <li>Master essential skills: dribbling, shooting, finishing and defense.</li>
-                <br />
                 <li>Refine agility and coordination for improved on-court performance.</li>
-                <br />
                 <li>Achieve greater confidence and competitive edge.</li>
               </ul>
               <None><br /><br /></None>
@@ -72,9 +70,9 @@ const Title = styled.h1`
 
   @media (max-width: 768px) {
     padding-top: 10vw;
-    padding-left: 1vw;
-    font-size: 10vw;
+    font-size: 9vw;
     margin-bottom: 3vw;
+    padding-left:5%;
   }
 `;
 
@@ -123,7 +121,7 @@ const Box = styled.div`
   padding: 1rem;
   border-radius: 5px;
   @media (max-width: 768px) {
-    padding: 2vw;
+    padding: 3vw 5vw 0vw 5vw;
     margin-bottom: 1rem;
     width: 100%;
   }
@@ -177,7 +175,6 @@ const RegisterButtonContainer = styled.div`
 
   @media (max-width: 768px) {
     justify-content: center;
-    margin-top: 1rem;
   }
 `;
 
