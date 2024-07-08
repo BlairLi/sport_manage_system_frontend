@@ -106,7 +106,7 @@ const Survey = () => {
         <FormRow>
           <InputLabel>Preferred day(s) of program<tag> * </tag></InputLabel>
           <RadioGroup>
-            {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(dayOption => (
+            {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].map(dayOption => (
               <RadioButton key={dayOption}>
                 <input type="radio" name="day" value={dayOption} checked={day === dayOption} onChange={handleRadioButtonChange(setDay)} />
                 {dayOption}
@@ -167,23 +167,44 @@ const BackgroundContainer = styled.div`
     right: 0;
     bottom: 0;
     background: url(${logo}) no-repeat center center;
-    background-size: 45%; // Adjusts the background image to be 90% of the element size
-    opacity: 0.4;
+    background-size: 45%; 
+    opacity: 0.1;
     z-index: -1; // Ensures the background is behind the content
   }
-  
+  @media(max-width: 1024px){
+    
+  }
+
+  @media(max-width: 480px){
+    &::before {
+      top: 0px; 
+      background-size: 100%; 
+    }
+  }
 `;
 
 const Container = styled.div`
   width: 90%;
   margin: 0 auto;
-  padding: 0px 20px;
-  padding-top: 75px;
+  padding: 75px 20px 0 20px ;
   background-color: transparent; // Ensure the container itself has no background
   z-index: 1; // Make sure content is above the background
   position: relative;
   tag{color:red}
+  p{
+      font-style: italic;
+    }
+  @media(max-width: 1024px){
+    // Add styles for medium screens if needed
+  }
 
+  @media(max-width: 480px){
+    width: 100%;
+    padding: 75px 10px 0 10px ;
+    p{
+      font-size: 4vw;
+    }
+  }
 `;
 
 
@@ -194,6 +215,14 @@ const Title = styled.h2`
   font-family: 'League Spartan', sans-serif;
   font-weight: bold;
   font-size: 53px;
+  @media(max-width: 1024px){
+    // Add styles for medium screens if needed
+  }
+
+  @media(max-width: 480px){
+    font-size: 8vw;
+    margin-bottom: 1vw;
+  }
 `;
 
 const FormSection = styled.div`
@@ -205,7 +234,10 @@ const FormRow = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 20px;
-
+  @media(max-width: 480px){
+    font-size: 3vw;
+    margin-bottom: 3vw;
+  }
 `;
 
 const InputLabel = styled.label`
@@ -232,7 +264,6 @@ const RadioButton = styled.label`
   align-items: center; // Aligns the radio button and label text vertically
   cursor: pointer; // Changes the mouse cursor to pointer when hovering over the label
   text-decoration: underline; // Adds an underline on hover
-
 `;
 
 const ButtonRow = styled.div`
@@ -240,7 +271,6 @@ const ButtonRow = styled.div`
   justify-content: flex-end;  // Aligns the button to the right
   margin-top: 20px;           // Adds some space above the button
   width: 90%;                // Ensure it spans the full width of the container
-
 `;
 
 
@@ -251,25 +281,34 @@ const NextLink = styled.span`
   cursor: pointer;
   text-decoration: underline;
   font-weight: 800;
-  margin-bottom: 25px; // Keeps some space below each row
+  margin-bottom: 25px; 
 
   &:hover {
     color: #660613;
   }
   img {
     margin-left: 5px;
-    width: 20px; // Adjust size as necessary
+    width: 20px; 
     height: auto;
+  }
+  @media(max-width: 480px){
+    padding: 0;
+    margin-bottom: 0;
   }
 `;
 
 
 const P = styled.div` 
- margin-bottom: 5px; // Reduced margin
+ margin-bottom: 5px; 
   font-weight: bold;
   font-size: 23px;
   color: #95071A;
   font-family: 'League Spartan', sans-serif;
+ 
+    @media(max-width: 480px){
+      font-size: 5vw;
+      margin-bottom: 0; 
+}
 `
  
 
