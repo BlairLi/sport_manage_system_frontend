@@ -68,6 +68,9 @@ const TitleContainer = styled.div`
   width: 100%;
   margin-top: 20px;
   padding-left: 40px;
+  @media (max-width: 640px) {
+    padding-left: 2vw;
+  }
 `;
 
 const NewTitle = styled.h2`
@@ -78,7 +81,7 @@ const NewTitle = styled.h2`
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   @media (max-width: 640px) {
-    font-size: 24px;
+    font-size: 4vw;
   }
 `;
 
@@ -90,6 +93,10 @@ const StyledHorizontalLine = styled.hr`
   margin: 0 20px;  
   color: black;
   opacity: 1;
+  @media (max-width: 640px) {
+    height: 2px;
+    margin: 0 ;   
+  }
 `;
 
 const ImageGallery = styled.div`
@@ -109,7 +116,6 @@ const GalleryItem = styled.div`
   align-items: start;
   @media (max-width: 1024px) {
     width: 100%;
-    align-items: center;
   }
 `;
 
@@ -130,6 +136,9 @@ const ImageDescription = styled.div`
   font-weight: 800;
   font-family: 'Poppins', sans-serif;
   padding: 20px 0px;
+  @media (max-width: 640px) {
+    font-size: 4vw;
+  }
 `;
 
 const ReadMoreLink = styled.div`
@@ -142,6 +151,7 @@ const ReadMoreLink = styled.div`
   @media (max-width: 640px) {
     width: 100%;
     text-align: center;
+    font-size: 3vw;
   }
 `;
 
@@ -152,6 +162,9 @@ const SocialMediaIcons = styled.div`
   margin: 20px;
   font-size: 32px;
   gap: 20px;
+  @media (max-width: 640px) {
+    display: none;
+  }
 `;
 
 const StyledHorizontalLine2 = styled.hr`
@@ -162,6 +175,11 @@ const StyledHorizontalLine2 = styled.hr`
   margin: 20px 0;
   color: black;
   opacity: 1;
+  @media (max-width: 640px) {
+    height: 2px;
+    margin: 0vw ;
+    display: none;
+  }
 `;
 
 const BGC = styled.div`
