@@ -303,9 +303,6 @@ const RegistrationForm = () => {
       }
       // *************** End of creating a new registration to backend registration form ***************
 
-      // should be removed, use for prevent redirect to stripe
-      // return
-
       try {
         const response = await axios.post(`${url}/create-checkout-session`, { 
           lineItems, 

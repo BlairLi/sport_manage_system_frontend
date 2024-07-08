@@ -7,7 +7,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import logo from './logo.jpg';
 import arrow from './arrow.png'
 
-const stripePromise = loadStripe("pk_test_51PNSST2KpyYZmvZEQWr6oqPxWFqTeH6KbyUOQEYblEKHM3U7XhTCYl4GU6YJ2lYJgmIHB2n0od0V28dGPfw0sXSP00BKh7CEYT");
+const stripePromise = loadStripe("pk_test_51OgII1FhlO3bVzIRzph02dE9M2d2aqUlLVyBRjqPAYR6nGeznJ5v0KDLi5xXGtwKbzee7H6yfWyyHf52cqKIoGb600YBD9q9qj");
 
 const RegistrationForm2 = () => {
   const location = useLocation();
@@ -82,48 +82,6 @@ const RegistrationForm2 = () => {
     setChildSelectedClasses(newChildSelectedClasses);
   };
 
-  const handleClassChange = (index, event) => {
-    const selectedClassName = event.target.value;
-    const selectedProgram = programs.find(program => program.name === selectedClassName);
-
-    const newSelectedProgramFees = [...selectedProgramFees];
-    newSelectedProgramFees[index] = selectedProgram ? selectedProgram.fees : null;
-    setSelectedProgramFees(newSelectedProgramFees);
-
-    const newSelectedPrograms = [...selectedPrograms];
-    newSelectedPrograms[index] = { programID: selectedProgram._id, programFees: selectedProgram.fees, programName: selectedProgram.name, programPlace: selectedProgram.place, programSport: selectedProgram.sport };
-    setSelectedPrograms(newSelectedPrograms);
-
-    const newChildClasses = [...childClasses];
-    newChildClasses[index] = selectedProgram.name;
-    setChildClasses(newChildClasses);
-
-    const newChildDays = [...childDays];
-    newChildDays[index] = new Date(selectedProgram.time).toLocaleString();
-    setChildDays(newChildDays);
-  };
-
-  const handleButtonClick = (index, program) => {
-    if (selectedPrograms.some(p => p.programID === program._id)) {
-      alert("This program has already been selected. Please choose a different program.");
-      return;
-    }
-
-    if (window.confirm(`Do you want to add program for child ${index + 1}?`)) {
-      const newSelectedPrograms = [...selectedPrograms];
-      newSelectedPrograms[index] = { ...program };
-      setSelectedPrograms(newSelectedPrograms);
-
-      const newChildClasses = [...childClasses];
-      newChildClasses[index] = program.name;
-      setChildClasses(newChildClasses);
-
-      const newChildDays = [...childDays];
-      newChildDays[index] = new Date(program.time).toLocaleString();
-      setChildDays(newChildDays);
-    }
-  };
-
   const handleNextClick = async (e) => {
     e.preventDefault();
     await handleRegisterSelections(e);
@@ -173,6 +131,9 @@ const RegistrationForm2 = () => {
           name: `${program.name} (${program.sport})`,
           description: `Program at ${program.place}`
         },
+        recurring: {
+          interval: 'month',  // Set the billing interval to 'week'
+        },
         unit_amount: Math.round(program.fees * discountRate * 100), // Calculate discounted price
       },
       quantity: 1
@@ -181,31 +142,28 @@ const RegistrationForm2 = () => {
 
     // *************** Create a new registration to backend registration form ***************
     // TODO: Add parentAddress to backend
-    // console.log("e.target.parentAddress:", e.target.parentAddress.value);
-    // TODO: ** amount and program is different if second program is applied **
     const newRegistration = {
-      bookingID: 1, // TODO: Update bookingID to be unique
+      bookingID: `booking_${Date.now()}_${Math.floor(Math.random() * 10000)}`, 
       parentName: e.target.parentName.value,
       email: e.target.parentEmail.value,
       phone: e.target.parentPhone.value,
       child1Name: e.target.childName1.value,
       child1Birth: e.target.childDOB1.value,
       child1Program: e.target.childClass1.value,
-      child1Amount: lineItems[0].price_data.unit_amount / 100, 
+      child1Amount: 0, 
       child1Start: e.target.childDayOfClass1.value,
       child1End: "2029-12-31", // TODO: Update end date
       child2Name: e.target.childName2.value,
       child2Birth: e.target.childDOB2.value,
       child2Program: e.target.childClass2.value,
-      child2Amount: lineItems.length > 1 ? lineItems[1].price_data.unit_amount / 100 : 0,
-      child2Start: e.target.secondDayOfClass ? e.target.secondDayOfClass.value : "",
+      child2Amount: 0,
+      child2Start: e.target.childDayOfClass2.value,
       child2End: "2029-12-31", // TODO: Update end date
       makeupClasses: "None",
       notes: e.target.additionalComments.value,
     };
 
     // Create a new registration to backend registration form
-    // TODO: Add feature to handle amount when successful registration and unsuccessful registration (determine by stripe payment status)
     try {
       const response = await axios.post(`${url}/api/createRegistration`, newRegistration);
     } catch (error) {
@@ -222,23 +180,22 @@ const RegistrationForm2 = () => {
       return;
     }
     // *************** End of creating a new registration to backend registration form ***************
+    
     console.log("New registration created:", newRegistration);
-    // should be removed, use for prevent redirect to stripe
-    return
 
-    // try {
-    //   const response = await axios.post(`${url}/create-checkout-session`, {
-    //     lineItems,
-    //     customerEmail: parentEmail
-    //   });
-    //   const sessionId = response.data.id;
-    //   const { error } = await stripe.redirectToCheckout({ sessionId });
-    //   if (error) {
-    //     console.log(error);
-    //   }
-    // } catch (error) {
-    //   console.error("Error creating checkout session:", error);
-    // }
+    try {
+      const response = await axios.post(`${url}/create-checkout-session`, {
+        lineItems,
+        customerEmail: parentEmail
+      });
+      const sessionId = response.data.id;
+      const { error } = await stripe.redirectToCheckout({ sessionId });
+      if (error) {
+        console.log(error);
+      }
+    } catch (error) {
+      console.error("Error creating checkout session:", error);
+    }
   };
 
   const getDayFromDate = (date) => {

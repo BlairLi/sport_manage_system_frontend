@@ -34,18 +34,19 @@ const Success = () => {
     const bookingId = params.get('booking_id');
     const child1Amount = params.get('child1Amount');
     const child1Amount2 = params.get('child1Amount2');
+    const child2Amount = params.get('child2Amount');
     if (sessionId) {
       // Verify the session with Stripe
-      verifySession(sessionId, bookingId, child1Amount, child1Amount2);
+      verifySession(sessionId, bookingId, child1Amount, child1Amount2, child2Amount);
     }
   }, []);
 
-  const verifySession = async (sessionId, bookingID, child1Amount, child1Amount2) => {
+  const verifySession = async (sessionId, bookingID, child1Amount, child1Amount2, child2Amount) => {
     try {
       const response = await axios.post(`${url}/verify-checkout-session`, { sessionId });
       if (response.data.success) {
         // Call your updatedRegistration function here
-        updatedRegistration(bookingID, child1Amount, child1Amount2);
+        updatedRegistration(bookingID, child1Amount, child1Amount2, child2Amount);
         console.log('Payment confirmed.');
       } else {
         console.error('Payment not confirmed.');
@@ -55,11 +56,15 @@ const Success = () => {
     }
   };
 
-  const updatedRegistration = async (id, child1Amount, child1Amount2) => {
+  const updatedRegistration = async (id, child1Amount, child1Amount2, child2Amount) => {
+    
     const updateRegistration = {
       child1Amount: child1Amount,
-      child1Amount2: child1Amount2,
-  };
+      child1Amount2: child1Amount2 ? Number(child1Amount2) : 0,
+      child2Amount: child2Amount ? Number(child2Amount) : 0,
+    };
+
+  console.log('updateRegistration:', updateRegistration);
     try {
       await axios.put(`${url}/api/updateRegistration/${id}`, updateRegistration);
     } catch (error) {
