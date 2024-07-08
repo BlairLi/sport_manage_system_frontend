@@ -28,5 +28,9 @@ export default Home;
 
 const Container = styled.div`
   background-repeat: repeat;
-  background-color: white;
+  background-color: #ffffff;
+  @media(max-width: 640px){
+    background-color: #77787D;
+
+    }
 `;

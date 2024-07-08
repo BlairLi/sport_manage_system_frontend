@@ -46,16 +46,16 @@ const BasketballPage = () => {
 export default BasketballPage;
 
 const Background = styled.div`
-  background-color: rgba(255, 255, 255, 0.8);  // Semi-transparent white background
+  background-color: rgba(255, 255, 255, 0.8);  
   padding-top: 5rem;
   padding-bottom: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   h1 {
-    color: #D50032;  // Bright red for high visibility
-    font-size: 3.5rem;  // Larger font size for the title
-    text-transform: uppercase;  // Capitalize the title
+    color: #D50032;  
+    font-size: 3.5rem;  
+    text-transform: uppercase;  
     letter-spacing: 1px;
   }
   @media (max-width: 640px) {
@@ -67,7 +67,7 @@ const Background = styled.div`
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  width: 80%;  // Responsive width, narrower than FAQ example
+  width: 80%; 
   max-width: 1200px;
   margin: 0 auto;
 `;
@@ -88,14 +88,14 @@ const Texts = styled.div`
     margin-top: 1em;
     margin-bottom: 0.5em;
     font-size: 2rem;
-    color: #333;  // Dark grey for subheadings
+    color: #333;  
   }
 
   ul {
-    list-style: inside square;  // Square bullets inside the content
+    list-style: inside square;  
   }
 
   li {
-    margin-bottom: 0.5em;  // Spacing between list items
+    margin-bottom: 0.5em;  
   }
 `;

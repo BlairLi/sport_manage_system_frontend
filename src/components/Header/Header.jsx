@@ -69,14 +69,18 @@ const Logo = styled.img`
     width: 130px;
     order: 1; // Keeps logo in the center
     position: absolute;
-    top: 1px;
-    left:45.7%;    
-    @media(max-width: 640px){
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -8%);  
+
+        @media(max-width: 640px){
     position:absolute;
     top: 20%;
     left:44%;    
     height: 65px;
     width: 65px;
+    transform: translate(-50%, -8%);  
+
     }
     @media(max-width: 480px){
     position:absolute;
@@ -84,8 +88,11 @@ const Logo = styled.img`
     left:40%;    
     height: 65px;
     width: 65px;
+    transform: translate(0%, 0%); 
+
     }
 `;
+
 
 const ContactInfo = styled.div`
     display: flex;
@@ -121,8 +128,11 @@ const SignInButton = styled.button`
     border: none;
     borderRadius: 5px;
     cursor: pointer;
+    @media(max-width: 1024px){
+       padding: 1vh 3vw;
+       font-size: 1.3vh;
+    }
     @media(max-width: 640px){
-       // display: none; // Hides the button on small screens
        padding: 0.5vh 1.5vw;
        font-size: 1.3vh;
     }

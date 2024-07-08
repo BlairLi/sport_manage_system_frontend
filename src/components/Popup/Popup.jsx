@@ -45,7 +45,7 @@ const Button = styled.button`
   padding: 10px 20px;
   background-color: #95071A;
   color: white;
-  border: 3px solid black;  // Added a black border
+  border: 3px solid black;  
   border-radius: 25px;
   width: 180px;
   height: 60px;
@@ -53,7 +53,7 @@ const Button = styled.button`
   font-weight: 800;
   font-family: 'League Spartan', sans-serif;
   cursor: pointer;
-  flex: 1 1 45%;  // Adjusts to 45% of the container width
+  flex: 1 1 45%;  
 
   &:hover {
     background-color: #700211;

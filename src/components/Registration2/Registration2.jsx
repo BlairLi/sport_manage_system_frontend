@@ -722,14 +722,14 @@ const FormRowHorizontal = styled.div`
 `;
 
 const InputLabel = styled.label`
-  flex: 1 1 100%;  // Take full width on mobile for better readability
-  margin-bottom: 5px;  // Space between label and input on mobile
+  flex: 1 1 100%;  
+  margin-bottom: 5px; 
   color: #000000;
   padding: 10px 0;
 
   @media(min-width: 768px) {
-    flex: 1 1 25%;  // Adjust width on larger screens
-    margin-bottom: 0;  // Remove bottom margin on larger screens
+    flex: 1 1 25%;  
+    margin-bottom: 0;  
     padding: 10px 0;
 
   }
@@ -742,13 +742,13 @@ const InputLabel = styled.label`
 const StyledInputShort = styled.input`
   border-radius: 50px;
   border: 1px solid;
-  flex: 1 1 25%;  // Maintain the original width on larger screens
-  margin-right: 140px; // Maintain original margin right
+  flex: 1 1 25%; 
+  margin-right: 140px; 
 
   @media(max-width: 768px) {
-    flex: 1 1 100%;  // Full width on smaller screens
-    margin-right: 10px; // Reduced margin for mobile
-    margin-bottom: 10px; // Additional bottom margin for spacing between inputs on mobile
+    flex: 1 1 100%;  
+    margin-right: 10px; 
+    margin-bottom: 10px; 
   }
 `;
 
@@ -769,10 +769,10 @@ const TextArea = styled.textarea`
 `;
 
 const ButtonRow = styled.div`
-  margin-top: 20px; /* Ensure it has some spacing from other content */
+  margin-top: 20px; 
   flex: 1 1 20%;
   display: flex;
-  justify-content: flex-end; /* Align items to the right */
+  justify-content: flex-end;
 
   @media(max-width: 768px) {
     margin-top: 16px;
@@ -791,7 +791,7 @@ const ConfirmButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   text-decoration: underline;
-  margin-bottom: 25px; // Keeps some space below each row
+  margin-bottom: 25px;
   font-weight: 800;
 
   &:hover {
@@ -800,7 +800,7 @@ const ConfirmButton = styled.button`
 
   img {
     margin-left: 5px;
-    width: 20px; // Adjust size as necessary
+    width: 20px; 
     height: auto;
   }
 
@@ -814,7 +814,7 @@ const ConfirmButton = styled.button`
     font-size: 3.8vw;
     img {
     margin-left: 5px;
-    width: 3vw; // Adjust size as necessary
+    width: 3vw; 
     height: auto;
   }
   }
@@ -826,7 +826,7 @@ const TableContainer = styled.div`
   padding: 0px 16px 16px 16px;
 
   @media (max-width: 768px) {
-    padding: 0; // Remove padding for tablet size
+    padding: 0; 
   }
 `;
 
@@ -889,14 +889,14 @@ const RegisterButton = styled.button`
 const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Align items vertically center */
-  width: 100%; /* Ensure it takes up the full width */
+  align-items: center;
+  width: 100%;
 `;
 const InputField = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  opacity: ${props => props.className === 'noo' ? 0 : 1};  // Sets opacity to 0 if className is 'noo'
+  opacity: ${props => props.className === 'noo' ? 0 : 1};  
 
   @media(min-width: 768px) {
     flex-direction: row;
@@ -905,15 +905,15 @@ const InputField = styled.div`
   }
 
     @media(max-width: 460px) {
-    display: ${props => props.className === 'noo' ? 'none' : 'flex'};  // Hide if className is 'noo'
+    display: ${props => props.className === 'noo' ? 'none' : 'flex'};  
 
 }
 `;
 const StyledInput = styled.input`
   border-radius: 50px;
   border: 1px solid;
-  flex: 1 1 100%;  // Ensure input takes full width of its container
-  margin-right: 140px;  // Adjust spacing on the right
+  flex: 1 1 100%; 
+  margin-right: 140px;  
 
   @media(max-width: 768px) {
     margin-right: 70px;
@@ -926,17 +926,17 @@ const StyledInput = styled.input`
 
 const Step2FormRow = styled.div`
   display: flex;
-  flex-direction: column;  // Default to column on smaller screens
+  flex-direction: column;  
   align-items: flex-start;
   width: 100%;
 
-  @media(min-width: 768px) {  // Switch to row layout for larger screens
+  @media(min-width: 768px) { 
     flex-direction: row;
   }
 `;
 
 const Step2InputLabel = styled.label`
-  flex: 1 1 25%;  // Adjust to control label width
+  flex: 1 1 25%;  
   margin-bottom: 0;
   color: #000000;
   padding: 10px 0;

@@ -29,7 +29,7 @@ const TopSection = styled.div`
 
 const BottomSection = styled.div`
   flex: 8;
-  background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+  background-color: rgba(255, 255, 255, 0.8); 
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
@@ -58,7 +58,7 @@ const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 10px;
-  background-color: white; /* Ensure no opacity here */
+  background-color: white;
 `;
 
 const SmallImage = styled.img`

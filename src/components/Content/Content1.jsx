@@ -111,17 +111,17 @@ const Texts = styled.div`
 `;
 
 const Logo = styled.img`
-  height: 100px;  // Sets the height of the logo
-  width: auto;  // Maintains the aspect ratio of the image
-  margin-top: 10px;  // Adds some space between the text and the logo
-  display: block;  // Makes the logo a block element to properly manage margins
+  height: 100px;  
+  width: auto;  
+  margin-top: 10px;  
+  display: block;  
 
   @media (max-width: 768px) {
-    height: 80px;  // Smaller logo on smaller screens
+    height: 80px;  
   }
 
   @media (max-width: 480px) {
-    height: 60px;  // Even smaller logo on the smallest screens
+    height: 60px;  
   }
 `;
 
@@ -134,12 +134,12 @@ const StyledHorizontalLine2 = styled.hr`
   margin: 15px 10px 80px 15px;
 
   @media (max-width: 768px) {
-    height: 3px;  // Thinner line on smaller screens
+    height: 3px;  
     margin: 10px 5px 40px 10px;
   }
 
   @media (max-width: 480px) {
-    height: 2px;  // Even thinner line on the smallest screens
+    height: 2px;  
     margin: 5px 2px 20px 5px;
   }
 `;

@@ -490,8 +490,8 @@ const RegistrationForm = () => {
 const Header = styled.div`
   padding:  0px 20px 0px 20px ;
   padding-top: 60px;
-  justify-content: space-between; // Space out the back button and the title
-  align-items: center;  // Vertically align the items in the middle
+  justify-content: space-between; 
+  align-items: center;  
   max-width: 90%;
   margin: 20px auto;
 
@@ -503,15 +503,14 @@ const Header = styled.div`
 `;
 
 const BGI = styled.div`
-  position: relative;  // Change to relative to contain the pseudo-element
+  position: relative;  
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;  // Adjust z-index to ensure it stacks as needed
+  z-index: 1;  
   padding-top: 15px;
 
-  // Using before to create a pseudo-element for the background
   &::before {
     content: '';
     position: absolute;
@@ -520,15 +519,15 @@ const BGI = styled.div`
     right: 0;
     bottom: 0;
     background: url(${logo}) no-repeat center center;
-    background-size: 45%; // Adjusts the background image to be 90% of the element size
+    background-size: 45%; 
     opacity: 0.2;
-    z-index: -1; // Ensures the background is behind the content
+    z-index: -1; 
   }
 
   @media(max-width: 480px) {
     &::before {
-      top: -50px; // Move the background image 50px up, adjust as needed
-      background-size: 100%; // Adjusts the background image to be 100% of the element size
+      top: -50px;
+      background-size: 100%; 
     }
   }
 `;
@@ -689,11 +688,11 @@ const StepTitle3 = styled.h5`
 
 const FormRow = styled.div`
   display: flex;
-  flex-direction: column;  // Default to column layout
+  flex-direction: column;  
   align-items: flex-start;
   width: 100%;
 
-  @media(min-width: 768px) {  // Switch to row layout for larger screens
+  @media(min-width: 768px) {  
     flex-direction: row;
   }
 `;
@@ -726,7 +725,7 @@ const InputField = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  opacity: ${props => props.className === 'noo' ? 0 : 1};  // Sets opacity to 0 if className is 'noo'
+  opacity: ${props => props.className === 'noo' ? 0 : 1};  
 
   @media(min-width: 768px) {
     flex-direction: row;
@@ -735,7 +734,7 @@ const InputField = styled.div`
   }
 
     @media(max-width: 460px) {
-    display: ${props => props.className === 'noo' ? 'none' : 'flex'};  // Hide if className is 'noo'
+    display: ${props => props.className === 'noo' ? 'none' : 'flex'};  
 
 }
 `;
@@ -743,17 +742,17 @@ const InputField = styled.div`
 
 const Step2FormRow = styled.div`
   display: flex;
-  flex-direction: column;  // Default to column on smaller screens
+  flex-direction: column; 
   align-items: flex-start;
   width: 100%;
 
-  @media(min-width: 768px) {  // Switch to row layout for larger screens
+  @media(min-width: 768px) { 
     flex-direction: row;
   }
 `;
 
 const Step2InputLabel = styled.label`
-  flex: 1 1 25%;  // Adjust to control label width
+  flex: 1 1 25%;  
   margin-bottom: 0;
   color: #000000;
   padding: 10px 0;
@@ -770,7 +769,7 @@ const Step2InputLabel = styled.label`
 const Step2InputField = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 3 1 75%;  // Adjust to control input field width, ensuring it takes more space
+  flex: 3 1 75%;  
   margin-bottom: 0;
 
   @media(max-width: 768px) {
@@ -801,10 +800,10 @@ const TextArea = styled.textarea`
 `;
 
 const ButtonRow = styled.div`
-  margin-top: 20px; /* Ensure it has some spacing from other content */
+  margin-top: 20px; 
   flex: 1 1 20%;
   display: flex;
-  justify-content: flex-end; /* Align items to the right */
+  justify-content: flex-end; 
 
   @media(max-width: 768px) {
     margin-top: 16px;
@@ -823,7 +822,7 @@ const ConfirmButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   text-decoration: underline;
-  margin-bottom: 25px; // Keeps some space below each row
+  margin-bottom: 25px; 
   font-weight: 800;
 
   &:hover {
@@ -832,7 +831,7 @@ const ConfirmButton = styled.button`
 
   img {
     margin-left: 5px;
-    width: 20px; // Adjust size as necessary
+    width: 20px; 
     height: auto;
   }
 
@@ -846,14 +845,14 @@ const ConfirmButton = styled.button`
     font-size: 3.8vw;
     img {
     margin-left: 5px;
-    width: 3vw; // Adjust size as necessary
+    width: 3vw; 
     height: auto;
   }
   }
 `;
 
 const TableContainer = styled.div`
-  width: 100%; /* Adjust to fit the container */
+  width: 100%; 
   border-radius: 8px;
   padding: 0px 16px 16px 16px;
 `;
@@ -949,35 +948,35 @@ const RemoveButton = styled.button`
 const RegisterButton = styled.button`
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #4CAF50;  // Green background for visibility
+  background-color: #4CAF50;  
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   display: block;
-  margin-left: auto;  // Aligns the button to the right
-  margin-right: calc(7.2%);  // Adjusts based on your column widths to align under 'Selection'
+  margin-left: auto;  
+  margin-right: calc(7.2%);  
 
   &:hover {
-    background-color: #45a049;  // Darker green on hover
+    background-color: #45a049;
   }
 
   @media(max-width: 768px) {
     padding: 8px 16px;
-    margin-right: calc(5.2%);  // Adjust based on your column widths to align under 'Selection'
+    margin-right: calc(5.2%);  
   }
 
   @media(max-width: 480px) {
     padding: 6px 12px;
-    margin-right: calc(3.2%);  // Adjust based on your column widths to align under 'Selection'
+    margin-right: calc(3.2%);  
   }
 `;
 
 const StyledInput = styled.input`
   border-radius: 50px;
   border: 1px solid;
-  flex: 1 1 100%;  // Ensure input takes full width of its container
-  margin-right: 140px;  // Adjust spacing on the right
+  flex: 1 1 100%;  
+  margin-right: 140px;  
 
   @media(max-width: 768px) {
     margin-right: 70px;

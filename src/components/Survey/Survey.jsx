@@ -153,7 +153,7 @@ const Survey = () => {
 
 const BackgroundContainer = styled.div`
   width: 100%;
-  height: auto; // or adjust to your requirement
+  height: auto; 
   position: relative;
   display: flex;
   justify-content: center;
@@ -169,7 +169,7 @@ const BackgroundContainer = styled.div`
     background: url(${logo}) no-repeat center center;
     background-size: 45%; 
     opacity: 0.1;
-    z-index: -1; // Ensures the background is behind the content
+    z-index: -1; 
   }
   @media(max-width: 1024px){
     
@@ -187,15 +187,15 @@ const Container = styled.div`
   width: 90%;
   margin: 0 auto;
   padding: 75px 20px 0 20px ;
-  background-color: transparent; // Ensure the container itself has no background
-  z-index: 1; // Make sure content is above the background
+  background-color: transparent; 
+  z-index: 1; 
   position: relative;
   tag{color:red}
   p{
       font-style: italic;
     }
   @media(max-width: 1024px){
-    // Add styles for medium screens if needed
+  
   }
 
   @media(max-width: 480px){
@@ -216,7 +216,7 @@ const Title = styled.h2`
   font-weight: bold;
   font-size: 53px;
   @media(max-width: 1024px){
-    // Add styles for medium screens if needed
+
   }
 
   @media(max-width: 480px){
@@ -241,7 +241,7 @@ const FormRow = styled.div`
 `;
 
 const InputLabel = styled.label`
-  margin-bottom: 5px; // Reduced margin
+  margin-bottom: 5px; 
   font-weight: bold;
   tag{
     color: #ff0022;
@@ -251,26 +251,26 @@ const InputLabel = styled.label`
 
 const RadioGroup = styled.div`
   display: flex;
-  flex-direction: row; // Changed from column to row
-  flex-wrap: wrap; // Allows wrapping if space is insufficient
-  align-items: center; // Aligns items vertically at their center
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
   width: 100%;
 `;
 
 const RadioButton = styled.label`
-  margin-right: 20px; // Adds spacing between radio buttons
-  margin-bottom: 5px; // Keeps some space below each row
-  display: flex; // Ensures the label text aligns properly with the radio button
-  align-items: center; // Aligns the radio button and label text vertically
-  cursor: pointer; // Changes the mouse cursor to pointer when hovering over the label
-  text-decoration: underline; // Adds an underline on hover
+  margin-right: 20px; 
+  margin-bottom: 5px; 
+  display: flex;
+  align-items: center; 
+  cursor: pointer;
+  text-decoration: underline; 
 `;
 
 const ButtonRow = styled.div`
   display: flex;
-  justify-content: flex-end;  // Aligns the button to the right
-  margin-top: 20px;           // Adds some space above the button
-  width: 90%;                // Ensure it spans the full width of the container
+  justify-content: flex-end;  
+  margin-top: 20px;           
+  width: 90%;                
 `;
 
 

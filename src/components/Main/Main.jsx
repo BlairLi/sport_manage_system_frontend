@@ -5,6 +5,7 @@ import main1 from './main1.png';
 import main2 from './main2.jpeg';
 import main3 from './main3.png';
 import mainTop from './mainTop.png';
+import phonesize from './mainpagephonesize.png';
 import { Link } from "react-router-dom";
 import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
@@ -16,20 +17,55 @@ const Container = styled.div`
   padding: 0;
 `;
 
+const RegisterImage = styled.img`
+  width: 200px;  
+  height: auto; 
+  @media (max-width: 1024px) {
+    width: 55vw;  
+    max-width: 100%; 
+    
+  }
+`;
+
+const PhoneImageContainer = styled.div`
+  display: none;  
+
+  @media (max-width: 1024px) { 
+    display: block;
+    position: relative;  
+    width: 100%;
+    max-width: 860px;
+    opacity: 0.8;
+  }
+`;
+const PhoneImage = styled.img`
+  width: 100%;  
+  max-width: 860px;  
+  height: auto; 
+  display: none;  
+
+  @media (max-width: 1024px) { 
+    display: block;
+    opacity: 0.8;
+  }
+`;
 const TopSection = styled.div`
   flex: 6;
-  background-color: #95071A;  // Fallback color in case the image doesn't load
-  background-image: url(${mainTop});  // Using the imported image as background
-  background-size: 100%;  // Smaller size, adjust percentage as needed
-  background-repeat: no-repeat;  // Prevents repeating the image
-  background-position: center center;  // Centers the background image
+  background-color: #95071A;
+  background-image: url(${mainTop});
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
   position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
   padding: 20px;
-  padding-top: 560px; // adjust this if it's too large or too small based on your needs
+  padding-top: 560px;
 
+  @media (max-width: 1024px) {
+    display: none;  
+  }
 `;
 
 
@@ -37,7 +73,11 @@ const BottomSection = styled.div`
   flex: 4;
   background-color: white;
   display: flex;
-  padding: 40px 40px 40px 40px;
+  padding: 40px;
+
+  @media (max-width: 1024px) {
+    display: none;  
+  }
 `;
 
 const LeftColumn = styled.div`
@@ -109,23 +149,48 @@ const LinkContainer = styled.div`
   margin-top: 78px;
 `;
 
+const LinkContainer2 = styled.div`
+  display: none; 
+
+  @media (max-width: 1024px) {
+    display: flex;
+    position: absolute;
+    bottom: 2vw;  
+    width: 100%;
+    justify-content: center; 
+    background-color: transparent;  
+  }
+`;
+
 const ImageGallery = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 1cm;
-  gap:10px;
+  gap: 10px;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const GalleryItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
+  @media (max-width: 1024px) {
+    width: 100%;
+    padding-bottom: 5vw;
+  }
 `;
 
 const GalleryImage = styled.img`
   height: 305px;
   width: 475px;
   margin-bottom: 10px;
+  @media (max-width: 640px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const ImageDescription = styled.div`
@@ -135,6 +200,13 @@ const ImageDescription = styled.div`
   font-weight: 800;
   font-family: 'Poppins', sans-serif;
   padding: 20px 0px;
+  @media (max-width: 640px) {
+    font-size: 3vw;
+    opacity: 0.9;
+    color: white;
+    padding: 0px 0px;
+
+  }
 `;
 
 const ReadMoreLink = styled.div`
@@ -144,6 +216,13 @@ const ReadMoreLink = styled.div`
   text-align: left;
   width: 250px;
   font-size: 1.2rem;
+  @media (max-width: 640px) {
+    width: 100%;
+    text-align: center;
+    font-size: 3vw;
+    color: white;
+    opacity: 0.9;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -152,6 +231,10 @@ const TitleContainer = styled.div`
   width: 100%;
   margin-top: 20px;
   padding-left: 40px;
+  @media (max-width: 640px) {
+    padding-left: 2vw;
+    
+  }
 `;
 
 const NewTitle = styled.h2`
@@ -161,16 +244,28 @@ const NewTitle = styled.h2`
   padding-right: 20px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  @media (max-width: 640px) {
+    font-size: 4vw;
+    color: white;
+    opacity: 0.9;
+  }
 `;
 
 const StyledHorizontalLine = styled.hr`
   border: none;
   height: 4px;
   background-color: black;
-  color: black; /* Ensure the color is black */
   flex-grow: 1;
-  margin: 0 20px;
-  opacity: 1; /* Ensure the opacity is set to 1 */
+  margin: 0 20px;  
+  color: black;
+  opacity: 1;
+  @media (max-width: 640px) {
+    height: 2px;
+    margin: 0 ;   
+    color: white;
+    background-color: white;
+    opacity: 0.9;
+  }
 `;
 
 
@@ -178,19 +273,27 @@ const StyledHorizontalLine2 = styled.hr`
   border: none;
   height: 4px;
   background-color: black;
-  flex-grow: 1;
-  margin: 15px 10px 100px 15px;
-  color: black; /* Ensure the color is black */
-  opacity: 1; /* Ensure the opacity is set to 1 */
+  width: 100%;
+  margin: 20px 0;
+  color: black;
+  opacity: 1;
+  @media (max-width: 640px) {
+    height: 2px;
+    margin: 0vw ;
+    display: none;
+  }
 `;
 
 const SocialMediaIcons = styled.div`
   display: flex;
-  justify-content: center; // Centers the icons horizontally
-  align-items: center; // Centers the icons vertically if needed
-  margin: 20px; // Adds space above the icons
-  font-size: 32px; // Increase the size of the icons
-  gap: 20px; // Adds space between each icon
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  font-size: 32px;
+  gap: 20px;
+  @media (max-width: 640px) {
+    display: none;
+  }
 `;
 
 const Main = () => {
@@ -217,7 +320,12 @@ const Main = () => {
           <Image1 src={p13} alt="p13" />
         </RightColumn>
       </BottomSection>
-
+      <PhoneImageContainer>
+        <PhoneImage src={phonesize} alt="Responsive view" />
+        <LinkContainer2>
+               <Link to={`/survey`}><RegisterImage src={registernow} alt="Register Now" /></Link>
+        </LinkContainer2>
+      </PhoneImageContainer>
       <TitleContainer>
         <NewTitle>Is Your Child New to Sports?</NewTitle>
         <StyledHorizontalLine />
