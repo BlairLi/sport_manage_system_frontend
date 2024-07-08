@@ -226,19 +226,19 @@ const RegistrationForm2 = () => {
     // should be removed, use for prevent redirect to stripe
     return
 
-    try {
-      const response = await axios.post(`${url}/create-checkout-session`, {
-        lineItems,
-        customerEmail: parentEmail
-      });
-      const sessionId = response.data.id;
-      const { error } = await stripe.redirectToCheckout({ sessionId });
-      if (error) {
-        console.log(error);
-      }
-    } catch (error) {
-      console.error("Error creating checkout session:", error);
-    }
+    // try {
+    //   const response = await axios.post(`${url}/create-checkout-session`, {
+    //     lineItems,
+    //     customerEmail: parentEmail
+    //   });
+    //   const sessionId = response.data.id;
+    //   const { error } = await stripe.redirectToCheckout({ sessionId });
+    //   if (error) {
+    //     console.log(error);
+    //   }
+    // } catch (error) {
+    //   console.error("Error creating checkout session:", error);
+    // }
   };
 
   const getDayFromDate = (date) => {
@@ -307,33 +307,90 @@ const RegistrationForm2 = () => {
           <div>
             <Title>REGISTRATION FORM ({numberOfChildren} Children)</Title>
             <Description>
-            <D_title>SELECTED: <br /></D_title>
+            <D_title>
+                <FlexContainer>
+                  <span>SELECTED:</span>
+                  <BackButton href="/survey">Back</BackButton>
+                </FlexContainer>
+              </D_title>
               {gender} | Age: {age} | Class: {sport} | Location: {programLocation} | {"1 child added"}
             </Description>
-          </div>
-          <BackButton href="/survey">Back</BackButton>
+          </div>{/* <BackButton href="/survey">Back</BackButton> */}
         </Header>
       <Container onSubmit={handleNextClick}>
         <FormSection>
-          <Column>
-            <Step>
-              <StepTitle>STEP 1 - Parent/Guardian Information</StepTitle>
-              <FormRow>
-                <InputLabel>Email:</InputLabel>
-                <InputLabel>Full Name:</InputLabel>
-                <InputLabel>Phone Number:</InputLabel>
-                <InputLabel>Address:</InputLabel>
-              </FormRow>
-              <FormRow>
-              <InputLabel>
-                <StyledInputShort type="email" name="parentEmail" value={parentEmail} onChange={(e) => setParentEmail(e.target.value)} required />
-                </InputLabel>
-                <InputLabel><StyledInputShort type="text" name="parentName" value={parentName} onChange={(e) => setParentName(e.target.value)} required /></InputLabel>
-                <InputLabel><StyledInputShort type="tel" name="parentPhone" value={parentPhone} onChange={(e) => setParentPhone(e.target.value)} required /></InputLabel>
-                <InputLabel><StyledInputShort type="text" name="parentAddress" value={parentAddress} onChange={(e) => setParentAddress(e.target.value)} required /></InputLabel>
-              </FormRow>
-            </Step>
-          </Column>
+        <Column>
+              <Step>
+                <StepTitle>STEP 1 - Parent/Guardian Information</StepTitle>
+                <FormRow>
+                    <InputField>
+                      <InputLabel>Email:</InputLabel>
+                      <StyledInput type="email" name="parentEmail" required />
+                    </InputField>
+                    <InputField>
+                      <InputLabel>Full Name:</InputLabel>
+                      <StyledInput type="text" name="parentName" required />
+                    </InputField>
+                    <InputField>
+                      <InputLabel>Phone Number:</InputLabel>
+                      <StyledInput type="tel" name="parentPhone" required />
+                    </InputField>
+                    <InputField>
+                      <InputLabel>Address:</InputLabel>
+                      <StyledInput type="text" name="parentAddress" required />
+                    </InputField>
+                  </FormRow>
+
+              </Step>
+            </Column>
+
+            <Column>
+<Step>
+  <StepTitle>STEP 2 - Child Details</StepTitle>
+  <Step2FormRow>
+  <InputField>
+    <Step2InputLabel>Full Name (Child 1):</Step2InputLabel>
+    <StyledInput type="text" name="childName1" required />
+  </InputField>
+  <InputField>
+    <Step2InputLabel>Date of Birth (Child 1):</Step2InputLabel>
+    <StyledInput type="date" name="childDOB1" required onChange={(e) => handleDOBChange(0, e)} />
+  </InputField>
+  <InputField>
+    <Step2InputLabel>Class (Child 1):</Step2InputLabel>
+    <StyledInput type="text" name="childClass1" value={childClasses[0]} readOnly required />
+  </InputField>
+  <InputField>
+    <Step2InputLabel>Start Day (Child 1):</Step2InputLabel>
+    <StyledInput type="text" name="childDayOfClass1" value={childDays[0]} readOnly required />
+  </InputField>
+</Step2FormRow>
+
+  <Step2FormRow>
+  <InputField>
+    <Step2InputLabel>Full Name (Child 2):</Step2InputLabel>
+    <StyledInput type="text" name="childName2" required />
+  </InputField>
+  <InputField>
+    <Step2InputLabel>Date of Birth (Child 2):</Step2InputLabel>
+    <StyledInput type="date" name="childDOB2" required onChange={(e) => handleDOBChange(1, e)} />
+  </InputField>
+  <InputField>
+    <Step2InputLabel>Class (Child 2):</Step2InputLabel>
+    <StyledInput type="text" name="childClass2" value={childClasses[1]} readOnly required />
+  </InputField>
+  <InputField>
+    <Step2InputLabel>Day (Child 2): 
+</Step2InputLabel>
+    <StyledInput type="text" name="childDayOfClass2" value={childDays[1]} readOnly required />
+  </InputField>
+</Step2FormRow>
+
+  
+</Step>
+
+            </Column>
+{/* 
           <Column>
             <Step>
               <StepTitle>STEP 2 - Child Details</StepTitle>
@@ -362,7 +419,7 @@ const RegistrationForm2 = () => {
                 <StyledInputShort type="text" name="childDayOfClass2" value={childDays[1]} readOnly required />
               </FormRow>
             </Step>
-          </Column>
+          </Column> */}
         </FormSection>
         <StepTitle2>Program select : click for register</StepTitle2>
         <TableContainer>
@@ -476,16 +533,33 @@ const BGI = styled.div`
     opacity: 0.2;
     z-index: -1;
   }
+
+  @media (max-width: 768px) {
+    &::before {
+      background-size: 65%; // Increase background size for better visibility
+    }
+  }
+
+  @media (max-width: 480px) {
+    &::before {
+      background-size: 85%; // Further increase for small screens
+    }
+  }
 `;
 
 const Header = styled.div`
-  padding: 0px 20px;
+  padding:  0px 20px 0px 20px ;
   padding-top: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; // Space out the back button and the title
+  align-items: center;  // Vertically align the items in the middle
   max-width: 90%;
   margin: 20px auto;
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15vw 0 0 0;
+  }
 `;
 
 const Title = styled.h1`
@@ -493,25 +567,50 @@ const Title = styled.h1`
   font-family: 'League Spartan', sans-serif;
   font-weight: bold;
   font-size: 53px;
+
+  @media(max-width: 768px) {
+    font-size: 32px;
+  }
+
+  @media(max-width: 480px) {
+    font-size: 8vw;
+  }
 `;
 
 const D_title = styled.div`
   margin: 0;
   color: #95071A; 
   font-weight: 800;
+  font-size: 20px;
   font-family: 'League Spartan', sans-serif;
+
+  @media(max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media(max-width: 480px) {
+    font-size: 3.5vw;
+  }
 `;
+
 const Description = styled.p`
   margin: 10px 0;
   color: #000000;
   font-weight: 800;
-  font-family: 'League Spartan', sans-serif;
-`;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
 
+  @media(max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media(max-width: 480px) {
+    font-size: 3vw;
+  }
+`;
 
 const BackButton = styled.a`
   display: inline-block;
-  margin-top: 10px;
   padding: 10px 20px;
   background-color: #ffffff;
   color: black;
@@ -525,12 +624,29 @@ const BackButton = styled.a`
   &:hover {
     color: #5e0511;
   }
+
+  @media(max-width: 768px) {
+    padding: 8px 16px;
+  }
+
+  @media(max-width: 480px) {
+    padding: 6px 12px;
+  }
 `;
 
 const Container = styled.form`
   max-width: 90%;
   margin: 0px auto;
-  padding: 0px 20px;
+  padding: 0px 20px;  
+
+  @media(max-width: 768px) {
+    padding: 0px 10px;
+  }
+
+  @media(max-width: 480px) {
+    padding: 0px 5px;
+    max-width: 93%;
+  }
 `;
 
 const FormSection = styled.div``;
@@ -543,46 +659,92 @@ const Step = styled.div`
 
 const StepTitle = styled.div`
   margin-bottom: 10px;
-  color: #95071A;
+  color: #95071A; 
   font-size: 19.5px;
   font-weight: bold;
+
+  @media(max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media(max-width: 480px) {
+    font-size: 4vw;
+  }
 `;
 
 const StepTitle2 = styled.h6`
   margin-top: 3vw;
   margin-left: 1vw;
+
+  @media(max-width: 768px) {
+    margin-top: 10px;
+    margin-left: 5px;
+  }
+
+  @media(max-width: 480px) {
+    margin-top: 8px;
+    margin-left: 4px;
+    font-size: 4vw;
+
+  }
 `;
+
 
 const StepTitle3 = styled.h5`
   margin-bottom: 10px;
   font-weight: 600;
+
+  @media(max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media(max-width: 480px) {
+    font-size: 4vw;
+  }
 `;
 
 const FormRow = styled.div`
   display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  flex-direction: column;  // Default to column layout
+  align-items: flex-start;
+  width: 100%;
+
+  @media(min-width: 768px) {  // Switch to row layout for larger screens
+    flex-direction: row;
+  }
 `;
 
 const FormRowHorizontal = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: flex-end ;
   width: 100%;
+  flex-wrap: wrap;
 `;
 
 const InputLabel = styled.label`
-  flex: 1 1 25%;
-  margin-bottom: 0;
+  flex: 1 1 100%;  // Take full width on mobile for better readability
+  margin-bottom: 5px;  // Space between label and input on mobile
   color: #000000;
   padding: 10px 0;
+
+  @media(min-width: 768px) {
+    flex: 1 1 25%;  // Adjust width on larger screens
+    margin-bottom: 0;  // Remove bottom margin on larger screens
+    padding: 10px 0;
+  }
 `;
 
 const StyledInputShort = styled.input`
   border-radius: 50px;
   border: 1px solid;
-  flex: 1 1 25%;
-  margin-right: 140px;
+  flex: 1 1 25%;  // Maintain the original width on larger screens
+  margin-right: 140px; // Maintain original margin right
+
+  @media(max-width: 768px) {
+    flex: 1 1 100%;  // Full width on smaller screens
+    margin-right: 10px; // Reduced margin for mobile
+    margin-bottom: 10px; // Additional bottom margin for spacing between inputs on mobile
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -591,13 +753,29 @@ const TextArea = styled.textarea`
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+
+  @media(max-width: 768px) {
+    margin-bottom: 8px;
+  }
+
+  @media(max-width: 480px) {
+    margin-bottom: 6px;
+  }
 `;
 
 const ButtonRow = styled.div`
-  margin-top: 20px;
+  margin-top: 20px; /* Ensure it has some spacing from other content */
   flex: 1 1 20%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Align items to the right */
+
+  @media(max-width: 768px) {
+    margin-top: 16px;
+  }
+
+  @media(max-width: 480px) {
+    margin-top: 12px;
+  }
 `;
 
 const ConfirmButton = styled.button`
@@ -608,7 +786,7 @@ const ConfirmButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   text-decoration: underline;
-  margin-bottom: 25px;
+  margin-bottom: 25px; // Keeps some space below each row
   font-weight: 800;
 
   &:hover {
@@ -617,8 +795,23 @@ const ConfirmButton = styled.button`
 
   img {
     margin-left: 5px;
-    width: 20px;
+    width: 20px; // Adjust size as necessary
     height: auto;
+  }
+
+  @media(max-width: 768px) {
+    padding: 8px 16px;
+  }
+
+  @media(max-width: 480px) {
+    padding: 2vw 4vw;
+    margin-bottom: 0px;
+    font-size: 3.8vw;
+    img {
+    margin-left: 5px;
+    width: 3vw; // Adjust size as necessary
+    height: auto;
+  }
   }
 `;
 
@@ -626,6 +819,10 @@ const TableContainer = styled.div`
   width: 100%;
   border-radius: 8px;
   padding: 0px 16px 16px 16px;
+
+  @media (max-width: 768px) {
+    padding: 0; // Remove padding for tablet size
+  }
 `;
 
 const SmallText = styled.p`
@@ -642,11 +839,17 @@ const NoProgramsMessage = styled.p`
 `;
 
 const StyledTable = styled.table`
-  border-color: #95071A;
+  border-color:#95071A;
   width: 100%;
   table-layout: fixed;
-  tr {
-    text-align: center;
+  tr { text-align: center; }
+
+  @media(max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media(max-width: 480px) {
+    font-size: 3vw;
   }
 `;
 
@@ -675,6 +878,71 @@ const RegisterButton = styled.button`
 
   &:hover {
     background-color: #45a049;
+  }
+`;
+
+const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align items vertically center */
+  width: 100%; /* Ensure it takes up the full width */
+`;
+const InputField = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  opacity: ${props => props.className === 'noo' ? 0 : 1};  // Sets opacity to 0 if className is 'noo'
+
+  @media(min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+  }
+
+    @media(max-width: 460px) {
+    display: ${props => props.className === 'noo' ? 'none' : 'flex'};  // Hide if className is 'noo'
+
+}
+`;
+const StyledInput = styled.input`
+  border-radius: 50px;
+  border: 1px solid;
+  flex: 1 1 100%;  // Ensure input takes full width of its container
+  margin-right: 140px;  // Adjust spacing on the right
+
+  @media(max-width: 768px) {
+    margin-right: 70px;
+  }
+
+  @media(max-width: 480px) {
+    margin-right: 35px;
+  }
+`;
+
+const Step2FormRow = styled.div`
+  display: flex;
+  flex-direction: column;  // Default to column on smaller screens
+  align-items: flex-start;
+  width: 100%;
+
+  @media(min-width: 768px) {  // Switch to row layout for larger screens
+    flex-direction: row;
+  }
+`;
+
+const Step2InputLabel = styled.label`
+  flex: 1 1 25%;  // Adjust to control label width
+  margin-bottom: 0;
+  color: #000000;
+  padding: 10px 0;
+
+  @media(max-width: 768px) {
+    padding: 8px 0;
+  }
+
+  @media(max-width: 480px) {
+    padding: 6px 0;
+    font-size: 3vw;
   }
 `;
 
