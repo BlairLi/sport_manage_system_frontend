@@ -86,21 +86,40 @@ const RegistrationForm2 = () => {
     e.preventDefault();
     await handleRegisterSelections(e);
 
-    if (
-      !parentEmail ||
-      !parentName ||
-      !parentPhone ||
-      !parentAddress ||
-      !childDOBs[0] ||
-      !childClasses[0] ||
-      !childDays[0] ||
-      !childDOBs[1] ||
-      !childClasses[1] ||
-      !childDays[1]
-    ) {
-      alert("Please fill in all required fields.");
+
+    const parentEmail = document.querySelector('input[name="parentEmail"]').value;
+    const parentName = document.querySelector('input[name="parentName"]').value;
+    const parentPhone = document.querySelector('input[name="parentPhone"]').value;
+    const parentAddress = document.querySelector('input[name="parentAddress"]').value;
+    const childName1 = document.querySelector('input[name="childName1"]').value;
+    const childDOB1 = document.querySelector('input[name="childDOB1"]').value;
+    const childName2 = document.querySelector('input[name="childName2"]').value;
+    const childDOB2 = document.querySelector('input[name="childDOB2"]').value;
+    const childClassInput1 = document.querySelector('input[name="childClass1"]').value;
+    const childClassInput2 = document.querySelector('input[name="childClass2"]').value;
+    const childDayOfClass1 = document.querySelector('input[name="childDayOfClass1"]').value;
+    const childDayOfClass2 = document.querySelector('input[name="childDayOfClass2"]').value;
+
+    const missingFields = [];
+
+    if (!parentEmail) missingFields.push("Parent Email");
+    if (!parentName) missingFields.push("Parent Name");
+    if (!parentPhone) missingFields.push("Parent Phone");
+    if (!parentAddress) missingFields.push("Parent Address");
+    if (!childName1) missingFields.push("Child 1 Name");
+    if (!childDOB1) missingFields.push("Child 1 DOB");
+    if (!childClassInput1) missingFields.push("Child 1 Class");
+    if (!childDayOfClass1) missingFields.push("Child 1 Day");
+    if (!childName2) missingFields.push("Child 2 Name");
+    if (!childDOB2) missingFields.push("Child 2 DOB");
+    if (!childClassInput2) missingFields.push("Child 2 Class");
+    if (!childDayOfClass2) missingFields.push("Child 2 Day");
+
+    if (missingFields.length > 0) {
+      alert("Please fill in all required fields:\n" + missingFields.join(", "));
       return;
     }
+
     if (!selectedForFirstChild || !selectedForSecondChild) {
       alert("Please select programs for both children before proceeding.");
       return;
@@ -159,7 +178,7 @@ const RegistrationForm2 = () => {
       child2Amount: 0,
       child2Start: e.target.childDayOfClass2.value,
       child2End: "2029-12-31", // TODO: Update end date
-      makeupClasses: "None",
+      makeupClasses: "",
       notes: e.target.additionalComments.value,
     };
 
@@ -186,7 +205,11 @@ const RegistrationForm2 = () => {
     try {
       const response = await axios.post(`${url}/create-checkout-session`, {
         lineItems,
-        customerEmail: parentEmail
+        successUrl: `${window.location.origin}/success/`, 
+        cancelUrl: `${window.location.origin}/cancel/`,
+        bookingID: newRegistration.bookingID,
+        child1Amount: lineItems[0].price_data.unit_amount / 100,
+        child2Amount: lineItems.length > 1 ? lineItems[1].price_data.unit_amount / 100 : 0  
       });
       const sessionId = response.data.id;
       const { error } = await stripe.redirectToCheckout({ sessionId });
