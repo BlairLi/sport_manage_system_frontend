@@ -1,9 +1,10 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
 import axios from 'axios';
-import logo from './headerlogo.png';
+import logo from './headerlogo2.png';
 import contactBg from './contactBg.png';
 import send from './send.png';
 
@@ -24,14 +25,33 @@ const Container = styled.div`
     background-color: #ffffff76;
     border-radius: 25px;
     padding: 25px;
+
+    @media (max-width: 1024px) {
+        display: flex;
+        flex-direction: column;
+    padding: 25px 25px 0px 25px;
+    background-color: #00000011;
+
+    }
+
     h1 {
         font-size: 150px;
         color: #95071A;
         font-family: 'League Spartan', sans-serif;
         font-weight: bold;
+
+        @media (max-width: 1024px) {
+            font-size: 10vw;
+        }
     }
+
     p {
         font-size: 25px;
+
+        @media (max-width: 1024px) {
+            order: 2;
+            font-size: 3vw;
+        }
     }
 `;
 
@@ -40,22 +60,40 @@ const LogoSection = styled.div`
     justify-content: flex-end;
     margin-top: auto;
     padding: 10px;
+
+    @media (max-width: 1024px) {
+        order: 4;
+    padding: 0px;
+    }
 `;
 
 const Logo = styled.img`
     width: 200px;
     height: auto;
+
+    @media (max-width: 1024px) {
+        width: 150px;
+    }
 `;
 
 const Logo2 = styled.img`
     width: 150px;
     height: auto;
+    @media(max-width: 480px){
+        width: 80px;
+    }
 `;
 
 const Content = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+    margin-top: 0px;
+
+    }
 `;
 
 const Section = styled.div`
@@ -63,6 +101,12 @@ const Section = styled.div`
     padding: 10px;
     text-align: left;
     margin-right: ${props => props.marginRight ? '80px' : '0'};
+
+    @media (max-width: 1024px) {
+        margin-right: 0;
+        order: ${props => props.order || 'initial'};
+        padding: 0px;
+    }
 `;
 
 const Address = styled.p`
@@ -71,6 +115,12 @@ const Address = styled.p`
     margin-top: 30px;
     font-weight: 800;
     margin-bottom: 25px;
+
+    @media (max-width: 1024px) {
+        order: 3;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    }
 `;
 
 const SocialIcons = styled.div`
@@ -80,12 +130,49 @@ const SocialIcons = styled.div`
     display: flex;
     justify-content: start;
     gap: 15px;
+
+    @media (max-width: 1024px) {
+
+        display: none;
+    }
+`;
+
+const SocialIcons2 = styled.div`
+    font-size: 24px;
+    display: flex;
+    justify-content: start;
+    gap: 15px;
+    align-items: center;
+
+    @media (max-width: 1024px) {
+        justify-content: center;
+        order: 12;
+        display: flex;
+    }
+
+    @media (min-width: 1025px) {
+        display: none;
+    }
+    @media(max-width: 480px){
+        width: 100px;
+    }
 `;
 
 const UserName = styled.p`
     font-weight: 800;
-`;
 
+    @media (max-width: 1024px) {
+        text-align: center;
+        display: none;
+    }
+`;
+const UserName2 = styled.p`
+    font-weight: 800;
+
+    @media (min-width: 1025px) {
+        display: none;
+    }
+`;
 const FormGroup = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -93,20 +180,46 @@ const FormGroup = styled.div`
     row-gap: 10px;
     margin-bottom: 20px;
     font-size: 18px;
+
+    @media (max-width: 1024px) {
+        order: 5;
+    row-gap: 0px;
+    margin-bottom: 0px;
+    column-gap: 0px;
+
+    }
 `;
 
 const Label = styled.label`
     grid-column: span 1;
+@media(max-width: 480px){
+transform: scale(0.6);
+}
+
 `;
 
 const Label2 = styled.label`
     grid-column: span 2;
+
+@media(max-width: 480px){
+    transform: scale(0.6);
+    grid-column: span 1;
+}
 `;
 
 const Input = styled.input`
     padding: 8px;
     width: 100%;
     border-radius: 25px;
+    @media(max-width: 1024px){
+    transform: scale(0.95);
+    padding: 10px;
+}
+    @media(max-width: 480px){
+    transform: scale(0.9);
+    width: 98%;
+    padding: 0px;
+}
 `;
 
 const Input2 = styled.input`
@@ -114,6 +227,12 @@ const Input2 = styled.input`
     padding: 8px;
     width: 100%;
     border-radius: 25px;
+
+
+    @media(max-width: 480px){
+    transform: scale(0.95);
+    padding: 0px;
+}
 `;
 
 const TextArea = styled.textarea`
@@ -121,6 +240,11 @@ const TextArea = styled.textarea`
     width: 100%;
     padding: 8px;
     border-radius: 25px;
+    @media(max-width: 480px){
+    transform: scale(0.95);
+    padding: 0px;
+  rows:2;
+}
 `;
 
 const Button = styled.button`
@@ -130,6 +254,19 @@ const Button = styled.button`
     border-radius: 25px;
     cursor: pointer;
     grid-column: 1 / -1;
+    @media(max-width: 480px){
+        margin-left: 3vw;
+}
+`;
+
+const Lastline = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  div{ 
+
+    padding-top: 10px;
+}
 `;
 
 function ContactPage() {
@@ -166,21 +303,22 @@ function ContactPage() {
           <Container>
               <h1>Contact us!</h1>
               <Content>
-                  <Section marginRight>
+                  <Section marginRight order={2}>
                       <p>Questions about our programs? Feel free to get in touch using any of the information below, we look forward to hearing from you!</p>
                       <Address>
                           +1 (416) 453-8814<br />
                           JuniorAthletics.ca
                       </Address>
                       <SocialIcons>
-                          <BsFacebook />
-                          <BsTwitter />
-                          <AiOutlineInstagram />
-                          <AiFillLinkedin />
-                      </SocialIcons>
-                      <UserName>@JuniorAthletics</UserName>
+                      <BsFacebook />
+                      <BsTwitter />
+                      <AiOutlineInstagram />
+                      <AiFillLinkedin />
+                  </SocialIcons>
+                  <UserName>@JuniorAthletics</UserName>
+
                   </Section>
-                  <Section>
+                  <Section order={5}>
                       <form onSubmit={handleSubmit}>
                           <FormGroup>
                               <Label htmlFor="firstName">First Name</Label>
@@ -190,14 +328,25 @@ function ContactPage() {
                               <Label htmlFor="email">Email</Label>
                               <Input2 type="email" id="email" value={formData.email} onChange={handleChange} />
                               <Label2 htmlFor="message">Message</Label2>
-                              <TextArea id="message" rows="4" value={formData.message} onChange={handleChange}></TextArea>
+                              <TextArea id="message" rows="3" value={formData.message} onChange={handleChange}></TextArea>
                           </FormGroup>
+                         < Lastline>
                           <Button type="submit"><Logo2 src={send} alt="send" /></Button>
+                          <div>
+                            <SocialIcons2>
+                                <BsFacebook />
+                                <BsTwitter />
+                                <AiOutlineInstagram />
+                                <AiFillLinkedin />
+                            </SocialIcons2>
+                            <UserName2>@JuniorAthletics</UserName2>
+                          </div>
+                          </Lastline>
                       </form>
                   </Section>
-                  <LogoSection>
-                      <Logo src={logo} alt="Junior Athletics Logo" />
-                  </LogoSection>
+                  <LogoSection order={5}>
+                          <Logo src={logo} alt="Junior Athletics Logo" />
+                      </LogoSection>
               </Content>
           </Container>
       </Containerr>
