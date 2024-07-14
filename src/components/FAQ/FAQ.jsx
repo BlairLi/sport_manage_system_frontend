@@ -48,7 +48,7 @@ const Faq = () => {
         <GalleryItem>
           <GalleryImage src={main3} alt="Hello" />
           <ImageDescription>Coming Soon</ImageDescription>
-          <Link to="/Content2"><ReadMoreLink>Read more</ReadMoreLink></Link>
+          <ReadMoreLink>Read more</ReadMoreLink>
         </GalleryItem>
       </ImageGallery>
       <SocialMediaIcons>

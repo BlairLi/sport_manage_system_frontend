@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect } from "react";
 import axios from "axios";
+import logo from '../../public/image.png';  // Ensure you have the logo image path correctly
+import check from '../../public/check.png';
+
 
 const Container = styled.div`
   display: flex;
@@ -9,21 +12,46 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: #e0ffe0;
+  background: #ffffff;
+  font-family: 'Poppins', sans-serif;
 `;
 
-const Message = styled.h1`
-  color: #4caf50;
+const Title = styled.h1`
+  color: #95071A;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+`;
+
+const Logo = styled.img`
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+`;
+
+const Message = styled.p`
+  color: #000000;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 40px;
+`;
+
+const Checkmark = styled.img`
+  width: 50px; // Adjust size as necessary
+  height: auto;
+  margin-bottom: 20px;
 `;
 
 const HomeButton = styled(Link)`
   padding: 10px 20px;
-  background: #4caf50;
+  background: #4CAF50;
   color: white;
   text-decoration: none;
   border-radius: 5px;
-  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: bold;
 `;
+
 const url = import.meta.env.VITE_MONGODB_URL;
 
 const Success = () => {
@@ -57,14 +85,13 @@ const Success = () => {
   };
 
   const updatedRegistration = async (id, child1Amount, child1Amount2, child2Amount) => {
-    
     const updateRegistration = {
       child1Amount: child1Amount,
       child1Amount2: child1Amount2 ? Number(child1Amount2) : 0,
       child2Amount: child2Amount ? Number(child2Amount) : 0,
     };
 
-  console.log('updateRegistration:', updateRegistration);
+    console.log('updateRegistration:', updateRegistration);
     try {
       await axios.put(`${url}/api/updateRegistration/${id}`, updateRegistration);
     } catch (error) {
@@ -74,16 +101,19 @@ const Success = () => {
     console.log('Payment successful, registration updated!');
   };
 
-
   return (
     <Container>
-      <Message>Payment Successful!</Message>
-      <HomeButton to="/">Go to Home</HomeButton>
+      <Title>THANK YOU!</Title>
+      <Logo src={logo} alt="Junior Athletics Logo" />
+      <Checkmark src={check} alt="Checkmark" />
+      <Message>
+        Thank you for filling out the form. <br />
+        We have received your information and will get back to you shortly. <br/>
+        If you have any questions in the meantime, please don't hesitate to contact us.
+      </Message>
+      <HomeButton to="/">Go Back to Home Page</HomeButton>
     </Container>
   );
 };
 
 export default Success;
-
-
-

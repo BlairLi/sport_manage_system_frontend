@@ -346,7 +346,7 @@ const Main = () => {
           <GalleryItem>
             <GalleryImage src={main3} alt="Coming Soon" />
             <ImageDescription>Coming Soon</ImageDescription>
-            <Link to="/Content2"><ReadMoreLink>Read more</ReadMoreLink></Link>
+            <Link><ReadMoreLink>Read more</ReadMoreLink></Link>
           </GalleryItem>
         </ImageGallery>
         <SocialMediaIcons>

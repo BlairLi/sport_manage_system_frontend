@@ -1,8 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 import styled from "styled-components";
 import logo from './logo.jpg'; 
+import { useEffect } from "react";
 
 const Content1 = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <Background>
       <Container>
