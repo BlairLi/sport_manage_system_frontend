@@ -9,6 +9,7 @@ import phonesize from './mainpagephonesize.png';
 import { Link } from "react-router-dom";
 import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
+import { useEffect } from 'react';
 
 const Container = styled.div`
   display: flex;
@@ -297,6 +298,26 @@ const SocialMediaIcons = styled.div`
 `;
 
 const Main = () => {
+  useEffect(() => {
+    // Append Helpwise script to the document
+    const script1 = document.createElement('script');
+    script1.src = "https://cdn.helpwise.io/assets/js/livechat.js";
+    script1.async = true;
+    script1.onload = () => {
+      // Initialize the Helpwise settings after the script is loaded
+      window.helpwiseSettings = {
+        widget_id: '6695e26e4ec82',
+        align: 'right',
+      };
+    };
+    document.body.appendChild(script1);
+
+    // Cleanup function to remove the script when the component unmounts
+    return () => {
+      document.body.removeChild(script1);
+    };
+  }, []);
+    
   return (
     <Container>
       <TopSection>{/*   <TextContainer>

@@ -66,7 +66,6 @@ const Card = styled.div`
   background-size: cover; /* Ensures the image covers the entire card */
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents the image from repeating */
-  // height: 500px; /* Adjust height as needed to fit your design */
 `;
 
 
@@ -81,6 +80,20 @@ const CardHeader = styled.div`
 const CardBody = styled.div`
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.8);
+  position: relative;
+`;
+
+const SectionTitle = styled.div`
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 10px 0;
+`;
+
+const Divider = styled.hr`
+  border: none;
+  height: 1px;
+  background-color: #333;
+  margin: 20px 0;
 `;
 
 const CardFooter = styled.div`
@@ -236,7 +249,7 @@ const OurProgram = () => {
         <ProgramContainer>
           <Card style={{ backgroundImage: `url(${p1})` }}>
             <CardHeader>
-              {/* <Badge src={p1} alt="Basketball Group Training Academy" /> */}
+              <Badge src={p1} alt="Basketball Group Training Academy" />
               Basketball Group Training Academy
             </CardHeader>
             <CardBody>
@@ -244,17 +257,23 @@ const OurProgram = () => {
               <SpecialPrice>JULY SPECIAL</SpecialPrice>
               <Price>$100</Price>
               <PerMonth>per month</PerMonth>
+              <Divider />
+              <SectionTitle>Details</SectionTitle>
               <Details>
                 <DetailItem>Level: Beginner</DetailItem>
                 <DetailItem>4-5 Sessions per month</DetailItem>
                 <DetailItem>75 minute sessions</DetailItem>
               </Details>
+              <Divider />
+              <SectionTitle>Outcome</SectionTitle>
               <Outcome>
                 <FeatureList>
                   <FeatureItem>Comprehensive basketball skill training</FeatureItem>
                   <FeatureItem>Teamwork and sportsmanship focus</FeatureItem>
                 </FeatureList>
               </Outcome>
+              <Divider />
+              <SectionTitle>Notes</SectionTitle>
               <Notes>
                 <FeatureList>
                   <FeatureItem>Parent receive 1-4 monthly coupons to local stores</FeatureItem>
@@ -264,7 +283,8 @@ const OurProgram = () => {
               </Notes>
             </CardBody>
             <CardFooter>
-              <Link to="/BTraining">
+              {/* <Link to="/BTraining"> */}
+              <Link to="/survey?class=Basketball Group Academy Training">
                 <RegisterNowImage src={registernow} alt="Register Now" />
               </Link>
             </CardFooter>
@@ -272,7 +292,7 @@ const OurProgram = () => {
 
           <Card style={{ backgroundImage: `url(${p2})` }}>
             <CardHeader>
-              {/* <Badge src={p2} alt="All Girls Training Academy" /> */}
+              <Badge src={p2} alt="All Girls Training Academy" />
               All Girls Training Academy
             </CardHeader>
             <CardBody>
@@ -280,17 +300,23 @@ const OurProgram = () => {
               <SpecialPrice>JULY SPECIAL</SpecialPrice>
               <Price>$100</Price>
               <PerMonth>per month</PerMonth>
+              <Divider />
+              <SectionTitle>Details</SectionTitle>
               <Details>
                 <DetailItem>Level: Beginner</DetailItem>
                 <DetailItem>8 sessions per season</DetailItem>
                 <DetailItem>75 minute sessions</DetailItem>
               </Details>
+              <Divider />
+              <SectionTitle>Outcome</SectionTitle>
               <Outcome>
                 <FeatureList>
                   <FeatureItem>Empowering girls through sports</FeatureItem>
                   <FeatureItem>Improved skills, fitness, and self-esteem</FeatureItem>
                 </FeatureList>
               </Outcome>
+              <Divider />
+              <SectionTitle>Notes</SectionTitle>
               <Notes>
                 <FeatureList>
                   <FeatureItem>Parent receive 1-4 monthly coupons to local stores</FeatureItem>
@@ -300,7 +326,8 @@ const OurProgram = () => {
               </Notes>
             </CardBody>
             <CardFooter>
-              <Link to="/AllGirlsTrainingAcademy">
+              {/* <Link to="/AllGirlsTrainingAcademy"> */}
+              <Link to="/survey?class=All-Girls Training Academy">
                 <RegisterNowImage src={registernow} alt="Register Now" />
               </Link>
             </CardFooter>
@@ -308,24 +335,30 @@ const OurProgram = () => {
 
           <Card style={{ backgroundImage: `url(${p3})` }}>
             <CardHeader>
-              {/* <Badge src={p3} alt="Leadership Camps" /> */}
+              <Badge src={p3} alt="Leadership Camps" />
               Leadership Camps
             </CardHeader>
             <CardBody>
               <SpecialPrice>JULY SPECIAL</SpecialPrice>
               <Price>$325</Price>
               <PerMonth>per week</PerMonth>
+              <Divider />
+              <SectionTitle>Details</SectionTitle>
               <Details>
                 <DetailItem>Level: All skill levels welcome</DetailItem>
                 <DetailItem>Multi-sports; Basketball, Soccer, & Volleyball</DetailItem>
                 <DetailItem>9am - 4pm (With extended hours options)</DetailItem>
               </Details>
+              <Divider />
+              <SectionTitle>Outcome</SectionTitle>
               <Outcome>
                 <FeatureList>
                   <FeatureItem>Focus on personal growth and confidence</FeatureItem>
                   <FeatureItem>Indoor and outdoor learning conditions</FeatureItem>
                 </FeatureList>
               </Outcome>
+              <Divider />
+              <SectionTitle>Notes</SectionTitle>
               <Notes>
                 <FeatureList>
                   <FeatureItem>Monthly local store discounts on gear</FeatureItem>
@@ -335,7 +368,8 @@ const OurProgram = () => {
               </Notes>
             </CardBody>
             <CardFooter>
-              <Link to="/LeadershipCamps">
+              {/* <Link to="/LeadershipCamps"> */}
+              <Link to="/survey?class=Leadership Retreats">
                 <RegisterNowImage src={registernow} alt="Register Now" />
               </Link>
             </CardFooter>
