@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 import p13 from './headerlogo.png';
-import registernow from './registernow.png';
+import registernow from './goldenregister.png';
 import main1 from './main1.png';
 import main2 from './main2.jpeg';
 import main3 from './main3.png';
 import mainTop from './mainTop.png';
 import phonesize from './mainpagephonesize.png';
+import aboutbgi from './aboutbgi.png'; 
+import logoImg from './headerlogo2.png'; 
 import { Link } from "react-router-dom";
 import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { useEffect } from 'react';
+
 
 const Container = styled.div`
   display: flex;
@@ -297,6 +300,168 @@ const SocialMediaIcons = styled.div`
   }
 `;
 
+const FormSection = styled.section`
+  padding: 40px;
+  background-color: #fff;  // White background
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  p{
+      font-style: italic;
+    }
+    tag{
+    color: #ff0022;
+  }
+`;
+
+const InputGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+  align-items: center; 
+`;
+
+const Input = styled.input`
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #000000; 
+  border-radius: 20px; 
+  margin-bottom: 20px;
+
+`;
+
+const InputLabel = styled.div`
+  flex: 1;
+  padding: 5px 0px;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+
+`;
+
+
+
+
+const Label = styled.label`
+  font-size: 40px;
+  font-weight: bold;
+  display: block; 
+  color: #95071A;
+  font-family: 'League Spartan', sans-serif; 
+`;
+
+
+
+const FormHeader = styled.div`
+  text-align: center;
+`;
+
+const TrialOffer = styled.h2`
+  font-size: 38px;
+  font-weight: bold;
+  margin: 0; 
+  line-height: 0.6; 
+  font-family: 'Poppins', sans-serif;
+`;
+
+const BookYour = styled.h3`
+  font-size: 75px; 
+  font-weight: bold;
+  margin: 0; 
+  color: #95071A; 
+  font-family: 'League Spartan', sans-serif; 
+`;
+
+const FreeSessionNow = styled.h3`
+  font-size: 99px;
+  font-weight: bold;
+  color: #95071A;
+  line-height: 0.9; 
+  margin-bottom: 0; 
+  font-family: 'League Spartan', sans-serif;
+`;
+
+const SessionValidity = styled.p`
+  font-size: 20px; 
+  font-family: 'Poppins', sans-serif;
+  color: black;
+`;
+
+
+const Button = styled.button`
+  font-size: 18px;
+  color: black;
+  border: none;
+  cursor: pointer;
+  background: none;
+  text-decoration: underline;
+  align-self: flex-end; 
+  padding: 0;
+  display: inline;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%; 
+`;
+
+const FormLine = styled.hr`
+  border: none;
+  height: 1px;
+  background-color: black;
+  flex-grow: 1;
+  color: black;
+  opacity: 1;
+  @media (max-width: 640px) {
+    margin: 0 ;   
+    opacity: 0.9;
+  }
+`;
+
+// mystery page
+
+const MissionSection = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  background-image: url(${aboutbgi});
+  background-size: cover;
+  background-position: center;
+  height: 110vh;
+  padding-right: 5%;  
+  padding-top: 5%;  
+`;
+
+const MissionContent = styled.div`
+  width: 40%;  
+  text-align: center;
+`;
+
+const MissionLogo = styled.img`
+  width: 25rem;  
+  height: auto;
+  margin-bottom: 20px;
+`;
+
+const MissionTitle = styled.h2`
+  font-size: 3rem;  
+  margin-bottom: 10px;
+  font-style: italic;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+`;
+
+const MissionText = styled.p`
+  font-size: 1.5rem;
+  padding: 0px 5rem;
+  font-family: 'Poppins', sans-serif;
+`;
+
+// mystery page
+
 const Main = () => {
   useEffect(() => {
     // Append Helpwise script to the document
@@ -347,6 +512,56 @@ const Main = () => {
                <Link to={`/survey`}><RegisterImage src={registernow} alt="Register Now" /></Link>
         </LinkContainer2>
       </PhoneImageContainer>
+
+
+      <FormSection>
+        <FormHeader>
+          <TrialOffer>OR ENJOY A FREE TRIAL</TrialOffer>
+        <FormLine />
+          <BookYour>BOOK YOUR</BookYour>
+          <FreeSessionNow>FREE SESSION NOW</FreeSessionNow>
+          <SessionValidity>Free session is only valid once, per child</SessionValidity>
+        </FormHeader>
+        <Form>
+          <p>Please complete each indicated question<tag> * </tag></p>
+          <Label>Parent Information</Label>
+          <InputGroup>
+            <InputLabel>First Name</InputLabel>
+            <InputLabel>Last Name</InputLabel>
+            <InputLabel>Phone Number</InputLabel>
+            <InputLabel>Email Address</InputLabel>
+          </InputGroup>
+          <InputGroup>
+            <Input type="text" name="First Name" required/>
+            <Input type="text" name="Last Name" required/>
+            <Input type="tel" name="Phone Number" required/>
+            <Input type="email" name="Email Address" required/>
+          </InputGroup>
+
+          <Label>STEP 2 - Child Details</Label>
+          <InputGroup>
+            <InputLabel>Full Name</InputLabel>
+            <InputLabel>Date of Birth (YYYY/MM/DD)</InputLabel>
+            <InputLabel>Full Name</InputLabel>
+            <InputLabel>Date of Birth (YYYY/MM/DD)</InputLabel>
+          </InputGroup>
+          <InputGroup>
+            <Input type="text" name="First Name" required />
+            <Input type="date" name="Last Name" required/>
+            <Input type="text" name="Phone Number" />
+            <Input type="date" name="Email Address" />
+          </InputGroup>
+
+  <ButtonContainer>
+    <Button type="submit">Submit</Button>
+  </ButtonContainer>
+</Form>
+
+
+      </FormSection>
+      
+
+
       <TitleContainer>
         <NewTitle>Is Your Child New to Sports?</NewTitle>
         <StyledHorizontalLine />
@@ -366,8 +581,8 @@ const Main = () => {
           </GalleryItem>
           <GalleryItem>
             <GalleryImage src={main3} alt="Coming Soon" />
-            <ImageDescription>Coming Soon</ImageDescription>
-            <Link><ReadMoreLink>Read more</ReadMoreLink></Link>
+            <ImageDescription>Empowering Girls: The Importance of Female Athletics from a Young Age</ImageDescription>
+            <Link to="/Content3"><ReadMoreLink>Read more</ReadMoreLink></Link>
           </GalleryItem>
         </ImageGallery>
         <SocialMediaIcons>
@@ -376,6 +591,17 @@ const Main = () => {
         </SocialMediaIcons>
 
         <StyledHorizontalLine2 />
+{/* mystery page */}
+
+        <MissionSection>
+        <MissionContent>
+          <MissionLogo src={logoImg} alt="Logo" /> 
+          <MissionTitle>Our Mission</MissionTitle>
+          <MissionText>To empower young athletes with additional tools to assist them through life, in their personal and academic journeys.</MissionText>
+        </MissionContent>
+      </MissionSection>
+
+{/* mystery page */}
 
     </Container>
   );

@@ -46,7 +46,7 @@ const Content1 = () => {
 
             <p>Warm regards,</p>
             <p>Youth Development Basketball Team :)</p>
-            <p>Youth Development Basketball Team <Logo src={logo} alt="Youth Development Basketball Logo" /></p>
+            <p><Logo src={logo} alt="Youth Development Basketball Logo" /></p>
             <StyledHorizontalLine2 />
 
           </Texts>

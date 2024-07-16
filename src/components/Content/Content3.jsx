@@ -1,41 +1,43 @@
 /* eslint-disable react/no-unescaped-entities */
 import styled from "styled-components";
+import logo from './logo.jpg'; 
+import { useEffect } from "react";
 
-const BasketballPage = () => {
+const Content3 = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Background>
       <Container>
         <Content>
           <Texts>
-            <h1>Bounce into Success: Youth Basketball Development Programs</h1>
-            <p>Hey there, basketball-loving moms! If you've got a budding baller at home, you're in the right place. As a mom, you already know the importance of finding activities that not only keep your kids active but also teach them valuable life lessons. And what better way to do that than through the exciting world of basketball?</p>
+            <h1>Empowering Girls: The Importance of Female Athletics from a Young Age</h1>
+            <p>From playgrounds to professional arenas, the importance of female athletics cannot be overstated. Engaging in sports like basketball from a young age offers countless benefits that extend far beyond the court. Here’s why encouraging girls to participate in athletics early on is crucial for their development and future success:</p>
 
-            <h3>Why Basketball?</h3>
-            <p>Basketball is not just a game, it’s a journey of growth and discovery for your child. Here’s why it’s the perfect fit:</p>
+            <p><strong>Building Confidence and Self-Esteem:</strong> Participating in sports helps girls build confidence in their abilities and strengths. Whether dribbling a basketball or scoring a goal, each achievement reinforces a sense of accomplishment that boosts self-esteem.</p>
 
-            <ul>
-              <li><strong>Physical Fitness:</strong> Basketball provides a great cardiovascular workout that keeps kids fit and active.</li>
-              <li><strong>Teamwork:</strong> It teaches valuable lessons in cooperation, communication, and striving for common goals.</li>
-              <li><strong>Confidence Building:</strong> Each game is an opportunity to boost self-esteem through personal and team successes.</li>
-              <li><strong>Discipline and Focus:</strong> The sport teaches children about dedication, hard work, and perseverance.</li>
-            </ul>
+            <p><strong>Developing Physical and Mental Strength:</strong> Athletics promote physical fitness and overall well-being. Regular exercise strengthens muscles, improves cardiovascular health, and enhances coordination. Beyond physical fitness, sports also foster mental resilience by teaching girls to handle pressure, manage stress, and stay focused—a skill set that proves invaluable in all aspects of life.</p>
 
-            <h3>Getting Started</h3>
-            <p>Introduce your child to basketball with our beginner programs, designed specifically for young learners aged 5-10. Tailored to meet each child at their level of skill and confidence, our programs foster a love for the game in a fun, supportive environment.</p>
+            <p><strong>Cultivating Leadership and Teamwork Skills:</strong> Team sports like basketball teach girls the value of collaboration and communication. By working towards a common goal alongside teammates, girls learn to trust others, take on leadership roles, and contribute effectively to a group effort. These skills are essential in school, career settings, and community involvement, preparing girls to become confident leaders and team players.</p>
 
-            <h3>What We Offer</h3>
-            <p>Our programs range from summer camps to regular training sessions, all aimed at nurturing your child's basketball skills and passion for the game. Here’s how we can help your child shine:</p>
+            <p><strong>Fostering Lifelong Health and Fitness Habits:</strong> Engaging in sports from a young age establishes healthy habits that can last a lifetime. Girls who participate in athletics are more likely to remain physically active as adults, reducing their risk of chronic diseases such as heart disease and diabetes.</p>
 
-            <ul>
-              <li>Expert coaching in a supportive environment.</li>
-              <li>Programs tailored to novice and experienced players alike.</li>
-              <li>Opportunities for personal growth and development through basketball.</li>
-            </ul>
+            <p><strong>Challenging Gender Stereotypes and Breaking Barriers:</strong> Female athletes in sports like basketball challenge societal norms and stereotypes about women's capabilities. By excelling in a sport traditionally dominated by men, they inspire others to defy expectations and pursue their passions fearlessly.</p>
 
-            <p>Let's lace up those sneakers and hit the court together. The next generation of basketball stars is waiting to shine, and we can’t wait to help your child reach their full potential.</p>
-            
+            <p><strong>Promoting Social Inclusion and Diversity:</strong> Basketball and other team sports bring people together from diverse backgrounds and cultures, fostering inclusivity and mutual respect. Girls learn to appreciate and celebrate differences while forging friendships that transcend boundaries.</p>
+
+            <p><strong>The Impact of Female Coaches:</strong> Having female coaches in coaching girls' athletics is not just beneficial—it's essential. They bring a unique set of skills, perspectives, and experiences that positively impact the development and success of young female athletes.</p>
+
+            <p>Conclusion: Encouraging girls to participate in sports like basketball from a young age is more than just a physical activity—it's a pathway to empowerment, leadership, and personal growth. Let's continue to support and celebrate female athletes and coaches in basketball and all sports, ensuring that every girl has the opportunity to thrive both on and off the court.</p>
+
+            <p>Join us in empowering girls through basketball and athletics today!</p>
+
             <p>Warm regards,</p>
-            <p>Youth Development Basketball Team</p>
+            <p>Youth Development Basketball Team :)</p>
+            <p><Logo src={logo} alt="Youth Development Basketball Logo" /></p>
+            <StyledHorizontalLine2 />
           </Texts>
         </Content>
       </Container>
@@ -43,32 +45,21 @@ const BasketballPage = () => {
   );
 };
 
-export default BasketballPage;
+export default Content3;
 
 const Background = styled.div`
-  background-color: rgba(255, 255, 255, 0.8);  
+  background-color: rgba(255, 255, 255, 0.8);
   padding-top: 5rem;
   padding-bottom: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  h1 {
-    color: #D50032;  
-    font-size: 3.5rem;  
-    text-transform: uppercase;  
-    letter-spacing: 1px;
-  }
-  @media (max-width: 640px) {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
 `;
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  width: 80%; 
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 `;
 
@@ -81,21 +72,67 @@ const Content = styled.div`
 const Texts = styled.div`
   flex: 1;
   padding: 2rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
 
-  h3 {
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    font-size: 2rem;
-    color: #333;  
+  h1 {
+    color: #95071A;
+    font-size: 3rem;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-weight: 800;
+    font-family: 'League Spartan', sans-serif;
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+    @media (max-width: 480px) {
+      font-size: 1.3rem;
+    }
   }
 
-  ul {
-    list-style: inside square;  
+  p {
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
+    @media (max-width: 480px) {
+      font-size: 0.7rem;
+    }
+  }
+`;
+
+const Logo = styled.img`
+  height: 100px;  
+  width: auto;  
+  margin-top: 10px;  
+  display: block;  
+
+  @media (max-width: 768px) {
+    height: 80px;  
   }
 
-  li {
-    margin-bottom: 0.5em;  
+  @media (max-width: 480px) {
+    height: 60px;  
+  }
+`;
+
+const StyledHorizontalLine2 = styled.hr`
+  border: none;
+  height: 4px;
+  background-color: black;
+  color: black;
+  opacity: 1;
+  margin: 15px 10px 80px 15px;
+
+  @media (max-width: 768px) {
+    height: 3px;  
+    margin: 10px 5px 40px 10px;
+  }
+
+  @media (max-width: 480px) {
+    height: 2px;  
+    margin: 5px 2px 20px 5px;
   }
 `;

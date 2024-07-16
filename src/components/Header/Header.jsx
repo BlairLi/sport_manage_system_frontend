@@ -20,7 +20,8 @@ const Header = () => {
             <Nav bar={bar}>
                 <span><NavLink to="/OurProgram" className="activeLink">Programs</NavLink></span><span className='disinHeader'> |</span>
                 <span><NavLink to="/FAQ" className="activeLink">FAQ</NavLink></span><span className='disinHeader'> | </span>
-                <span><NavLink to="/Contact" className="activeLink">Contact</NavLink></span>
+                <span><NavLink to="/Contact" className="activeLink">Contact</NavLink></span><span className='disinHeader'> | </span>
+                <span><a href="tel:+14164538814" className="activeLink">Call Us</a></span>
                 {/*   {bar && <button style={{ marginLeft:'100px',padding: '10px 20px', backgroundColor: '#95071A', color: 'white', border: 'none', borderRadius: '25px', cursor: 'pointer' }}>Sign Up</button>}*/} 
                 </Nav>
                 <NavLink to="/" > <Logo src={logo} alt="logo" /></NavLink>

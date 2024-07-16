@@ -401,7 +401,7 @@ const RegistrationForm2 = () => {
             </Step>
           </Column> */}
         </FormSection>
-        <StepTitle2>Program select : click for register</StepTitle2>
+        <StepTitle2>Program select : click to register</StepTitle2>
         <TableContainer>
           {/* 
           <SmallText>*Red button to add a program for Child 1, Yellow button for Child 2</SmallText>
@@ -466,7 +466,7 @@ const RegistrationForm2 = () => {
         <FormSection>
           <Column>
             <Step>
-              <StepTitle3>Does the participant have any medical conditions or allergies we should be aware of:</StepTitle3>
+              <StepTitle3>Does the participant have any medical conditions or allergies we should be aware of ?</StepTitle3>
               <FormRowHorizontal>
                 <TextArea
                   name="additionalComments"

@@ -10,8 +10,8 @@ const Survey = () => {
   const [gender, setGender] = useState('');
   const [age, setAge] = useState('');
   const [sport, setSport] = useState('');
-  const [day, setDay] = useState('');
-  const [location, setLocation] = useState('');
+  const [selectedDays, setSelectedDays] = useState([]);
+  const [selectedLocations, setSelectedLocations] = useState([]);
 
 
   const navigate = useNavigate();
@@ -32,12 +32,23 @@ const Survey = () => {
     }
 }, [queryParams]);
 
+const handleCheckboxChange = (items, setItems, value, max) => () => {
+  const currentIndex = items.indexOf(value);
+  const newChecked = [...items];
+  if (currentIndex === -1 && newChecked.length < max) {
+    newChecked.push(value);
+  } else if (currentIndex !== -1) {
+    newChecked.splice(currentIndex, 1);
+  }
+  setItems(newChecked);
+};
+
   const handleRadioButtonChange = (setter) => (event) => {
     setter(event.target.value);
   };
 
   const handleNext = () => {
-    if (!gender || !age || !sport || !day || !location) {
+    if (!gender || !age || !sport || !selectedDays.length || !selectedLocations.length) {
       alert("Please fill in all required fields.");
       return;
     }
@@ -47,8 +58,8 @@ const Survey = () => {
       gender,
       age,
       sport,
-      day,
-      location
+      day: selectedDays.join(','),
+      location: selectedLocations.join(',')
     };
 
     const surveyQuery = new URLSearchParams(surveyData).toString();
@@ -108,8 +119,8 @@ const Survey = () => {
           <RadioGroup>
             {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].map(dayOption => (
               <RadioButton key={dayOption}>
-                <input type="radio" name="day" value={dayOption} checked={day === dayOption} onChange={handleRadioButtonChange(setDay)} />
-                {dayOption}
+                  <input type="checkbox" name="day" value={dayOption} checked={selectedDays.includes(dayOption)} onChange={handleCheckboxChange(selectedDays, setSelectedDays, dayOption, 2)} />
+                  {dayOption}
               </RadioButton>
             ))}
           </RadioGroup>
@@ -119,8 +130,8 @@ const Survey = () => {
           <RadioGroup>
             {['Meadowvale', 'Port Credit', 'Dixie', 'Etobicoke'].map(locationOption => (
               <RadioButton key={locationOption}>
-                <input type="radio" name="location" value={locationOption} checked={location === locationOption} onChange={handleRadioButtonChange(setLocation)} />
-                {locationOption}
+                  <input type="checkbox" name="location" value={locationOption} checked={selectedLocations.includes(locationOption)} onChange={handleCheckboxChange(selectedLocations, setSelectedLocations, locationOption, 2)} />
+                  {locationOption}
               </RadioButton>
             ))}
           </RadioGroup>
