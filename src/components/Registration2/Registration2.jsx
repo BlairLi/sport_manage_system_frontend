@@ -466,7 +466,7 @@ const RegistrationForm2 = () => {
         <FormSection>
           <Column>
             <Step>
-              <StepTitle3>Does the participant have any medical conditions or allergies we should be aware of ?</StepTitle3>
+              <StepTitle3>Does the participant have any medical conditions or allergies we should be aware of?</StepTitle3>
               <FormRowHorizontal>
                 <TextArea
                   name="additionalComments"

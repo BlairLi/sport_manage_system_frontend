@@ -158,7 +158,7 @@ const Details = styled.div`
 
 const DetailItem = styled.div`
   margin-bottom: 5px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #333;
 `;
 
@@ -188,7 +188,7 @@ const FeatureList = styled.ul`
 const FeatureItem = styled.li`
   display: flex;
   align-items: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #333;
   margin-bottom: 5px;
 
