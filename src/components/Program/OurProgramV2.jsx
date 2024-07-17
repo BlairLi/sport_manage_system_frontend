@@ -5,6 +5,13 @@ import p2 from '../../../public/Basketball_Group_Training_Academy .webp';
 import p3 from '../../../public/Leadership_Camps.webp';
 import registernow from './registernow.png';
 
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+`;
+
+
 const Containerr = styled.div`
   padding-top: 50px;
 `;
@@ -20,12 +27,15 @@ const Container = styled.div`
 const TopSection = styled.div`
   background-color: white;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start */
   justify-content: center;
   padding: 20px;
   padding-top: 70px;
   color: #95071A;
   font-weight: 800;
+  width: 100%; /* Ensure it takes the full width */
+  margin-left: 20px; /* Add margin to position it correctly */
 `;
 
 const Title = styled.h1`
@@ -38,6 +48,22 @@ const Title = styled.h1`
   }
   @media (max-width: 480px) {
     font-size: 30px;
+  }
+`;
+
+const Subtitle = styled.h2`
+  font-size: 20px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 400;
+  color: #333;
+  margin-top: 10px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+  @media (max-width: 480px) {
+    font-size: 16px;
   }
 `;
 
@@ -59,7 +85,7 @@ const Card = styled.div`
   background-color: #f5f5f5;
   border-radius: 10px;
   overflow: hidden;
-  width: 300px;
+  width: 25rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   position: relative;
@@ -68,13 +94,12 @@ const Card = styled.div`
   background-repeat: no-repeat; /* Prevents the image from repeating */
 `;
 
-
 const CardHeader = styled.div`
-  background-color: rgba(149, 7, 26, 0.8);
-  color: white;
+  color: black;
   padding: 20px;
   font-size: 1.2rem;
   font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.8); /* Added to ensure readability against the background image */
 `;
 
 const CardBody = styled.div`
@@ -102,11 +127,17 @@ const CardFooter = styled.div`
 `;
 
 const Price = styled.div`
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: bold;
   color: #95071A;
   margin: 10px 0;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+
+  span {
+    font-size: 1.5rem; /* Make the dollar sign smaller */
+  }
 `;
+
 
 const OldPrice = styled.div`
   font-size: 1rem;
@@ -244,18 +275,19 @@ const OurProgram = () => {
     <Containerr>
       <Container>
         <TopSection>
-          <Title>OUR PROGRAMS</Title>
+          <Title>CHOOSE YOUR PROGRAM</Title>
+          <Subtitle>There is a one-time fee of $25 as you register for your child's jersey, and drawstring bag</Subtitle>
         </TopSection>
         <ProgramContainer>
-          <Card style={{ backgroundImage: `url(${p1})` }}>
+          <Card style={{ backgroundImage: `url(${p2})` }}>
             <CardHeader>
-              <Badge src={p1} alt="Basketball Group Training Academy" />
-              Basketball Group Training Academy
+              {/* <Badge src={p2} alt="Basketball Group Training Academy" /> */}
+              Basketball Group Training <br/>Academy
             </CardHeader>
             <CardBody>
               <OldPrice>$150 per month</OldPrice>
               <SpecialPrice>JULY SPECIAL</SpecialPrice>
-              <Price>$100</Price>
+              <Price><span>$</span>100</Price>
               <PerMonth>per month</PerMonth>
               <Divider />
               <SectionTitle>Details</SectionTitle>
@@ -283,22 +315,21 @@ const OurProgram = () => {
               </Notes>
             </CardBody>
             <CardFooter>
-              {/* <Link to="/BTraining"> */}
               <Link to="/survey?class=Basketball Group Academy Training">
                 <RegisterNowImage src={registernow} alt="Register Now" />
               </Link>
             </CardFooter>
           </Card>
 
-          <Card style={{ backgroundImage: `url(${p2})` }}>
+          <Card style={{ backgroundImage: `url(${p1})` }}>
             <CardHeader>
-              <Badge src={p2} alt="All Girls Training Academy" />
-              All Girls Training Academy
+              {/* <Badge src={p1} alt="All Girls Training Academy" /> */}
+              All Girls Training <br/>Academy
             </CardHeader>
             <CardBody>
               <OldPrice>$150 per month</OldPrice>
               <SpecialPrice>JULY SPECIAL</SpecialPrice>
-              <Price>$100</Price>
+              <Price><span>$</span>100</Price>
               <PerMonth>per month</PerMonth>
               <Divider />
               <SectionTitle>Details</SectionTitle>
@@ -326,7 +357,6 @@ const OurProgram = () => {
               </Notes>
             </CardBody>
             <CardFooter>
-              {/* <Link to="/AllGirlsTrainingAcademy"> */}
               <Link to="/survey?class=All-Girls Training Academy">
                 <RegisterNowImage src={registernow} alt="Register Now" />
               </Link>
@@ -335,12 +365,12 @@ const OurProgram = () => {
 
           <Card style={{ backgroundImage: `url(${p3})` }}>
             <CardHeader>
-              <Badge src={p3} alt="Leadership Camps" />
-              Leadership Camps
+              {/* <Badge src={p3} alt="Leadership Camps" /> */}
+              Leadership <br/>Camps
             </CardHeader>
             <CardBody>
               <SpecialPrice>JULY SPECIAL</SpecialPrice>
-              <Price>$325</Price>
+              <Price><span>$</span>325</Price>
               <PerMonth>per week</PerMonth>
               <Divider />
               <SectionTitle>Details</SectionTitle>
@@ -368,7 +398,6 @@ const OurProgram = () => {
               </Notes>
             </CardBody>
             <CardFooter>
-              {/* <Link to="/LeadershipCamps"> */}
               <Link to="/survey?class=Leadership Retreats">
                 <RegisterNowImage src={registernow} alt="Register Now" />
               </Link>
