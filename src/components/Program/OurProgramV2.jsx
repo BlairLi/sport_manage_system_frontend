@@ -4,12 +4,7 @@ import p1 from '../../../public/All_Girls_Training_Academy.webp';
 import p2 from '../../../public/Basketball_Group_Training_Academy .webp';
 import p3 from '../../../public/Leadership_Camps.webp';
 import registernow from './registernow.png';
-
-import { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-`;
+import Reviews from './Reviews';
 
 
 const Containerr = styled.div`
@@ -96,9 +91,9 @@ const Card = styled.div`
 
 const CardHeader = styled.div`
   color: black;
-  padding: 20px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
   background-color: rgba(255, 255, 255, 0.8); /* Added to ensure readability against the background image */
 `;
 
@@ -370,6 +365,7 @@ const OurProgram = () => {
             </CardHeader>
             <CardBody>
               <SpecialPrice>JULY SPECIAL</SpecialPrice>
+              <OldPrice>$400 per month</OldPrice>
               <Price><span>$</span>325</Price>
               <PerMonth>per week</PerMonth>
               <Divider />
@@ -430,6 +426,7 @@ const OurProgram = () => {
             Cater to the individual needs of the athlete, in a supportive and inclusive way!
           </ApproachText>
         </ApproachSection>
+        <Reviews />
       </Container>
     </Containerr>
   );
