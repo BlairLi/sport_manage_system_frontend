@@ -28,7 +28,10 @@ const PopupContent = styled.div`
   p{font-size:20px;font-weight:800;
     font-family: 'League Spartan', sans-serif;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
+  transform: scale(0.8);
+    }
+  @media (max-width: 640px) {
   transform: scale(0.8);
     }
 `;
@@ -63,6 +66,30 @@ const Button = styled.button`
   }
 `;
 
+const Button2 = styled.button`
+  margin: 15px;
+  padding: 10px 20px 5px 20px;
+  background-color: #95071A;
+  color: white;
+  border: 3px solid black;  
+  border-radius: 25px;
+  width: 360px;
+  height: 60px;
+  font-size: 150%;
+  font-weight: 800;
+  font-family: 'League Spartan', sans-serif;
+  cursor: pointer;
+  flex: 1 1 45%;  
+
+  &:hover {
+    background-color: #700211;
+  }
+  @media (max-width: 768px) {
+    font-size: 110%;
+    width: 90%;
+  }
+`;
+
 
 const CloseButton = styled.button`
   position: absolute;
@@ -94,6 +121,7 @@ const Popup = ({ onClose }) => {
           <Button onClick={() => handleOptionClick('9-10')}>9-10 YEARS OLD</Button>
           <Button onClick={() => handleOptionClick('11-13')}>11-13 YEARS OLD</Button>
         </ButtonContainer>
+        <Button2 onClick={() => handleOptionClick('High School')}>HIGH SCHOOL KIDS</Button2>
       </PopupContent>
     </PopupContainer>
   );

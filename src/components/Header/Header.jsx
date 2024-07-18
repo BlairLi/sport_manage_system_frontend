@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import logo from './headerlogo.png';
+import letsconnect from './letsconnect.png';
+import signin from './signin.png';
 import {Link, NavLink } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
@@ -18,17 +20,28 @@ const Header = () => {
     return (
         <Container bar={bar}>
             <Nav bar={bar}>
-                <span><NavLink to="/OurProgram" className="activeLink">Programs</NavLink></span><span className='disinHeader'> |</span>
-                <span><NavLink to="/FAQ" className="activeLink">FAQ</NavLink></span><span className='disinHeader'> | </span>
-                <span><NavLink to="/Contact" className="activeLink">Contact</NavLink></span><span className='disinHeader'> | </span>
-                <span><a href="tel:+14164538814" className="activeLink">Call Us</a></span>
-                {/*   {bar && <button style={{ marginLeft:'100px',padding: '10px 20px', backgroundColor: '#95071A', color: 'white', border: 'none', borderRadius: '25px', cursor: 'pointer' }}>Sign Up</button>}*/} 
+            <span>
+        <NavLink to="/OurProgram" className="activeLink activeTextLink">Programs</NavLink>
+    </span>
+    <span className='disinHeader'> |</span>
+    <span>
+        <NavLink to="/FAQ" className="activeLink activeTextLink">FAQ</NavLink>
+    </span>
+    <span className='disinHeader'> | </span>
+    <span>
+        <NavLink to="/Contact" className="activeLink">
+            <LetsConnectImage src={letsconnect} alt="Connect" />
+        </NavLink>
+    </span>
+    {/*   {bar && <button style={{ marginLeft:'100px',padding: '10px 20px', backgroundColor: '#95071A', color: 'white', border: 'none', borderRadius: '25px', cursor: 'pointer' }}>Sign Up</button>}*/} 
                 </Nav>
                 <NavLink to="/" > <Logo src={logo} alt="logo" /></NavLink>
 
             <ContactInfo>
-                <span >+1 (416) 453-8814</span>
-                <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink"><SignInButton>SIGN IN</SignInButton></NavLink>
+                <span ><a href="tel:+16472609736" className="activeLink">647-260-9736</a></span>
+                <span > | </span>
+                {/* <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink"><SignInButton>SIGN IN</SignInButton></NavLink> */}
+                <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink"><SignInImage src={signin}></SignInImage></NavLink>
             </ContactInfo>
        {/*  <Bars onClick={() => setBar(!bar)} bar={bar}>
                 <div className="bar"></div>
@@ -77,7 +90,7 @@ const Logo = styled.img`
         @media(max-width: 640px){
     position:absolute;
     top: 20%;
-    left:44%;    
+    left:50%;    
     height: 65px;
     width: 65px;
     transform: translate(-50%, -8%);  
@@ -86,7 +99,7 @@ const Logo = styled.img`
     @media(max-width: 480px){
     position:absolute;
     top: 20%;
-    left:40%;    
+    left:50%;    
     height: 65px;
     width: 65px;
     transform: translate(0%, 0%); 
@@ -102,8 +115,18 @@ const ContactInfo = styled.div`
     align-items: center;
     order: 2;
 
+    a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+            position: relative;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
     @media(max-width: 640px){
-        font-size: 1.5vh;
+        font-size: 1.1vh;
     }
 
     .contact-number {
@@ -115,29 +138,29 @@ const ContactInfo = styled.div`
     span{
         margin-Right:20px;
         @media(max-width: 640px){
-            margin-Right:1.5vw;
+            margin-Right:1vw;
     }
     }
 `;
 
-const SignInButton = styled.button`
-    padding: 0px 45px;
-    background-color: #95071A;
-    color: white; 
-    border-radius: 20px;
-    font-weight: 700;
-    border: none;
-    borderRadius: 5px;
-    cursor: pointer;
-    @media(max-width: 1024px){
-       padding: 1vh 3vw;
-       font-size: 1.3vh;
-    }
-    @media(max-width: 640px){
-       padding: 0.5vh 1.5vw;
-       font-size: 1.3vh;
-    }
-`;
+// const SignInButton = styled.button`
+//     padding: 0px 45px;
+//     background-color: #95071A;
+//     color: white; 
+//     border-radius: 20px;
+//     font-weight: 700;
+//     border: none;
+//     borderRadius: 5px;
+//     cursor: pointer;
+//     @media(max-width: 1024px){
+//        padding: 1vh 3vw;
+//        font-size: 1.3vh;
+//     }
+//     @media(max-width: 640px){
+//        padding: 0.5vh 1.5vw;
+//        font-size: 1.3vh;
+//     }
+// `;
 
 const Bars = styled.div`
     display: none;
@@ -220,16 +243,20 @@ const Nav = styled.div`
 
     span {
         margin-left: 1rem;
+        @media(max-width: 1024px){
+            margin-left: 0;
+            font-size: 3vw;
+        }
         @media(max-width: 640px){
-            margin-left: 1vw;
-            font-size: 3.5vw;
+            margin-left: 0;
+            font-size: 3vw;
         }
         a {
             color: #fff;
             text-decoration: none;
             font-weight: 400;
             position: relative;
-            &:before {
+            /* &:before {
                 content: "";
                 position: absolute;
                 left: 0;
@@ -244,7 +271,7 @@ const Nav = styled.div`
             &:hover:before {
                 transform: scale(1);
                 transform-origin: left;
-            }
+            } */
             &:hover {
                 opacity: 0.7;
             }
@@ -259,3 +286,41 @@ const Nav = styled.div`
         }
     }
 `;
+
+const SignInImage = styled.img`
+    cursor: pointer;
+    width: 11rem;  
+    height: 2.3rem;  
+    &:hover {
+        opacity: 0.8;  
+    }
+    @media(max-width: 1024px){
+        height: 3vh;
+        width  : auto ;
+    }
+    @media(max-width: 640px){
+       height: 1.8vh;
+       width  : 95% ;
+    }
+
+`;
+
+const LetsConnectImage = styled.img`
+  cursor: pointer;
+    width: 11rem;  
+    height: 2.3rem;  
+    
+    &:hover {
+        opacity: 0.8;  
+    }
+    @media(max-width: 1024px){
+        height: 3vh;
+        width  : auto ;
+    }
+    @media(max-width: 640px){
+       height: 2vh;
+       width  : 95% ;
+    }
+
+`;
+

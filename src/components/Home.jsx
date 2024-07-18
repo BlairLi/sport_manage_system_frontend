@@ -30,7 +30,7 @@ const Container = styled.div`
   background-repeat: repeat;
   background-color: #ffffff;
   @media(max-width: 640px){
-    background-color: #77787D;
-
+    /* background-color: #77787D; */
+    margin-top: -11px;
     }
 `;

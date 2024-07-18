@@ -116,7 +116,13 @@ const Address = styled.div`
     font-weight: 800;
     margin-top: 30px;
     margin-bottom: 25px;
-
+    a {
+            text-decoration: none;
+            color: #95071A;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
     @media (max-width: 1024px) {
         order: 3;
         margin-top: 0px;
@@ -135,12 +141,13 @@ const Address = styled.div`
 `;
 
 const SocialIcons = styled.div`
-    font-size: 24px;
+    font-size: 26px;
     margin-top: 60px;
     margin-bottom: 10px;
+    margin-left: 2rem;
     display: flex;
     justify-content: start;
-    gap: 15px;
+    gap: 2rem;
 
     @media (max-width: 1024px) {
         display: none;
@@ -148,7 +155,8 @@ const SocialIcons = styled.div`
 `;
 
 const SocialIcons2 = styled.div`
-    font-size: 24px;
+    font-size: 20px;
+    margin-bottom: 5px;
     display: flex;
     justify-content: start;
     gap: 15px;
@@ -319,14 +327,24 @@ function ContactPage() {
                   <Section marginRight order={2}>
                       <p>Questions about our programs? Feel free to get in touch using any of the information below, we look forward to hearing from you!</p>
                       <Address>
-                          <div><img src={c1} alt="Phone Icon"/><span>+1 (416) 453-8814</span></div>
-                          <div><img src={c2} alt="Website Icon"/><span>JuniorAthletics.ca</span></div>
-                          <div><img src={c3} alt="Chat Icon"/><span>Chat with us!</span></div>
+                        <div><img src={c1} alt="Phone Icon"/><a href="tel:+16472609736" className="activeLink"><span>+1 (647) 260-9736</span></a></div>
+                        <div>                                
+                            <img src={c2} alt="Website Icon"/>
+                            <a href="mailto:contact@juniorathletics.ca">
+                            <span>JuniorAthletics.ca</span>
+                            </a>
+                        </div>                        
+                            <div>
+                            <img src={c3} alt="Chat Icon"/>
+                            <a href="https://wa.me/16472609736" target="_blank" rel="noopener noreferrer">
+                                <span>Chat with us!</span>
+                            </a>
+                            
+                        </div>
                       </Address>
                       <SocialIcons>
-                          <BsFacebook />
-                          <BsTwitter />
                           <AiOutlineInstagram />
+                          <BsFacebook />
                           <AiFillLinkedin />
                       </SocialIcons>
                       <UserName>@JuniorAthletics</UserName>
@@ -347,10 +365,9 @@ function ContactPage() {
                               <Button type="submit"><Logo2 src={send} alt="send" /></Button>
                               <div>
                                 <SocialIcons2>
-                                    <BsFacebook />
-                                    <BsTwitter />
-                                    <AiOutlineInstagram />
-                                    <AiFillLinkedin />
+                                  <AiOutlineInstagram />
+                                  <BsFacebook />
+                                  <AiFillLinkedin />
                                 </SocialIcons2>
                                 <UserName2>@JuniorAthletics</UserName2>
                               </div>

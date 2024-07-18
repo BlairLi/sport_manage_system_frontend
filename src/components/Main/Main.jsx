@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import p13 from './headerlogo.png';
 import registernow from './goldenregister.png';
+import registernow2 from './goldenregister2.png';
 import main1 from './main1.png';
-import main2 from './main2.jpeg';
+import main2 from './main4.png';
 import main3 from './main3.png';
 import mainTop from './mainTop.png';
-import phonesize from './mainpagephonesize.png';
-import aboutbgi from './aboutbgi.png'; 
-import logoImg from './headerlogo2.png'; 
+import phonesize from './mainpagephonesize2.png';
+
 import { Link } from "react-router-dom";
 import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
-import { BsFacebook, BsTwitter } from "react-icons/bs";
+import { BsFacebook } from "react-icons/bs";
 import { useEffect } from 'react';
 
 
@@ -207,7 +207,7 @@ const ImageDescription = styled.div`
   @media (max-width: 640px) {
     font-size: 3vw;
     opacity: 0.9;
-    color: white;
+    /* color: white; */
     padding: 0px 0px;
 
   }
@@ -224,7 +224,7 @@ const ReadMoreLink = styled.div`
     width: 100%;
     text-align: center;
     font-size: 3vw;
-    color: white;
+    /* color: white; */
     opacity: 0.9;
   }
 `;
@@ -250,7 +250,7 @@ const NewTitle = styled.h2`
   font-weight: bold;
   @media (max-width: 640px) {
     font-size: 4vw;
-    color: white;
+    /* color: white; */
     opacity: 0.9;
   }
 `;
@@ -266,8 +266,8 @@ const StyledHorizontalLine = styled.hr`
   @media (max-width: 640px) {
     height: 2px;
     margin: 0 ;   
-    color: white;
-    background-color: white;
+    /* color: white; */
+    /* background-color: white; */
     opacity: 0.9;
   }
 `;
@@ -302,8 +302,17 @@ const SocialMediaIcons = styled.div`
 
 const FormSection = styled.section`
   padding: 40px;
-  background-color: #fff;  // White background
+  background-color: #fff;
+
+  @media (max-width: 1024px) {
+    padding: 20px;
+  }
+
+  @media (max-width: 640px) {
+    padding: 10px;
+  }
 `;
+
 
 const Form = styled.form`
   display: flex;
@@ -320,18 +329,26 @@ const Form = styled.form`
 const InputGroup = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 100px;
-  align-items: center; 
+  gap: 10px;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 const Input = styled.input`
   flex: 1;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #000000; 
-  border-radius: 20px; 
-  margin-bottom: 20px;
+  border: 1px solid #000;
+  border-radius: 20px;
+  margin-bottom: 10px;
 
+  @media (max-width: 640px) {
+    font-size: 14px;
+    padding: 8px;
+  }
 `;
 
 const InputLabel = styled.div`
@@ -340,7 +357,11 @@ const InputLabel = styled.div`
   font-size: 20px;
   font-family: 'Poppins', sans-serif;
 
+  @media (max-width: 640px) {
+    font-size: 16px;
+  }
 `;
+
 
 
 
@@ -361,35 +382,71 @@ const FormHeader = styled.div`
 
 const TrialOffer = styled.h2`
   font-size: 38px;
-  font-weight: bold;
-  margin: 0; 
-  line-height: 0.6; 
+  margin: 0;
+  line-height: 1.1;
   font-family: 'Poppins', sans-serif;
+
+  @media (max-width: 1024px) {
+    font-size: 28px;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 24px;
+  }
 `;
 
 const BookYour = styled.h3`
-  font-size: 75px; 
-  font-weight: bold;
-  margin: 0; 
-  color: #95071A; 
-  font-family: 'League Spartan', sans-serif; 
+  font-size: 30px;
+  color: #95071A;
+  font-family: 'League Spartan', sans-serif;
+
+  @media (max-width: 1024px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 18px;
+  }
 `;
 
 const FreeSessionNow = styled.h3`
-  font-size: 99px;
-  font-weight: bold;
+  font-size: 28px;
   color: #95071A;
-  line-height: 0.9; 
-  margin-bottom: 0; 
+  margin-bottom: 0;
   font-family: 'League Spartan', sans-serif;
+
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 16px;
+  }
 `;
 
 const SessionValidity = styled.p`
-  font-size: 20px; 
+  font-size: 16px;
   font-family: 'Poppins', sans-serif;
-  color: black;
+
+  @media (max-width: 1024px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 12px;
+  }
 `;
 
+
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+
+  @media (max-width: 1024px) {
+    justify-content: center;
+  }
+`;
 
 const Button = styled.button`
   font-size: 18px;
@@ -398,16 +455,12 @@ const Button = styled.button`
   cursor: pointer;
   background: none;
   text-decoration: underline;
-  align-self: flex-end; 
-  padding: 0;
-  display: inline;
+
+  @media (max-width: 640px) {
+    font-size: 16px;
+  }
 `;
 
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  width: 100%; 
-`;
 
 const FormLine = styled.hr`
   border: none;
@@ -421,46 +474,6 @@ const FormLine = styled.hr`
     opacity: 0.9;
   }
 `;
-
-// mystery page
-
-const MissionSection = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  background-image: url(${aboutbgi});
-  background-size: cover;
-  background-position: center;
-  height: 110vh;
-  padding-right: 5%;  
-  padding-top: 5%;  
-`;
-
-const MissionContent = styled.div`
-  width: 40%;  
-  text-align: center;
-`;
-
-const MissionLogo = styled.img`
-  width: 25rem;  
-  height: auto;
-  margin-bottom: 20px;
-`;
-
-const MissionTitle = styled.h2`
-  font-size: 3rem;  
-  margin-bottom: 10px;
-  font-style: italic;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-`;
-
-const MissionText = styled.p`
-  font-size: 1.5rem;
-  padding: 0px 5rem;
-  font-family: 'Poppins', sans-serif;
-`;
-
-// mystery page
 
 const Main = () => {
   useEffect(() => {
@@ -509,7 +522,7 @@ const Main = () => {
       <PhoneImageContainer>
         <PhoneImage src={phonesize} alt="Responsive view" />
         <LinkContainer2>
-               <Link to={`/survey`}><RegisterImage src={registernow} alt="Register Now" /></Link>
+               <Link to={`/survey`}><RegisterImage src={registernow2} alt="Register Now" /></Link>
         </LinkContainer2>
       </PhoneImageContainer>
 
@@ -587,22 +600,10 @@ const Main = () => {
         </ImageGallery>
         <SocialMediaIcons>
 
-        <BsFacebook /><BsTwitter /><AiOutlineInstagram /><AiFillLinkedin />
+        <BsFacebook /><AiOutlineInstagram /><AiFillLinkedin />
         </SocialMediaIcons>
 
         <StyledHorizontalLine2 />
-{/* mystery page */}
-
-        <MissionSection>
-        <MissionContent>
-          <MissionLogo src={logoImg} alt="Logo" /> 
-          <MissionTitle>Our Mission</MissionTitle>
-          <MissionText>To empower young athletes with additional tools to assist them through life, in their personal and academic journeys.</MissionText>
-        </MissionContent>
-      </MissionSection>
-
-{/* mystery page */}
-
     </Container>
   );
 };

@@ -94,7 +94,7 @@ const handleCheckboxChange = (items, setItems, value, max) => () => {
         <FormRow>
           <InputLabel>Age<tag> * </tag></InputLabel>
           <RadioGroup>
-            {['5-6', '7-8', '9-10', '11-13'].map(ageOption => (
+            {['5-6', '7-8', '9-10', '11-13', 'High School'].map(ageOption => (
               <RadioButton key={ageOption}>
                 <input type="radio" name="age" value={ageOption} checked={age === ageOption} onChange={handleRadioButtonChange(setAge)} />
                 {ageOption}
@@ -117,7 +117,7 @@ const handleCheckboxChange = (items, setItems, value, max) => () => {
         <FormRow>
           <InputLabel>Preferred day(s) of program<tag> * </tag></InputLabel>
           <RadioGroup>
-            {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].map(dayOption => (
+            {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(dayOption => (
               <RadioButton key={dayOption}>
                   <input type="checkbox" name="day" value={dayOption} checked={selectedDays.includes(dayOption)} onChange={handleCheckboxChange(selectedDays, setSelectedDays, dayOption, 2)} />
                   {dayOption}
