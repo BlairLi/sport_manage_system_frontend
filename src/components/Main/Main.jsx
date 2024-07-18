@@ -24,33 +24,42 @@ const Container = styled.div`
 const RegisterImage = styled.img`
   width: 200px;  
   height: auto; 
+  opacity: 1;
   @media (max-width: 1024px) {
-    width: 55vw;  
-    max-width: 100%; 
-    
+    width: 200px; 
+  height: auto;
+  opacity: 1;
+  padding-bottom: 15px;
   }
 `;
 
 const PhoneImageContainer = styled.div`
-  display: none;  
+  display: none;
+  position: relative;
+  width: 100%;
+  max-width: 860px;
 
   @media (max-width: 1024px) { 
-    display: block;
-    position: relative;  
-    width: 100%;
-    max-width: 860px;
-    opacity: 0.8;
+    position: relative;
+  width: 100%;
+  max-width: 860px;
+  display: block; 
+
+    
   }
 `;
 const PhoneImage = styled.img`
-  width: 100%;  
-  max-width: 860px;  
-  height: auto; 
-  display: none;  
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+  visibility: hidden;  
 
   @media (max-width: 1024px) { 
-    display: block;
-    opacity: 0.8;
+    width: 100%;
+  max-width: 860px;
+  height: auto;
+  visibility:visible;  
+  opacity: 0.9; 
   }
 `;
 const TopSection = styled.div`
@@ -157,12 +166,13 @@ const LinkContainer2 = styled.div`
   display: none; 
 
   @media (max-width: 1024px) {
-    display: flex;
     position: absolute;
-    bottom: 2vw;  
-    width: 100%;
-    justify-content: center; 
-    background-color: transparent;  
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: transparent; // Ensure it's transparent
+  z-index: 2; 
   }
 `;
 
@@ -328,12 +338,14 @@ const Form = styled.form`
 
 const InputGroup = styled.div`
   display: flex;
+  flex-direction: row; // Default layout for larger screens
   justify-content: space-between;
   gap: 10px;
   align-items: center;
 
-  @media (max-width: 1024px) {
-    flex-direction: column;
+  @media (max-width: 640px) {
+    flex-direction: column; // Stack vertically on mobile
+    align-items: flex-start; // Align to the start of the container
   }
 `;
 
@@ -348,17 +360,19 @@ const Input = styled.input`
   @media (max-width: 640px) {
     font-size: 14px;
     padding: 8px;
+    width: 100%; // Ensure it takes the full width on smaller screens
   }
 `;
 
 const InputLabel = styled.div`
-  flex: 1;
+  flex: 1; // Take full width on larger screens to distribute space evenly
   padding: 5px 0px;
   font-size: 20px;
   font-family: 'Poppins', sans-serif;
 
   @media (max-width: 640px) {
     font-size: 16px;
+    width: 100%; // Ensure it takes the full width on smaller screens
   }
 `;
 
@@ -540,30 +554,38 @@ const Main = () => {
           <Label>Parent Information</Label>
           <InputGroup>
             <InputLabel>First Name</InputLabel>
+            <Input type="text" name="First Name" required/>
             <InputLabel>Last Name</InputLabel>
+            <Input type="text" name="Last Name" required/>
             <InputLabel>Phone Number</InputLabel>
+            <Input type="tel" name="Phone Number" required/>
             <InputLabel>Email Address</InputLabel>
-          </InputGroup>
-          <InputGroup>
+            <Input type="email" name="Email Address" required/>
+            </InputGroup>
+          {/* <InputGroup>
             <Input type="text" name="First Name" required/>
             <Input type="text" name="Last Name" required/>
             <Input type="tel" name="Phone Number" required/>
             <Input type="email" name="Email Address" required/>
-          </InputGroup>
+          </InputGroup> */}
 
           <Label>STEP 2 - Child Details</Label>
           <InputGroup>
             <InputLabel>Full Name</InputLabel>
+            <Input type="text" name="First Name" required />
             <InputLabel>Date of Birth (YYYY/MM/DD)</InputLabel>
+            <Input type="date" name="Last Name" required/>
             <InputLabel>Full Name</InputLabel>
+            <Input type="text" name="Phone Number" />
             <InputLabel>Date of Birth (YYYY/MM/DD)</InputLabel>
-          </InputGroup>
-          <InputGroup>
+            <Input type="date" name="Email Address" />
+            </InputGroup>
+          {/* <InputGroup>
             <Input type="text" name="First Name" required />
             <Input type="date" name="Last Name" required/>
             <Input type="text" name="Phone Number" />
             <Input type="date" name="Email Address" />
-          </InputGroup>
+          </InputGroup> */}
 
   <ButtonContainer>
     <Button type="submit">Submit</Button>
