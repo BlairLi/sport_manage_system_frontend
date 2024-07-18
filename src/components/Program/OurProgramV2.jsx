@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import p1 from '../../../public/All_Girls_Training_Academy.webp';
 import p2 from '../../../public/Basketball_Group_Training_Academy .webp';
 import p3 from '../../../public/Leadership_Camps.webp';
+import basketball_badge from '../../../public/basketball_badge.webp';
+import leadership_badge from '../../../public/leadership_badge.webp';
+import allGirls_badge from '../../../public/allGrils_badge.webp';
 import registernow from './registernow.png';
 import Reviews from './Reviews';
 
@@ -107,8 +110,11 @@ const CardHeader = styled.div`
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px; 
-
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the badge */
+  
   @media (max-width: 640px) {
     font-size: 1.2rem; 
   }
@@ -233,6 +239,13 @@ const Badge = styled.img`
   margin-bottom: 10px;
 `;
 
+const BadgeContainer = styled.div`
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
 const InfoBlocks = styled.div`
   display: flex;
   justify-content: space-around;
@@ -304,7 +317,9 @@ const OurProgram = () => {
         <ProgramContainer>
           <Card style={{ backgroundImage: `url(${p2})` }}>
             <CardHeader>
-              {/* <Badge src={p2} alt="Basketball Group Training Academy" /> */}
+            <BadgeContainer>
+              <Badge src={basketball_badge} alt="Badge" />
+            </BadgeContainer>
               Basketball Group Training <br/>Academy
             </CardHeader>
             <CardBody>
@@ -346,7 +361,9 @@ const OurProgram = () => {
 
           <Card style={{ backgroundImage: `url(${p1})` }}>
             <CardHeader>
-              {/* <Badge src={p1} alt="All Girls Training Academy" /> */}
+              <BadgeContainer>
+                <Badge src={allGirls_badge} alt="Badge" />
+              </BadgeContainer>
               All Girls Training <br/>Academy
             </CardHeader>
             <CardBody>
@@ -388,7 +405,9 @@ const OurProgram = () => {
 
           <Card style={{ backgroundImage: `url(${p3})` }}>
             <CardHeader>
-              {/* <Badge src={p3} alt="Leadership Camps" /> */}
+            <BadgeContainer>
+                <Badge src={leadership_badge} alt="Badge" />
+              </BadgeContainer>
               Leadership <br/>Camps
             </CardHeader>
             <CardBody>

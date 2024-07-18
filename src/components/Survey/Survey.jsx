@@ -86,8 +86,8 @@ const handleCheckboxChange = (items, setItems, value, max) => () => {
               Girls
             </RadioButton>
             <RadioButton>
-              <input type="radio" name="gender" value="COED" checked={gender === "COED"} onChange={handleRadioButtonChange(setGender)} />
-              COED/All Genders
+              <input type="radio" name="gender" value="CO-ED/All Genders" checked={gender === "CO-ED/All Genders"} onChange={handleRadioButtonChange(setGender)} />
+              CO-ED/All Genders
             </RadioButton>
           </RadioGroup>
         </FormRow>
