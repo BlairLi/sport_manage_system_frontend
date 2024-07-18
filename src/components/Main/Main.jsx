@@ -29,6 +29,7 @@ const RegisterImage = styled.img`
     width: 200px; 
   height: auto;
   opacity: 1;
+  padding-bottom: 2vw;
   }
 `;
 
