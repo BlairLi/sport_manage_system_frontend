@@ -159,7 +159,7 @@ const SignInButton = styled.button`
     }
     @media(max-width: 640px){
        padding: 0.2vh 1.5vw;
-       font-size: 1vh;
+       font-size: 1.2vh;
     }
 `;
 
