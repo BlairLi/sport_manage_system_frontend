@@ -91,7 +91,7 @@ const Logo = styled.img`
         @media(max-width: 640px){
     position:absolute;
     top: 20%;
-    left:40%;    
+    left:48%;    
     height: 65px;
     width: 65px;
     transform: translate(-50%, -8%);  
@@ -100,7 +100,7 @@ const Logo = styled.img`
     @media(max-width: 480px){
     position:absolute;
     top: 20%;
-    left:40%;    
+    left:48%;    
     height: 65px;
     width: 65px;
     transform: translate(0%, 0%); 
