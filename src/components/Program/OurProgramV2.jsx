@@ -358,7 +358,7 @@ const OurProgram = () => {
               <SectionTitle>Details</SectionTitle>
               <Details>
                 <DetailItem>Level: Beginner</DetailItem>
-                <DetailItem>8 sessions per season</DetailItem>
+                <DetailItem>4-5  seasons per month</DetailItem>
                 <DetailItem>75 minute sessions</DetailItem>
               </Details>
               <Divider />
@@ -392,8 +392,8 @@ const OurProgram = () => {
               Leadership <br/>Camps
             </CardHeader>
             <CardBody>
-              <SpecialPrice>JULY SPECIAL</SpecialPrice>
               <OldPrice>$400 per month</OldPrice>
+              <SpecialPrice>JULY SPECIAL</SpecialPrice>
               <Price><span>$</span>325</Price>
               <PerMonth>per week</PerMonth>
               <Divider />
