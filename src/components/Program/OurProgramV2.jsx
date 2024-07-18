@@ -74,6 +74,10 @@ const ProgramContainer = styled.div`
     flex-direction: column;
     align-items: center;
   }
+
+  @media (max-width: 640px) {
+    padding: 10px; 
+  }
 `;
 
 const Card = styled.div`
@@ -84,23 +88,40 @@ const Card = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   position: relative;
-  background-size: cover; /* Ensures the image covers the entire card */
-  background-position: center; /* Centers the image */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (max-width: 1024px) {
+    width: 80%; 
+  }
+
+  @media (max-width: 640px) {
+    width: 90%;
+  }
 `;
 
 const CardHeader = styled.div`
   color: black;
   font-size: 1.5rem;
   font-weight: bold;
-  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
-  background-color: rgba(255, 255, 255, 0.8); /* Added to ensure readability against the background image */
+  font-family: 'Poppins', sans-serif;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px; 
+
+  @media (max-width: 640px) {
+    font-size: 1.2rem; 
+  }
 `;
 
 const CardBody = styled.div`
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
+
+  @media (max-width: 640px) {
+    padding: 10px; 
+  }
 `;
 
 const SectionTitle = styled.div`
@@ -126,10 +147,17 @@ const Price = styled.div`
   font-weight: bold;
   color: #95071A;
   margin: 10px 0;
-  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-family: 'Poppins', sans-serif;
 
   span {
-    font-size: 1.5rem; /* Make the dollar sign smaller */
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 2rem; 
+    span {
+      font-size: 1rem; 
+    }
   }
 `;
 
