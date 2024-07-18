@@ -315,7 +315,7 @@ const OurProgram = () => {
               <Divider />
               <SectionTitle>Details</SectionTitle>
               <Details>
-                <DetailItem>Level: Beginner</DetailItem>
+                <DetailItem>Level: Beginner to Intermediate</DetailItem>
                 <DetailItem>4-5 Sessions per month</DetailItem>
                 <DetailItem>75 minute sessions</DetailItem>
               </Details>
@@ -357,7 +357,7 @@ const OurProgram = () => {
               <Divider />
               <SectionTitle>Details</SectionTitle>
               <Details>
-                <DetailItem>Level: Beginner</DetailItem>
+                <DetailItem>Level: Beginner to Intermediate</DetailItem>
                 <DetailItem>4-5  seasons per month</DetailItem>
                 <DetailItem>75 minute sessions</DetailItem>
               </Details>
