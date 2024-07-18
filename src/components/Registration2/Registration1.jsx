@@ -439,7 +439,7 @@ const RegistrationForm = () => {
                     <StyledTd>{program.name}</StyledTd>
                     <StyledTd>{new Date(program.time).toLocaleString()}</StyledTd>
                     <StyledTd>{`${program.place} (${program.location})`}</StyledTd>
-                    <StyledTd>${program.fees} per week</StyledTd>
+                    <StyledTd>${program.fees} per month</StyledTd>
                     <StyledTd>
                       <input
                         type="checkbox"

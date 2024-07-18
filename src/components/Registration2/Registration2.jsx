@@ -423,8 +423,8 @@ const RegistrationForm2 = () => {
                   <tr key={index}>
                     <StyledTd>{program.name}</StyledTd>
                     <StyledTd>{new Date(program.time).toLocaleString()}</StyledTd>
-                    <StyledTd>{program.place}</StyledTd>
-                    <StyledTd>${program.fees}</StyledTd>
+                    <StyledTd>{`${program.place} (${program.location})`}</StyledTd>
+                    <StyledTd>${program.fees} per month</StyledTd>
                     <StyledTd>
                       <input
                         type="checkbox"
