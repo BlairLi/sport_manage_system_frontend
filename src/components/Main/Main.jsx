@@ -621,8 +621,11 @@ const Main = () => {
           </GalleryItem>
         </ImageGallery>
         <SocialMediaIcons>
-
-        <BsFacebook /><AiOutlineInstagram /><AiFillLinkedin />
+          <BsFacebook />
+          <a href="https://www.instagram.com/juniorathleticscanada" target="_blank" rel="noopener noreferrer">
+            <AiOutlineInstagram />
+          </a>
+          <AiFillLinkedin />
         </SocialMediaIcons>
 
         <StyledHorizontalLine2 />
