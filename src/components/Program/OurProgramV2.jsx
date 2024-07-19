@@ -6,6 +6,7 @@ import p3 from '../../../public/Leadership_Camps.webp';
 import basketball_badge from '../../../public/basketball_badge.webp';
 import leadership_badge from '../../../public/leadership_badge.webp';
 import allGirls_badge from '../../../public/allGrils_badge.webp';
+import redcheck from '../../../public/redcheck.webp';
 import registernow from './registernow.png';
 import Reviews from './Reviews';
 
@@ -191,9 +192,22 @@ const Details = styled.div`
 `;
 
 const DetailItem = styled.div`
-  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
   font-size: 0.9rem;
   color: #333;
+  margin-bottom: 5px;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.5rem;
+    background-image: url(${redcheck});
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 `;
 
 const Outcome = styled.div`
@@ -227,9 +241,14 @@ const FeatureItem = styled.li`
   margin-bottom: 5px;
 
   &::before {
-    content: '✔️';
-    margin-right: 10px;
-    color: #4caf50;
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 10px;
+    background-image: url(${redcheck});
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 `;
 
