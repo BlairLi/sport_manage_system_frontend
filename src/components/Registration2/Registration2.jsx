@@ -7,7 +7,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import logo from './logo.jpg';
 import arrow from './arrow.png'
 
-const stripePromise = loadStripe("pk_test_51OgII1FhlO3bVzIRzph02dE9M2d2aqUlLVyBRjqPAYR6nGeznJ5v0KDLi5xXGtwKbzee7H6yfWyyHf52cqKIoGb600YBD9q9qj");
+const stripePromise = loadStripe(`${import.meta.env.VITE_STRIPE_PUBLIC_KEY}`); // Yucan's pk
+// const stripePromise = loadStripe("pk_test_51OgII1FhlO3bVzIRzph02dE9M2d2aqUlLVyBRjqPAYR6nGeznJ5v0KDLi5xXGtwKbzee7H6yfWyyHf52cqKIoGb600YBD9q9qj");
 
 const RegistrationForm2 = () => {
   const location = useLocation();

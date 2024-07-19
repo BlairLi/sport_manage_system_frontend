@@ -234,9 +234,8 @@ const FeatureItem = styled.li`
 `;
 
 const Badge = styled.img`
-  width: 50px;
+  width: 10rem;
   height: auto;
-  margin-bottom: 10px;
 `;
 
 const BadgeContainer = styled.div`
@@ -317,9 +316,7 @@ const OurProgram = () => {
         <ProgramContainer>
           <Card style={{ backgroundImage: `url(${p2})` }}>
             <CardHeader>
-            <BadgeContainer>
               <Badge src={basketball_badge} alt="Badge" />
-            </BadgeContainer>
               Basketball Group Training <br/>Academy
             </CardHeader>
             <CardBody>
@@ -361,9 +358,7 @@ const OurProgram = () => {
 
           <Card style={{ backgroundImage: `url(${p1})` }}>
             <CardHeader>
-              <BadgeContainer>
-                <Badge src={allGirls_badge} alt="Badge" />
-              </BadgeContainer>
+              <Badge src={allGirls_badge} alt="Badge" />
               All Girls Training <br/>Academy
             </CardHeader>
             <CardBody>
@@ -405,9 +400,7 @@ const OurProgram = () => {
 
           <Card style={{ backgroundImage: `url(${p3})` }}>
             <CardHeader>
-            <BadgeContainer>
-                <Badge src={leadership_badge} alt="Badge" />
-              </BadgeContainer>
+              <Badge src={leadership_badge} alt="Badge" />
               Leadership <br/>Camps
             </CardHeader>
             <CardBody>
