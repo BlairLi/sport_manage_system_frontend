@@ -236,13 +236,19 @@ const RegistrationForm2 = () => {
     filteredPrograms = filteredPrograms.filter(program => program.sport === sportFilter);
   }
   if (locationFilter) {
-    filteredPrograms = filteredPrograms.filter(program => program.location === locationFilter);
+    const locations = locationFilter.split(',');
+    filteredPrograms = filteredPrograms.filter(program =>
+      locations.some(location => program.location.includes(location))
+    );
   }
   if (genderFilter) {
     filteredPrograms = filteredPrograms.filter(program => program.gender === genderFilter);
   }
   if (dayFilter) {
-    filteredPrograms = filteredPrograms.filter(program => getDayFromDate(program.time) === dayFilter);
+    const days = dayFilter.split(',');
+    filteredPrograms = filteredPrograms.filter(program =>
+      days.some(day => getDayFromDate(program.time) === day)
+    );
   }
 
   filteredPrograms.sort((a, b) => {

@@ -30,18 +30,19 @@ const Survey = () => {
     if (initialSport && sport === '') {
       setSport(initialSport);
     }
-}, [queryParams]);
+  }, [queryParams]);
 
-const handleCheckboxChange = (items, setItems, value, max) => () => {
-  const currentIndex = items.indexOf(value);
-  const newChecked = [...items];
-  if (currentIndex === -1 && newChecked.length < max) {
-    newChecked.push(value);
-  } else if (currentIndex !== -1) {
-    newChecked.splice(currentIndex, 1);
-  }
-  setItems(newChecked);
-};
+  const handleCheckboxChange = (items, setItems, value, max) => () => {
+    const currentIndex = items.indexOf(value);
+    const newChecked = [...items];
+    if (currentIndex === -1 && newChecked.length < max) {
+      newChecked.push(value);
+    } else if (currentIndex !== -1) {
+      newChecked.splice(currentIndex, 1);
+    }
+    console.log('newChecked', newChecked);
+    setItems(newChecked);
+  };
 
   const handleRadioButtonChange = (setter) => (event) => {
     setter(event.target.value);
@@ -73,93 +74,93 @@ const handleCheckboxChange = (items, setItems, value, max) => () => {
 
   return (
     <BackgroundContainer>
-    <Container>
-      <Title>PICK THE RIGHT PROGRAM</Title>
-      <p>Please complete each indicated question<tag> * </tag></p>
-      <FormSection>
-        <FormRow>
-          <P>Player Information</P>
-          <InputLabel>Gender<tag> * </tag></InputLabel>
-          <RadioGroup>
-            <RadioButton>
-              <input type="radio" name="gender" value="Girls" checked={gender === "Girls"} onChange={handleRadioButtonChange(setGender)} />
-              Girls
-            </RadioButton>
-            <RadioButton>
-              <input type="radio" name="gender" value="CO-ED/All Genders" checked={gender === "CO-ED/All Genders"} onChange={handleRadioButtonChange(setGender)} />
-              CO-ED/All Genders
-            </RadioButton>
-          </RadioGroup>
-        </FormRow>
-        <FormRow>
-          <InputLabel>Age<tag> * </tag></InputLabel>
-          <RadioGroup>
-            {['5-6', '7-8', '9-10', '11-13', 'High School'].map(ageOption => (
-              <RadioButton key={ageOption}>
-                <input type="radio" name="age" value={ageOption} checked={age === ageOption} onChange={handleRadioButtonChange(setAge)} />
-                {ageOption}
+      <Container>
+        <Title>PICK THE RIGHT PROGRAM</Title>
+        <p>Please complete each indicated question<tag> * </tag></p>
+        <FormSection>
+          <FormRow>
+            <P>Player Information</P>
+            <InputLabel>Gender<tag> * </tag></InputLabel>
+            <RadioGroup>
+              <RadioButton>
+                <input type="radio" name="gender" value="Girls" checked={gender === "Girls"} onChange={handleRadioButtonChange(setGender)} />
+                Girls
               </RadioButton>
-            ))}
-          </RadioGroup>
-        </FormRow>
+              <RadioButton>
+                <input type="radio" name="gender" value="CO-ED/All Genders" checked={gender === "CO-ED/All Genders"} onChange={handleRadioButtonChange(setGender)} />
+                CO-ED/All Genders
+              </RadioButton>
+            </RadioGroup>
+          </FormRow>
+          <FormRow>
+            <InputLabel>Age<tag> * </tag></InputLabel>
+            <RadioGroup>
+              {['5-6', '7-8', '9-10', '11-13', 'High School'].map(ageOption => (
+                <RadioButton key={ageOption}>
+                  <input type="radio" name="age" value={ageOption} checked={age === ageOption} onChange={handleRadioButtonChange(setAge)} />
+                  {ageOption}
+                </RadioButton>
+              ))}
+            </RadioGroup>
+          </FormRow>
           <P>Program Information</P>
           <FormRow>
-          <InputLabel>Program of Choice<tag> * </tag></InputLabel>
-          <RadioGroup>
-            {['Basketball Group Academy Training', 'All-Girls Training Academy' ,'Leadership Retreats'].map(sportOption => (
-              <RadioButton key={sportOption}>
-                <input type="radio" name="sport" value={sportOption} checked={sport === sportOption} onChange={handleRadioButtonChange(setSport)} />
-                {sportOption}
-              </RadioButton>
-            ))}
-          </RadioGroup>
-        </FormRow>
-        <FormRow>
-          <InputLabel>Preferred day(s) of program<tag> * </tag></InputLabel>
-          <RadioGroup>
-            {/* {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(dayOption => ( */}
-            {[ 'Saturday', 'Sunday'].map(dayOption => (
-              <RadioButton key={dayOption}>
+            <InputLabel>Program of Choice<tag> * </tag></InputLabel>
+            <RadioGroup>
+              {['Basketball Group Academy Training', 'All-Girls Training Academy', 'Leadership Retreats'].map(sportOption => (
+                <RadioButton key={sportOption}>
+                  <input type="radio" name="sport" value={sportOption} checked={sport === sportOption} onChange={handleRadioButtonChange(setSport)} />
+                  {sportOption}
+                </RadioButton>
+              ))}
+            </RadioGroup>
+          </FormRow>
+          <FormRow>
+            <InputLabel>Preferred day(s) of program<tag> * </tag></InputLabel>
+            <RadioGroup>
+              {/* {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(dayOption => ( */}
+              {['Saturday', 'Sunday'].map(dayOption => (
+                <RadioButton key={dayOption}>
                   <input type="checkbox" name="day" value={dayOption} checked={selectedDays.includes(dayOption)} onChange={handleCheckboxChange(selectedDays, setSelectedDays, dayOption, 2)} />
                   {dayOption}
-              </RadioButton>
-            ))}
-          </RadioGroup>
-        </FormRow>
-        <FormRow>
-          <InputLabel>Desired Location<tag> * </tag></InputLabel>
-          <RadioGroup>
-            {['Meadowvale', 'Port Credit', 'Dixie', 'Etobicoke'].map(locationOption => (
-              <RadioButton key={locationOption}>
+                </RadioButton>
+              ))}
+            </RadioGroup>
+          </FormRow>
+          <FormRow>
+            <InputLabel>Desired Location<tag> * </tag></InputLabel>
+            <RadioGroup>
+              {['Meadowvale', 'Port Credit', 'Dixie', 'Etobicoke'].map(locationOption => (
+                <RadioButton key={locationOption}>
                   <input type="checkbox" name="location" value={locationOption} checked={selectedLocations.includes(locationOption)} onChange={handleCheckboxChange(selectedLocations, setSelectedLocations, locationOption, 2)} />
                   {locationOption}
+                </RadioButton>
+              ))}
+            </RadioGroup>
+          </FormRow>
+          <FormRow>
+            <InputLabel>Do you want to add more child(ren)?<tag> * </tag>10% off</InputLabel>
+            <RadioGroup>
+              <RadioButton>
+                <input type="radio" name="addMoreChildren" value="yes" checked={addMoreChildren} onChange={() => setAddMoreChildren(true)} />
+                Yes
               </RadioButton>
-            ))}
-          </RadioGroup>
-        </FormRow>
-        <FormRow>
-          <InputLabel>Do you want to add more child(ren)?<tag> * </tag>10% off</InputLabel>
-          <RadioGroup>
-            <RadioButton>
-              <input type="radio" name="addMoreChildren" value="yes" checked={addMoreChildren} onChange={() => setAddMoreChildren(true)} />
-              Yes
-            </RadioButton>
-            <RadioButton>
-              <input type="radio" name="addMoreChildren" value="no" checked={!addMoreChildren} onChange={() => setAddMoreChildren(false)} />
-              No
-            </RadioButton>     
-               <ButtonRow>
+              <RadioButton>
+                <input type="radio" name="addMoreChildren" value="no" checked={!addMoreChildren} onChange={() => setAddMoreChildren(false)} />
+                No
+              </RadioButton>
+              <ButtonRow>
 
-          <NextLink onClick={handleNext}>Next            
-             <img src={arrow} alt="Next" />
-          </NextLink>
-          
-        </ButtonRow>
-          </RadioGroup>
-        </FormRow>
+                <NextLink onClick={handleNext}>Next
+                  <img src={arrow} alt="Next" />
+                </NextLink>
 
-      </FormSection>
-    </Container></BackgroundContainer>
+              </ButtonRow>
+            </RadioGroup>
+          </FormRow>
+
+        </FormSection>
+      </Container></BackgroundContainer>
   );
 };
 
@@ -322,6 +323,6 @@ const P = styled.div`
       margin-bottom: 0; 
 }
 `
- 
+
 
 export default Survey;
