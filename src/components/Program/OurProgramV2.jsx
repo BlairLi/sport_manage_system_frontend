@@ -29,8 +29,8 @@ const TopSection = styled.div`
   flex-direction: column;
   align-items: flex-start; /* Align items to the start */
   justify-content: center;
-  padding: 20px;
-  padding-top: 70px;
+  // padding: 20px;
+  padding-top: 3rem;
   color: #95071A;
   font-weight: 800;
   width: 100%; /* Ensure it takes the full width */
@@ -122,12 +122,14 @@ const CardHeader = styled.div`
 `;
 
 const CardBody = styled.div`
-  padding: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
 
   @media (max-width: 640px) {
-    padding: 10px; 
+    padding: 10px;
   }
 `;
 
