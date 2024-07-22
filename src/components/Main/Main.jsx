@@ -621,7 +621,9 @@ const Main = () => {
           </GalleryItem>
         </ImageGallery>
         <SocialMediaIcons>
-          <BsFacebook />
+          <a href="https://www.facebook.com/profile.php?id=61563322405603" target="_blank" rel="noopener noreferrer">
+            <BsFacebook />
+          </a>
           <a href="https://www.instagram.com/juniorathleticscanada" target="_blank" rel="noopener noreferrer">
             <AiOutlineInstagram />
           </a>
