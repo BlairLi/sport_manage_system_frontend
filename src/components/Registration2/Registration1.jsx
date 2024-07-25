@@ -29,6 +29,8 @@ const RegistrationForm = () => {
   const [selectedProgramFees, setSelectedProgramFees] = useState([null, null, null, null, null]);
   const [selectedPrograms, setSelectedPrograms] = useState([]);
   const [childClass, setChildClass] = useState("");
+  const [childClassPlace, setChildClassPlace] = useState("");
+  const [childDayOfClassTime, setChildDayOfClassTime] = useState("");
   const [childDay, setChildDay] = useState("");
   const [secondClass, setSecondClass] = useState("");
   const [secondDay, setSecondDay] = useState("");
@@ -166,7 +168,7 @@ const RegistrationForm = () => {
     });
   };
 
-  const handleRegisterSelected = () => {
+  const handleRegisterSelected = (e) => {
 
     const selectedProgramIds = Object.keys(selectedPrograms).filter(id => selectedPrograms[id]);
 
@@ -177,13 +179,21 @@ const RegistrationForm = () => {
 
     // Fetch details of the selected programs
     const selectedDetails = filteredPrograms.filter(program => selectedProgramIds.includes(program._id));
-
+    console.log("selectedDetails:", selectedDetails);
     // Confirm before proceeding with any registration
     if (window.confirm("Do you want to register the selected program(s)?")) {
       if (selectedDetails.length > 0) {
-        // Set the first selected detail
+        
         setChildClass(selectedDetails[0].name);
-        setChildDay(new Date(selectedDetails[0].time).toLocaleDateString());
+        setChildClassPlace(selectedDetails[0].place);
+
+        // Parse the date-time string
+        const dateObject = new Date(selectedDetails[0].time);
+        const time = dateObject.toLocaleTimeString();
+        const date = dateObject.toLocaleDateString();
+
+        setChildDayOfClassTime(time);
+        setChildDay(date);
 
         // Check if there is a second selection and update accordingly
         if (selectedDetails.length > 1) {
@@ -203,18 +213,18 @@ const RegistrationForm = () => {
     }
   };
 
-  
+
   const handleNextClick = async (e) => {
     e.preventDefault();
     await handleRegisterSelected(e)
-  
+
     const form = e.target.closest('form');
-  
+
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
-  
+
     const parentEmail = document.querySelector('input[name="parentEmail"]').value;
     const parentName = document.querySelector('input[name="parentName"]').value;
     const parentPhone = document.querySelector('input[name="parentPhone"]').value;
@@ -223,34 +233,34 @@ const RegistrationForm = () => {
     const childDOB = document.querySelector('input[name="childDOB"]').value;
     const childClassInput = document.querySelector('input[name="childClass"]').value;
     const childDayOfClass = document.querySelector('input[name="childDayOfClass"]').value;
-  
+
     if (!parentEmail || !parentName || !parentPhone || !parentAddress || !childName || !childDOB || !childClassInput || !childDayOfClass ||
       (secondClass && (!document.querySelector('input[name="secondClass"]').value || !document.querySelector('input[name="secondDayOfClass"]').value))) {
       alert("Please fill in all required fields.");
       return;
     }
     const selectedProgramIds = Object.keys(selectedPrograms).filter(id => selectedPrograms[id]);
-  
+
     if (selectedProgramIds.length === 0) {
       alert("Please select at least one program to proceed to payment.");
       return;
     }
-  
+
     const selectedDetails = programs.filter(program => selectedProgramIds.includes(program._id));
-  
+
     if (selectedDetails.length > 0) {
       const stripe = await stripePromise;
-  
+
       let totalAmount = selectedDetails.reduce((total, program) => total + program.fees, 0);
       let discount = 0;
-  
+
       if (selectedDetails.length >= 2) {
         discount = totalAmount * 0.10; // 10% discount
       }
-  
+
       const discountedTotal = totalAmount - discount;
       const discountRate = discountedTotal / totalAmount;
-  
+
       const lineItems = selectedDetails.map(program => ({
         price_data: {
           currency: 'cad',
@@ -265,26 +275,26 @@ const RegistrationForm = () => {
         },
         quantity: 1,
       }));
-      
+
 
       // *************** Create a new registration to backend registration form ***************
       // TODO: Add parentAddress to backend
       // console.log("e.target.parentAddress:", e.target.parentAddress.value);
       // TODO: ** amount and program is different if second program is applied **
       const newRegistration = {
-        bookingID: `booking_${Date.now()}_${Math.floor(Math.random() * 10000)}`, 
+        bookingID: `booking_${Date.now()}_${Math.floor(Math.random() * 10000)}`,
         parentName: e.target.parentName.value,
         email: e.target.parentEmail.value,
         phone: e.target.parentPhone.value,
         child1Name: e.target.childName.value,
         child1Birth: e.target.childDOB.value,
         child1Program: e.target.childClass.value,
-        // child1Amount: lineItems[0].price_data.unit_amount / 100, 
-        child1Amount: 0, 
+        child1ProgramPlace: e.target.childClassPlace.value,
+        childDayOfClassTime: e.target.childDayOfClassTime.value,
+        child1Amount: 0,
         child1Start: e.target.childDayOfClass.value,
         child1End: "2029-12-31", // TODO: Update end date
         child1Program2: e.target.secondClass ? e.target.secondClass.value : "",
-        // child1Amount2: lineItems.length > 1 ? lineItems[1].price_data.unit_amount / 100 : 0,
         child1Amount2: 0,
         child1Start2: e.target.secondDayOfClass ? e.target.secondDayOfClass.value : "",
         child1End2: "2029-12-31", // TODO: Update end date
@@ -312,13 +322,13 @@ const RegistrationForm = () => {
       // *************** End of creating a new registration to backend registration form ***************
 
       try {
-        const response = await axios.post(`${url}/create-checkout-session`, { 
-          lineItems, 
-          successUrl: `${window.location.origin}/success/`, 
+        const response = await axios.post(`${url}/create-checkout-session`, {
+          lineItems,
+          successUrl: `${window.location.origin}/success/`,
           cancelUrl: `${window.location.origin}/cancel/`,
           bookingID: newRegistration.bookingID,
           child1Amount: lineItems[0].price_data.unit_amount / 100,
-          child1Amount2: lineItems.length > 1 ? lineItems[1].price_data.unit_amount / 100 : 0        
+          child1Amount2: lineItems.length > 1 ? lineItems[1].price_data.unit_amount / 100 : 0
         });
         const sessionId = response.data.id;
         const { error } = await stripe.redirectToCheckout({ sessionId });
@@ -332,13 +342,13 @@ const RegistrationForm = () => {
       console.log("No programs selected or an error occurred.");
     }
   };
-  
-  
+
+
 
   return (
     <>
       <BGI>
-      <Header>
+        <Header>
           <div>
             <Title>REGISTRATION FORM ({numberOfChildren} {numberOfChildren > 1 ? 'Children' : 'Child'})</Title>
             <Description>
@@ -360,74 +370,82 @@ const RegistrationForm = () => {
               <Step>
                 <StepTitle>STEP 1 - Parent/Guardian Information</StepTitle>
                 <FormRow>
-                    <InputField>
-                      <InputLabel>Email:</InputLabel>
-                      <StyledInput type="email" name="parentEmail" required />
-                    </InputField>
-                    <InputField>
-                      <InputLabel>Full Name:</InputLabel>
-                      <StyledInput type="text" name="parentName" required />
-                    </InputField>
-                    <InputField>
-                      <InputLabel>Phone Number:</InputLabel>
-                      <StyledInput type="tel" name="parentPhone" required />
-                    </InputField>
-                    <InputField>
-                      <InputLabel>Address:</InputLabel>
-                      <StyledInput type="text" name="parentAddress" required />
-                    </InputField>
-                  </FormRow>
+                  <InputField>
+                    <InputLabel>Email:</InputLabel>
+                    <StyledInput type="email" name="parentEmail" required />
+                  </InputField>
+                  <InputField>
+                    <InputLabel>Full Name:</InputLabel>
+                    <StyledInput type="text" name="parentName" required />
+                  </InputField>
+                  <InputField>
+                    <InputLabel>Phone Number:</InputLabel>
+                    <StyledInput type="tel" name="parentPhone" required />
+                  </InputField>
+                  <InputField>
+                    <InputLabel>Address:</InputLabel>
+                    <StyledInput type="text" name="parentAddress" required />
+                  </InputField>
+                </FormRow>
 
               </Step>
             </Column>
             <Column>
-<Step>
-  <StepTitle>STEP 2 - Child Details</StepTitle>
-  <Step2FormRow>
-  <InputField>
-    <Step2InputLabel>Full Name:</Step2InputLabel>
-    <StyledInput type="text" name="childName" required />
-  </InputField>
-  <InputField>
-    <Step2InputLabel>Date of Birth:</Step2InputLabel>
-    <StyledInput type="date" name="childDOB" required onChange={(e) => handleDOBChange(0, e)} />
-  </InputField>
-  <InputField>
-    <Step2InputLabel>Class:</Step2InputLabel>
-    <StyledInput type="text" name="childClass" value={childClass} readOnly required />
-  </InputField>
-  <InputField>
-    <Step2InputLabel>Start Day:</Step2InputLabel>
-    <StyledInput type="text" name="childDayOfClass" value={childDay} readOnly required />
-  </InputField>
-</Step2FormRow>
+              <Step>
+                <StepTitle>STEP 2 - Child Details</StepTitle>
+                <Step2FormRow>
+                  <InputField>
+                    <Step2InputLabel>Full Name:</Step2InputLabel>
+                    <StyledInput type="text" name="childName" required />
+                  </InputField>
+                  <InputField>
+                    <Step2InputLabel>Date of Birth:</Step2InputLabel>
+                    <StyledInput type="date" name="childDOB" required onChange={(e) => handleDOBChange(0, e)} />
+                  </InputField>
+                  <InputField>
+                    <Step2InputLabel>Class:</Step2InputLabel>
+                    <StyledInput type="text" name="childClass" value={childClass} readOnly required />
+                  </InputField>
+                  <InputField>
+                    <Step2InputLabel>Location:</Step2InputLabel>
+                    <StyledInput type="text" name="childClassPlace" value={childClassPlace} readOnly required />
+                  </InputField>
+                  <InputField>
+                    <Step2InputLabel>Start Day:</Step2InputLabel>
+                    <StyledInput type="text" name="childDayOfClass" value={childDay} readOnly required />
+                  </InputField>
+                  <InputField>
+                    <Step2InputLabel>Time:</Step2InputLabel>
+                    <StyledInput type="text" name="childDayOfClassTime" value={childDayOfClassTime} readOnly required />
+                  </InputField>
+                </Step2FormRow>
 
-  {secondClass && (
-  <Step2FormRow>
-  <InputField className="noo">
-    <Step2InputLabel>testing1</Step2InputLabel>
-    <StyledInput readOnly />
-  </InputField>
-  <InputField className="noo">
-    <Step2InputLabel>testing2</Step2InputLabel>
-    <StyledInput readOnly />
-  </InputField>
-  <InputField>
-    <Step2InputLabel>2nd Class:</Step2InputLabel>
-    <StyledInput type="text" name="secondClass" value={secondClass} readOnly required />
-  </InputField>
-  <InputField>
-    <Step2InputLabel>2nd Start Day:    <RemoveButton onClick={handleRemoveSecondProgram}>x</RemoveButton>
-</Step2InputLabel>
-    <StyledInput type="text" name="secondDayOfClass" value={secondDay} readOnly required />
-  </InputField>
-</Step2FormRow>
+                {secondClass && (
+                  <Step2FormRow>
+                    <InputField className="noo">
+                      <Step2InputLabel>testing1</Step2InputLabel>
+                      <StyledInput readOnly />
+                    </InputField>
+                    <InputField className="noo">
+                      <Step2InputLabel>testing2</Step2InputLabel>
+                      <StyledInput readOnly />
+                    </InputField>
+                    <InputField>
+                      <Step2InputLabel>2nd Class:</Step2InputLabel>
+                      <StyledInput type="text" name="secondClass" value={secondClass} readOnly required />
+                    </InputField>
+                    <InputField>
+                      <Step2InputLabel>2nd Start Day:    <RemoveButton onClick={handleRemoveSecondProgram}>x</RemoveButton>
+                      </Step2InputLabel>
+                      <StyledInput type="text" name="secondDayOfClass" value={secondDay} readOnly required />
+                    </InputField>
+                  </Step2FormRow>
 
-  )}
-</Step>
+                )}
+              </Step>
 
             </Column>
-           
+
           </FormSection>
           <StepTitle2>Program select : click to register</StepTitle2>
           <TableContainer>

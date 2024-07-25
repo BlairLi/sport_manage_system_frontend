@@ -5,7 +5,6 @@ import axios from "axios";
 import logo from '../../public/image.png';  // Ensure you have the logo image path correctly
 import check from '../../public/check.png';
 
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -63,7 +62,10 @@ const Success = () => {
     const child1Amount = params.get('child1Amount');
     const child1Amount2 = params.get('child1Amount2');
     const child2Amount = params.get('child2Amount');
-    if (sessionId) {
+    
+    // Check if session has already been verified
+    const sessionVerified = localStorage.getItem(`session_verified_${sessionId}`);
+    if (sessionId && !sessionVerified) {
       // Verify the session with Stripe
       verifySession(sessionId, bookingId, child1Amount, child1Amount2, child2Amount);
     }
@@ -73,9 +75,12 @@ const Success = () => {
     try {
       const response = await axios.post(`${url}/verify-checkout-session`, { sessionId });
       if (response.data.success) {
-        // Call your updatedRegistration function here
-        updatedRegistration(bookingID, child1Amount, child1Amount2, child2Amount);
+        // Call your updateRegistration function here
+        updateRegistration(bookingID, child1Amount, child1Amount2, child2Amount);
         console.log('Payment confirmed.');
+
+        // Set flag in localStorage to indicate session has been verified
+        localStorage.setItem(`session_verified_${sessionId}`, 'true');
       } else {
         console.error('Payment not confirmed.');
       }
@@ -84,20 +89,20 @@ const Success = () => {
     }
   };
 
-  const updatedRegistration = async (id, child1Amount, child1Amount2, child2Amount) => {
-    const updateRegistration = {
+  const updateRegistration = async (id, child1Amount, child1Amount2, child2Amount) => {
+    const updateData = {
       child1Amount: child1Amount,
       child1Amount2: child1Amount2 ? Number(child1Amount2) : 0,
       child2Amount: child2Amount ? Number(child2Amount) : 0,
     };
 
-    console.log('updateRegistration:', updateRegistration);
+    console.log('updateData:', updateData);
     try {
-      await axios.put(`${url}/api/updateRegistration/${id}`, updateRegistration);
+      await axios.put(`${url}/api/updateRegistration/${id}`, updateData);
     } catch (error) {
-        console.error('Error updating schedule:', error);
-        throw error;
-    } 
+      console.error('Error updating registration:', error);
+      throw error;
+    }
     console.log('Payment successful, registration updated!');
   };
 

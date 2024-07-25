@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { useEffect } from 'react';
+import axios from "axios";
 
 
 const Container = styled.div`
@@ -489,6 +490,8 @@ const FormLine = styled.hr`
   }
 `;
 
+const url = import.meta.env.VITE_MONGODB_URL;
+
 const Main = () => {
   useEffect(() => {
     // Append Helpwise script to the document
@@ -509,25 +512,75 @@ const Main = () => {
       document.body.removeChild(script1);
     };
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     
+    const isConfirmed = window.confirm("Are you sure you want to submit the form?");
+
+    if (!isConfirmed) {
+      return;
+    }
+
+    const newRegistration = {
+      bookingID: `freetrial_${Date.now()}_${Math.floor(Math.random() * 10000)}`,
+      parentName: e.target.parentFirstName.value + " " + e.target.parentLastName.value,
+      email: e.target.parentEmail.value,
+      phone: e.target.parentPhone.value,
+      child1Name: e.target.child1Name.value,
+      child1Birth: e.target.child1DOB.value,
+      child1Program: 'Free Trial',
+      child1ProgramPlace: 'Free Trial',
+      childDayOfClassTime: 'Free Trial',
+      child1Amount: 0,
+      child1Start: '2029-12-31',
+      child1End: "2029-12-31", // TODO: Update end date
+      child2Name: e.target.child2Name.value,
+      child2DOB: e.target.child2DOB.value,
+      child1Start2: '2029-12-31',
+      child1End2: "2029-12-31", // TODO: Update end date
+      makeupClasses: "None",
+      notes: 'Free Trial',
+    };
+    console.log("newRegistration", newRegistration);
+
+    try {
+      const response = await axios.post(`${url}/api/createRegistration`, newRegistration);
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        // Handle 400 error (Capacity reached)
+        console.error('Error creating Registration:', error.response.data.message);
+        alert(`Registration Error: ${error.response.data.message}`);
+      } else {
+        // Handle other errors
+        console.error('Error creating Registration:', error.message);
+        alert('An error occurred while creating the registration. Please try again.');
+      }
+      // Stop the process if there is an error
+      return;
+    }
+
+    alert('Registration submitted successfully! We will contact you shortly to confirm the details.');
+  }
+
   return (
     <Container>
       <TopSection>{/*   <TextContainer>
           <Title>They’re Ready to Compete.</Title>
           <Subtitle>JUNIOR ATHLETICS</Subtitle>
         </TextContainer> */}
-      
+
       </TopSection>
       <BottomSection>
         <LeftColumn>
           <ParagraphContainer>
             <ParagraphTitle>Welcome to Junior Athletics!</ParagraphTitle>
             <ParagraphText>
-            At Junior Athletics, we give your child the opportunity to make achievements outside of the classroom. Our mission is to create a fun, safe, and supportive environment where young athletes can thrive; building confidence, and forming lasting friendships. We emphasize teamwork, sportsmanship, and personal growth. We offer Basketball Training, House Leagues, and Camps, within the GTA! Join us and watch your child shine!            </ParagraphText>
+              At Junior Athletics, we give your child the opportunity to make achievements outside of the classroom. Our mission is to create a fun, safe, and supportive environment where young athletes can thrive; building confidence, and forming lasting friendships. We emphasize teamwork, sportsmanship, and personal growth. We offer Basketball Training, House Leagues, and Camps, within the GTA! Join us and watch your child shine!            </ParagraphText>
           </ParagraphContainer>
           <LinkContainer>
-        <Link to={`/survey`}><Image src={registernow} alt="registernow" /></Link>
-      </LinkContainer>
+            <Link to={`/survey`}><Image src={registernow} alt="registernow" /></Link>
+          </LinkContainer>
         </LeftColumn>
         <RightColumn>
           <Image1 src={p13} alt="p13" />
@@ -536,7 +589,7 @@ const Main = () => {
       <PhoneImageContainer>
         <PhoneImage src={phonesize} alt="Responsive view" />
         <LinkContainer2>
-               <Link to={`/survey`}><RegisterImage src={registernow2} alt="Register Now" /></Link>
+          <Link to={`/survey`}><RegisterImage src={registernow2} alt="Register Now" /></Link>
         </LinkContainer2>
       </PhoneImageContainer>
 
@@ -544,24 +597,24 @@ const Main = () => {
       <FormSection>
         <FormHeader>
           <TrialOffer>OR ENJOY A FREE TRIAL</TrialOffer>
-        <FormLine />
+          <FormLine />
           <BookYour>BOOK YOUR</BookYour>
           <FreeSessionNow>FREE SESSION NOW</FreeSessionNow>
           <SessionValidity>Free session is only valid once, per child</SessionValidity>
         </FormHeader>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <p>Please complete each indicated question<tag> * </tag></p>
           <Label>Parent Information</Label>
           <InputGroup>
             <InputLabel>First Name</InputLabel>
-            <Input type="text" name="First Name" required/>
+            <Input type="text" name="parentFirstName" required />
             <InputLabel>Last Name</InputLabel>
-            <Input type="text" name="Last Name" required/>
+            <Input type="text" name="parentLastName" required />
             <InputLabel>Phone Number</InputLabel>
-            <Input type="tel" name="Phone Number" required/>
+            <Input type="tel" name="parentPhone" required />
             <InputLabel>Email Address</InputLabel>
-            <Input type="email" name="Email Address" required/>
-            </InputGroup>
+            <Input type="email" name="parentEmail" required />
+          </InputGroup>
           {/* <InputGroup>
             <Input type="text" name="First Name" required/>
             <Input type="text" name="Last Name" required/>
@@ -572,14 +625,14 @@ const Main = () => {
           <Label>STEP 2 - Child Details</Label>
           <InputGroup>
             <InputLabel>Full Name</InputLabel>
-            <Input type="text" name="First Name" required />
+            <Input type="text" name="child1Name" required />
             <InputLabel>Date of Birth (YYYY/MM/DD)</InputLabel>
-            <Input type="date" name="Last Name" required/>
+            <Input type="date" name="child1DOB" required />
             <InputLabel>Full Name</InputLabel>
-            <Input type="text" name="Phone Number" />
+            <Input type="text" name="child2Name" />
             <InputLabel>Date of Birth (YYYY/MM/DD)</InputLabel>
-            <Input type="date" name="Email Address" />
-            </InputGroup>
+            <Input type="date" name="child2DOB" />
+          </InputGroup>
           {/* <InputGroup>
             <Input type="text" name="First Name" required />
             <Input type="date" name="Last Name" required/>
@@ -587,50 +640,52 @@ const Main = () => {
             <Input type="date" name="Email Address" />
           </InputGroup> */}
 
-  <ButtonContainer>
-    <Button type="submit">Submit</Button>
-  </ButtonContainer>
-</Form>
+          <ButtonContainer>
+            <Button type="submit">Submit</Button>
+          </ButtonContainer>
+        </Form>
 
 
       </FormSection>
-      
+
 
 
       <TitleContainer>
         <NewTitle>Is Your Child New to Sports?</NewTitle>
         <StyledHorizontalLine />
       </TitleContainer>
-        <ImageGallery>
+      <ImageGallery>
 
-        
-          <GalleryItem>
-            <GalleryImage src={main1} alt="Youth Basketball" />
-            <ImageDescription>Bounce into Success: Youth Basketball Development Programs</ImageDescription>
-            <Link to="/Content1"><ReadMoreLink>Read more</ReadMoreLink></Link>
-          </GalleryItem>
-          <GalleryItem>
-            <GalleryImage src={main2} alt="Future Rep Players" />
-            <ImageDescription>Youth Basketball Development: Preparing Future Rep Players</ImageDescription>
-            <Link to="/Content2"><ReadMoreLink>Read more</ReadMoreLink></Link>
-          </GalleryItem>
-          <GalleryItem>
-            <GalleryImage src={main3} alt="Coming Soon" />
-            <ImageDescription>Empowering Girls: The Importance of Female Athletics from a Young Age</ImageDescription>
-            <Link to="/Content3"><ReadMoreLink>Read more</ReadMoreLink></Link>
-          </GalleryItem>
-        </ImageGallery>
-        <SocialMediaIcons>
-          <a href="https://www.facebook.com/profile.php?id=61563322405603" target="_blank" rel="noopener noreferrer">
-            <BsFacebook />
-          </a>
-          <a href="https://www.instagram.com/juniorathleticscanada" target="_blank" rel="noopener noreferrer">
-            <AiOutlineInstagram />
-          </a>
+
+        <GalleryItem>
+          <GalleryImage src={main1} alt="Youth Basketball" />
+          <ImageDescription>Bounce into Success: Youth Basketball Development Programs</ImageDescription>
+          <Link to="/Content1"><ReadMoreLink>Read more</ReadMoreLink></Link>
+        </GalleryItem>
+        <GalleryItem>
+          <GalleryImage src={main2} alt="Future Rep Players" />
+          <ImageDescription>Youth Basketball Development: Preparing Future Rep Players</ImageDescription>
+          <Link to="/Content2"><ReadMoreLink>Read more</ReadMoreLink></Link>
+        </GalleryItem>
+        <GalleryItem>
+          <GalleryImage src={main3} alt="Coming Soon" />
+          <ImageDescription>Empowering Girls: The Importance of Female Athletics from a Young Age</ImageDescription>
+          <Link to="/Content3"><ReadMoreLink>Read more</ReadMoreLink></Link>
+        </GalleryItem>
+      </ImageGallery>
+      <SocialMediaIcons>
+        <a href="https://www.facebook.com/profile.php?id=61563322405603" target="_blank" rel="noopener noreferrer">
+          <BsFacebook />
+        </a>
+        <a href="https://www.instagram.com/juniorathleticscanada" target="_blank" rel="noopener noreferrer">
+          <AiOutlineInstagram />
+        </a>
+        <a href="" target="_blank" rel="noopener noreferrer">
           <AiFillLinkedin />
-        </SocialMediaIcons>
+        </a>
+      </SocialMediaIcons>
 
-        <StyledHorizontalLine2 />
+      <StyledHorizontalLine2 />
     </Container>
   );
 };
