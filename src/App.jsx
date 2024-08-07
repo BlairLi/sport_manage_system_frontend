@@ -74,7 +74,6 @@ function App() {
          <Route path='/BTraining' element={<BTraining />} ></Route>
          <Route path='/AllGirlsTrainingAcademy' element={<AllGirlsTrainingAcademy />} ></Route>
          <Route path='/LeadershipCamps' element={<LeadershipCamps />} ></Route>
-  
       </Routes>
     </Router>
   );
