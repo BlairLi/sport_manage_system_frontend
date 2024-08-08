@@ -11,7 +11,6 @@ import registernow from './registernow.png';
 import Reviews from './Reviews';
 import { PROGRAMS } from '../../constants/ProgramNames';
 
-
 const Containerr = styled.div`
   padding-top: 50px;
 `;
@@ -28,6 +27,7 @@ const TopSection = styled.div`
   background-color: white;
   padding-top: 2rem;
   padding-left: 2rem;
+  padding-right: 2rem;
   color: #95071A;
   font-weight: 800;
   width: 100%;
@@ -38,11 +38,13 @@ const Title = styled.h1`
   margin: 0;
   font-family: 'League Spartan', sans-serif;
   font-weight: 800;
+
   @media (max-width: 768px) {
     font-size: 5vw;
   }
   @media (max-width: 480px) {
     font-size: 6vw;
+    text-align: center;
   }
 `;
 
@@ -57,6 +59,7 @@ const Subtitle = styled.h2`
   }
   @media (max-width: 480px) {
     font-size: 3vw;
+    text-align: center;
   }
 `;
 
@@ -66,7 +69,7 @@ const ProgramContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-  height: 34rem;
+  height: auto;
   margin-top: 2rem;
 
   @media (max-width: 1024px) {
@@ -76,6 +79,7 @@ const ProgramContainer = styled.div`
 
   @media (max-width: 640px) {
     padding: 10px; 
+    gap: 3rem; /* Increased gap for more space between cards */
   }
 `;
 
@@ -84,7 +88,6 @@ const Card = styled.div`
   border-radius: 10px;
   overflow: hidden;
   width: 20rem;
-  // height: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   position: relative;
@@ -100,8 +103,9 @@ const Card = styled.div`
   }
 
   @media (max-width: 640px) {
-    width: 90%;
+    width: 100%;
     height: auto;
+    margin-top: 0; /* Remove top margin for better spacing */
   }
 `;
 
@@ -217,6 +221,11 @@ const Notes = styled.div`
 const RegisterNowImage = styled.img`
   width: 50%;
   height: auto;
+
+  @media (max-width: 480px) {
+    width: 70%;
+    margin: 0 auto; /* Center the image */
+  }
 `;
 
 const FeatureList = styled.ul`
@@ -248,7 +257,6 @@ const Badge = styled.img`
   width: 13rem;
   height: auto;
   position: relative;
-  buttom: 100px
 `;
 
 const BadgeContainer = styled.div`
@@ -311,6 +319,10 @@ const ApproachTitle = styled.h2`
   color: #95071A;
   margin-bottom: 10px;
   font-family: 'League Spartan', sans-serif;
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const ApproachText = styled.p`
@@ -318,6 +330,10 @@ const ApproachText = styled.p`
   color: #333;
   max-width: 800px;
   margin: 0 auto;
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const OurProgram = () => {

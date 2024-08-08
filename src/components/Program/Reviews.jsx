@@ -12,6 +12,10 @@ const ReviewSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 480px) {
+    padding: 20px 10px;
+  }
 `;
 
 const ReviewContainer = styled.div`
@@ -19,14 +23,27 @@ const ReviewContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 400rem;
+  max-width: 40rem;
+
+  @media (max-width: 480px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 const ArrowButton = styled.img`
-  width: 6rem;
-  height: 50px;
+  width: 3rem;
+  height: 3rem;
   cursor: pointer;
-  margin: 0 20px;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 480px) {
+    width: 2rem;
+    height: 2rem;
+    margin: 10px 0;
+  }
 `;
 
 const ReviewCard = styled.div`
@@ -34,12 +51,17 @@ const ReviewCard = styled.div`
   border-radius: 10px;
   color: white;
   padding: 20px;
-  max-width: 70rem;
+  max-width: 40rem;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin: 0 10px; /* Add margin to separate from arrows */
+
+  @media (max-width: 480px) {
+    padding: 10px;
+  }
 `;
 
 const ProfileImage = styled.img`
@@ -49,12 +71,23 @@ const ProfileImage = styled.img`
   object-fit: cover;
   position: absolute;
   top: -50px;
+
+  @media (max-width: 480px) {
+    width: 5rem; /* Reduced size for smaller screens */
+    height: 5rem; /* Reduced size for smaller screens */
+    top: -2.5rem; /* Adjusted position for smaller screens */
+  }
 `;
 
 const ReviewerName = styled.h3`
   margin-top: 40px;
   font-size: 1.5rem;
   font-weight: bold;
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem; /* Reduced font size for smaller screens */
+    margin-top: 30px; /* Adjusted margin for smaller screens */
+  }
 `;
 
 const ReviewerTitle = styled.h4`
@@ -62,12 +95,21 @@ const ReviewerTitle = styled.h4`
   font-style: italic;
   font-weight: 400;
   font-weight: bold;
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem; /* Reduced font size for smaller screens */
+  }
 `;
 
 const ReviewText = styled.p`
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   margin: 20px 0;
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem; /* Reduced font size for smaller screens */
+    margin: 10px 0; /* Adjusted margin for smaller screens */
+  }
 `;
 
 const StarRating = styled.div`
@@ -79,7 +121,13 @@ const Star = styled.span`
   font-size: 1.5rem;
   color: gold;
   margin: 0 2px;
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem; /* Reduced font size for smaller screens */
+    margin: 0 1px; /* Adjusted margin for smaller screens */
+  }
 `;
+
 
 const reviews = [
   {
