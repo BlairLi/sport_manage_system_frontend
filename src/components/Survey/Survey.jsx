@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from './logo2.png';
 import arrow from './arrow.png'
+import { PROGRAMS } from '../../constants/ProgramNames';
 
 const Survey = () => {
   const [addMoreChildren, setAddMoreChildren] = useState(false);
@@ -107,7 +108,7 @@ const Survey = () => {
           <FormRow>
             <InputLabel>Program of Choice<tag> * </tag></InputLabel>
             <RadioGroup>
-              {['Basketball Group Academy Training', 'All-Girls Training Academy', 'Leadership Retreats'].map(sportOption => (
+              {[`${PROGRAMS.PROGRAM_1}`, `${PROGRAMS.PROGRAM_2}`, `${PROGRAMS.PROGRAM_3}`].map(sportOption => (
                 <RadioButton key={sportOption}>
                   <input type="radio" name="sport" value={sportOption} checked={sport === sportOption} onChange={handleRadioButtonChange(setSport)} />
                   {sportOption}
@@ -118,7 +119,6 @@ const Survey = () => {
           <FormRow>
             <InputLabel>Preferred day(s) of program<tag> * </tag></InputLabel>
             <RadioGroup>
-              {/* {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(dayOption => ( */}
               {['Saturday', 'Sunday'].map(dayOption => (
                 <RadioButton key={dayOption}>
                   <input type="checkbox" name="day" value={dayOption} checked={selectedDays.includes(dayOption)} onChange={handleCheckboxChange(selectedDays, setSelectedDays, dayOption, 2)} />

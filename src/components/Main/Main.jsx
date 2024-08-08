@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import p13 from './headerlogo.png';
 import registernow from './goldenregister.png';
-import registernow2 from './goldenregister2.png';
 import main1 from './main1.png';
-import main2 from './main4.png';
+import main2 from './main2.png';
 import main3 from './main3.png';
 import mainTop from './mainTop.png';
-import phonesize from './mainpagephonesize2.png';
 
 import { Link } from "react-router-dom";
 import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
@@ -78,7 +76,8 @@ const BottomSection = styled.div`
   flex: 4;
   background-color: white;
   display: flex;
-  padding: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
   overflow: hidden;
 
   @media (max-width: 1024px) {
@@ -102,8 +101,8 @@ const RightColumn = styled.div`
 `;
 
 const Image1 = styled.img`
-  max-height: 350px;
-  max-width: 350px;
+  max-height: 300px;
+  max-width: 300px;
 `;
 
 const ParagraphContainer = styled.div`
@@ -114,7 +113,6 @@ const ParagraphContainer = styled.div`
 
 const ParagraphTitle = styled.h2`
   font-size: 31px;
-  margin-bottom: 10px;
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
 `;
@@ -150,7 +148,7 @@ const ImageGallery = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 1cm;
-  gap: 10px;
+  gap: 1.5rem;
   overflow: hidden;
 
   @media (max-width: 1024px) {
@@ -185,7 +183,7 @@ const GalleryImage = styled.img`
 const ImageDescription = styled.div`
   text-align: left;
   margin-bottom: 5px;
-  font-size: 20px;
+  font-size: 1.1rem;
   font-weight: 800;
   font-family: 'Poppins', sans-serif;
   padding: 20px 0;
@@ -229,7 +227,7 @@ const TitleContainer = styled.div`
 `;
 
 const NewTitle = styled.h2`
-  font-size: 31px;
+  font-size: 1.5vw;
   text-align: left;
   margin: 0;
   padding-right: 20px;
@@ -546,7 +544,7 @@ const Main = () => {
           <ParagraphContainer>
             <ParagraphTitle>Welcome to Junior Athletics!</ParagraphTitle>
             <ParagraphText>
-              At Junior Athletics, we give your child the opportunity to make achievements outside of the classroom. Our mission is to create a fun, safe, and supportive environment where young athletes can thrive; building confidence, and forming lasting friendships. We emphasize teamwork, sportsmanship, and personal growth. We offer Basketball Training, House Leagues, and Camps, within the GTA! Join us and watch your child shine!
+            At Junior Athletics, we give your child the opportunity to make achievements outside of the classroom. Our mission is to create a fun, safe, and supportive environment where young athletes can thrive; building confidence, and forming lasting friendships. We emphasize teamwork, sportsmanship, and personal growth. We offer Basketball Training, House Leagues, and After School Programs, within the GTA!
             </ParagraphText>
           </ParagraphContainer>
           <LinkContainer>
@@ -559,13 +557,7 @@ const Main = () => {
           <Image1 src={p13} alt="p13" />
         </RightColumn>
       </BottomSection>
-      {/* <PhoneImageContainer>
-        <PhoneImage src={phonesize} alt="Responsive view" />
-        <LinkContainer2>
-          <Link to={`/survey`}><RegisterImage src={registernow2} alt="Register Now" /></Link>
-        </LinkContainer2>
-      </PhoneImageContainer> */}
-      <FormSection>
+      {/* <FormSection>
         <FormHeader>
           <TrialOffer>OR ENJOY A FREE TRIAL</TrialOffer>
           <FormLine />
@@ -601,7 +593,7 @@ const Main = () => {
             <Button type="submit">Submit</Button>
           </ButtonContainer>
         </Form>
-      </FormSection>
+      </FormSection> */}
       <TitleContainer>
         <NewTitle>Is Your Child New to Sports?</NewTitle>
         <StyledHorizontalLine />
@@ -627,7 +619,7 @@ const Main = () => {
         <a href="https://www.facebook.com/profile.php?id=61563322405603" target="_blank" rel="noopener noreferrer">
           <BsFacebook />
         </a>
-        <a href="https://www.instagram.com/juniorathleticscanada" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/juniorathletics.ca/" target="_blank" rel="noopener noreferrer">
           <AiOutlineInstagram />
         </a>
         <a href="" target="_blank" rel="noopener noreferrer">

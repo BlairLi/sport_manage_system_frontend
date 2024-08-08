@@ -1,5 +1,5 @@
 export const PROGRAMS = {
-    PROGRAM_1: "Basketball Group Training Academy",
-    PROGRAM_2: "All Girls Training Academy",
-    PROGRAM_3: "Leadership Camps",
+    PROGRAM_1: "Small Group Training",
+    PROGRAM_2: "1 on 1 Training",
+    PROGRAM_3: "Fall House League",
   };
