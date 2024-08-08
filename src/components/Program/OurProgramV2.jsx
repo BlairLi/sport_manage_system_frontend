@@ -9,6 +9,7 @@ import allGirls_badge from '../../../public/allGrils_badge.webp';
 import redcheck from '../../../public/redcheck.webp';
 import registernow from './registernow.png';
 import Reviews from './Reviews';
+import { PROGRAMS } from '../../constants/ProgramNames';
 
 
 const Containerr = styled.div`
@@ -25,44 +26,37 @@ const Container = styled.div`
 
 const TopSection = styled.div`
   background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Align items to the start */
-  justify-content: center;
-  // padding: 20px;
-  padding-top: 3rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
   color: #95071A;
   font-weight: 800;
-  width: 100%; /* Ensure it takes the full width */
-  margin-left: 20px; /* Add margin to position it correctly */
+  width: 100%;
 `;
 
 const Title = styled.h1`
-  font-size: 50px;
+  font-size: 4vw;
   margin: 0;
   font-family: 'League Spartan', sans-serif;
   font-weight: 800;
   @media (max-width: 768px) {
-    font-size: 40px;
+    font-size: 5vw;
   }
   @media (max-width: 480px) {
-    font-size: 30px;
+    font-size: 6vw;
   }
 `;
 
 const Subtitle = styled.h2`
-  font-size: 20px;
+  font-size: 1.2vw;
   font-family: 'League Spartan', sans-serif;
   font-weight: 400;
   color: #333;
-  margin-top: 10px;
-  text-align: center;
 
   @media (max-width: 768px) {
-    font-size: 18px;
+    font-size: 2.5vw;
   }
   @media (max-width: 480px) {
-    font-size: 16px;
+    font-size: 3vw;
   }
 `;
 
@@ -70,9 +64,10 @@ const ProgramContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
   flex-wrap: wrap;
+  gap: 20px;
+  height: 34rem;
+  margin-top: 2rem;
 
   @media (max-width: 1024px) {
     flex-direction: column;
@@ -88,33 +83,38 @@ const Card = styled.div`
   background-color: #f5f5f5;
   border-radius: 10px;
   overflow: hidden;
-  width: 25rem;
+  width: 20rem;
+  // height: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   position: relative;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: visible;
+  // margin-top: 3rem;
 
   @media (max-width: 1024px) {
     width: 80%; 
+    height: auto;
   }
 
   @media (max-width: 640px) {
     width: 90%;
+    height: auto;
   }
 `;
 
 const CardHeader = styled.div`
+  padding-top: 4.5rem;
   color: black;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the badge */
+  align-items: center;
   
   @media (max-width: 640px) {
     font-size: 1.2rem; 
@@ -122,54 +122,48 @@ const CardHeader = styled.div`
 `;
 
 const CardBody = styled.div`
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-bottom: 20px;
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
+  height: 100%;
 
   @media (max-width: 640px) {
     padding: 10px;
   }
 `;
 
+const CardFooter = styled.div`
+  background-color: #f5f5f5;
+`;
+
 const SectionTitle = styled.div`
   font-weight: bold;
   font-size: 1rem;
-  margin: 10px 0;
 `;
 
 const Divider = styled.hr`
   border: none;
   height: 1px;
   background-color: #333;
-  margin: 20px 0;
-`;
-
-const CardFooter = styled.div`
-  padding: 20px;
-  background-color: #f5f5f5;
+  margin: 10px 0;
 `;
 
 const Price = styled.div`
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #95071A;
-  margin: 10px 0;
   font-family: 'Poppins', sans-serif;
 
   span {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   @media (max-width: 640px) {
-    font-size: 2rem; 
+    font-size: 1.5rem; 
     span {
-      font-size: 1rem; 
+      font-size: 0.75rem; 
     }
   }
 `;
-
 
 const OldPrice = styled.div`
   font-size: 1rem;
@@ -178,7 +172,7 @@ const OldPrice = styled.div`
 `;
 
 const SpecialPrice = styled.div`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #95071A;
   font-weight: bold;
 `;
@@ -190,15 +184,14 @@ const PerMonth = styled.div`
 
 const Details = styled.div`
   text-align: left;
-  margin-bottom: 10px;
 `;
 
 const DetailItem = styled.div`
   display: flex;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   color: #333;
-  margin-bottom: 5px;
+  height: 1rem;
 
   &::before {
     content: '';
@@ -214,7 +207,6 @@ const DetailItem = styled.div`
 
 const Outcome = styled.div`
   text-align: left;
-  margin-bottom: 10px;
 `;
 
 const Notes = styled.div`
@@ -223,24 +215,22 @@ const Notes = styled.div`
 `;
 
 const RegisterNowImage = styled.img`
-  width: 100%;
+  width: 50%;
   height: auto;
-  margin-top: 10px;
 `;
 
 const FeatureList = styled.ul`
   list-style: none;
   padding: 0;
   text-align: left;
-  margin-bottom: 10px;
 `;
 
 const FeatureItem = styled.li`
   display: flex;
   align-items: center;
-  font-size: 0.9rem;
+  height: 1rem;
+  font-size: 0.7rem;
   color: #333;
-  margin-bottom: 5px;
 
   &::before {
     content: '';
@@ -255,21 +245,24 @@ const FeatureItem = styled.li`
 `;
 
 const Badge = styled.img`
-  width: 10rem;
+  width: 13rem;
   height: auto;
+  position: relative;
+  buttom: 100px
 `;
 
 const BadgeContainer = styled.div`
   position: absolute;
-  top: 10px;
+  top: -5rem; /* Adjust as needed to position the badge */
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 `;
 
 const InfoBlocks = styled.div`
   display: flex;
   justify-content: space-around;
-  padding: 40px 20px;
+  padding: 20px;
   width: 100%;
   flex-wrap: wrap;
   gap: 20px;
@@ -281,6 +274,7 @@ const InfoBlock = styled.div`
   border-radius: 10px;
   padding: 20px;
   width: 20%;
+  height: 7rem;
   min-width: 200px;
   text-align: center;
 
@@ -294,14 +288,14 @@ const InfoBlock = styled.div`
 `;
 
 const InfoTitle = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #95071A;
   font-weight: bold;
   margin-bottom: 10px;
 `;
 
 const InfoText = styled.div`
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #333;
 `;
 
@@ -335,10 +329,12 @@ const OurProgram = () => {
           <Subtitle>There is a one-time fee of $25 as you register for your child's jersey, and drawstring bag</Subtitle>
         </TopSection>
         <ProgramContainer>
-          <Card style={{ backgroundImage: `url(${p2})` }}>
+          <Card style={{ backgroundImage: `url(${p1})` }}>
             <CardHeader>
-              <Badge src={basketball_badge} alt="Badge" />
-              Basketball Group Training <br/>Academy
+              <BadgeContainer>
+                <Badge src={basketball_badge} alt="Badge" />
+              </BadgeContainer>
+              {PROGRAMS.PROGRAM_1}
             </CardHeader>
             <CardBody>
               <OldPrice>$150 per month</OldPrice>
@@ -369,18 +365,18 @@ const OurProgram = () => {
                   <FeatureItem>Personalized progress report cards</FeatureItem>
                 </FeatureList>
               </Notes>
-            </CardBody>
-            <CardFooter>
               <Link to="/survey?class=Basketball Group Academy Training">
                 <RegisterNowImage src={registernow} alt="Register Now" />
               </Link>
-            </CardFooter>
+            </CardBody>
           </Card>
 
           <Card style={{ backgroundImage: `url(${p1})` }}>
             <CardHeader>
-              <Badge src={allGirls_badge} alt="Badge" />
-              All Girls Training <br/>Academy
+              <BadgeContainer>
+                <Badge src={allGirls_badge} alt="Badge" />
+              </BadgeContainer>
+              {PROGRAMS.PROGRAM_2}
             </CardHeader>
             <CardBody>
               <OldPrice>$150 per month</OldPrice>
@@ -411,18 +407,18 @@ const OurProgram = () => {
                   <FeatureItem>Personalized progress report cards</FeatureItem>
                 </FeatureList>
               </Notes>
-            </CardBody>
-            <CardFooter>
               <Link to="/survey?class=All-Girls Training Academy">
                 <RegisterNowImage src={registernow} alt="Register Now" />
               </Link>
-            </CardFooter>
+            </CardBody>
           </Card>
 
           <Card style={{ backgroundImage: `url(${p3})` }}>
             <CardHeader>
-              <Badge src={leadership_badge} alt="Badge" />
-              Leadership <br/>Camps
+              <BadgeContainer>
+                <Badge src={leadership_badge} alt="Badge" />
+              </BadgeContainer>
+              {PROGRAMS.PROGRAM_3}
             </CardHeader>
             <CardBody>
               <OldPrice>$400 per month</OldPrice>
@@ -453,12 +449,10 @@ const OurProgram = () => {
                   <FeatureItem>Personalized progress report cards</FeatureItem>
                 </FeatureList>
               </Notes>
-            </CardBody>
-            <CardFooter>
               <Link to="/survey?class=Leadership Retreats">
                 <RegisterNowImage src={registernow} alt="Register Now" />
               </Link>
-            </CardFooter>
+            </CardBody>
           </Card>
         </ProgramContainer>
 
