@@ -24,12 +24,14 @@ const Container = styled.div`
 const RegisterImage = styled.img`
   width: 40%;
   height: auto;
-  opacity: 1;
-  // padding-bottom: 2vw;
+  margin-top: 20px;
 
   @media (max-width: 1024px) {
     width: 200px;
-    padding-bottom: 2vw;
+  }
+
+  @media (max-width: 640px) {
+    width: 150px;
   }
 `;
 
@@ -59,16 +61,55 @@ const PhoneImage = styled.img`
 const TopSection = styled.div`
   flex: 6;
   background: url(${mainTop}) no-repeat center center;
-  background-size: 100%;
+  background-size: cover;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  // padding: 20px;
-  padding-top: 560px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding-top: 400px;
   overflow: hidden;
 
   @media (max-width: 1024px) {
-    display: none;
+    padding-top: 200px;
+    justify-content: center;
+  }
+
+  @media (max-width: 640px) {
+    padding-top: 60px;
+    background-size: contain;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background-color: rgba(0, 0, 0, 0.5); // Darken overlay for better text visibility
+    z-index: 1;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+`;
+
+const TopTitle = styled.h1`
+  font-size: 4vw;
+  color: white;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 800;
+  text-align: center;
+  padding: 20px;
+
+  @media (max-width: 1024px) {
+    font-size: 6vw;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 8vw;
   }
 `;
 
@@ -76,12 +117,18 @@ const BottomSection = styled.div`
   flex: 4;
   background-color: white;
   display: flex;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding: 40px;
   overflow: hidden;
+  flex-direction: row;
 
   @media (max-width: 1024px) {
-    display: none;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 640px) {
+    padding: 10px;
   }
 `;
 
@@ -89,7 +136,14 @@ const LeftColumn = styled.div`
   display: flex;
   flex-direction: column;
   flex: 3;
+  padding-right: 40px;
   overflow: hidden;
+
+  @media (max-width: 1024px) {
+    padding-right: 0;
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 const RightColumn = styled.div`
@@ -98,28 +152,66 @@ const RightColumn = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding-top: 20px;
+
+  @media (max-width: 1024px) {
+    padding-top: 20px;
+    align-items: center;
+  }
 `;
 
 const Image1 = styled.img`
   max-height: 300px;
   max-width: 300px;
+
+  @media (max-width: 1024px) {
+    max-height: 200px;
+    max-width: 200px;
+  }
+
+  @media (max-width: 640px) {
+    max-height: 150px;
+    max-width: 150px;
+  }
 `;
 
 const ParagraphContainer = styled.div`
   max-width: 100%;
   text-align: left;
   overflow: hidden;
+
+  @media (max-width: 1024px) {
+    text-align: center;
+  }
 `;
 
 const ParagraphTitle = styled.h2`
-  font-size: 31px;
+  font-size: 2rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
+  margin-bottom: 20px;
+
+  @media (max-width: 1024px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const ParagraphText = styled.p`
-  font-size: 20px;
+  font-size: 1.2rem;
   font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const LinkContainer = styled.div`
@@ -538,18 +630,20 @@ const Main = () => {
 
   return (
     <Container>
-      <TopSection />
+      <TopSection>
+        <TopTitle></TopTitle>
+      </TopSection>
       <BottomSection>
         <LeftColumn>
           <ParagraphContainer>
             <ParagraphTitle>Welcome to Junior Athletics!</ParagraphTitle>
             <ParagraphText>
-            At Junior Athletics, we give your child the opportunity to make achievements outside of the classroom. Our mission is to create a fun, safe, and supportive environment where young athletes can thrive; building confidence, and forming lasting friendships. We emphasize teamwork, sportsmanship, and personal growth. We offer Basketball Training, House Leagues, and After School Programs, within the GTA!
+              At Junior Athletics, we give your child the opportunity to make achievements outside of the classroom. Our mission is to create a fun, safe, and supportive environment where young athletes can thrive; building confidence, and forming lasting friendships. We emphasize teamwork, sportsmanship, and personal growth. We offer Basketball Training, House Leagues, and After School Programs, within the GTA!
             </ParagraphText>
           </ParagraphContainer>
           <LinkContainer>
             <Link to={`/survey`}>
-              <RegisterImage src={registernow} alt="Register Now" className={{ width: '50%', height: 'auto' }} />
+              <RegisterImage src={registernow} alt="Register Now" />
             </Link>
           </LinkContainer>
         </LeftColumn>
