@@ -65,11 +65,14 @@ const Survey = () => {
     };
 
     const surveyQuery = new URLSearchParams(surveyData).toString();
-    if (addMoreChildren) {
-      navigate(`/Registration2?${surveyQuery}`);
-    } else {
-      navigate(`/Registration1?${surveyQuery}`);
-    }
+    navigate(`/Registration1?${surveyQuery}`);
+
+    // TODO: DISABLE FOR NOW
+    // if (addMoreChildren) {
+    //   navigate(`/Registration2?${surveyQuery}`);
+    // } else {
+    //   navigate(`/Registration1?${surveyQuery}`);
+    // }
   };
 
 
@@ -139,18 +142,18 @@ const Survey = () => {
             </RadioGroup>
           </FormRow>
           <FormRow>
-            <InputLabel>Do you want to add more child(ren)?<tag> * </tag>10% off</InputLabel>
+            {/* TODO: DISABLE FOR NOW */}
+            {/* <InputLabel>Do you want to add more child(ren)?<tag> * </tag>10% off</InputLabel> */}
             <RadioGroup>
-              <RadioButton>
+              {/* <RadioButton>
                 <input type="radio" name="addMoreChildren" value="yes" checked={addMoreChildren} onChange={() => setAddMoreChildren(true)} />
                 Yes
               </RadioButton>
               <RadioButton>
                 <input type="radio" name="addMoreChildren" value="no" checked={!addMoreChildren} onChange={() => setAddMoreChildren(false)} />
                 No
-              </RadioButton>
+              </RadioButton> */}
               <ButtonRow>
-
                 <NextLink onClick={handleNext}>Next
                   <img src={arrow} alt="Next" />
                 </NextLink>

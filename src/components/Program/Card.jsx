@@ -47,14 +47,14 @@ const CardHeader = styled.div`
 
 const BadgeContainer = styled.div`
   position: absolute;
-  top: -5rem;
+  top: -2.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
 `;
 
 const Badge = styled.img`
-  width: 13rem;
+  width: 6rem;
   height: auto;
   position: relative;
 `;

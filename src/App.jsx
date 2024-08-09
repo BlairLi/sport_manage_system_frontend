@@ -38,6 +38,9 @@ import BTraining from './components/Program/BTraining';
 import AllGirlsTrainingAcademy from './components/Program/AllGirlsTrainingAcademy';
 import LeadershipCamps from './components/Program/LeadershipCamps';
 
+import HelpOnProgram from './components/Help/HelpOnProgram';
+import HelpOnProgram2 from './components/Help/HelpOnProgram2';
+
 
 
 function App() {
@@ -61,19 +64,21 @@ function App() {
         <Route path='/updatePayroll/:id' element={<UpdateUserPayroll />}></Route>
         <Route path='/programs' element={<Programs />} />
         <Route path='/create-program' element={<CreateProgram />} />
-         <Route path='/update-program/:id' element={<UpdateProgram />} ></Route>
-         <Route path='/success' element={<Success />} ></Route>
-         <Route path='/cancel' element={<Cancel />} ></Route>
-         <Route path='/survey' element={<Survey />} ></Route>
-         <Route path='/OurProgram' element={<OurProgram />} ></Route>
-         <Route path='/FAQ' element={<FAQ />} ></Route>
-         <Route path='/Contact' element={<Contact />} ></Route>
-         <Route path='/Content1' element={<Content1 />} ></Route>
-         <Route path='/Content2' element={<Content2 />} ></Route>
-         <Route path='/Content3' element={<Content3 />} ></Route>
-         <Route path='/BTraining' element={<BTraining />} ></Route>
-         <Route path='/AllGirlsTrainingAcademy' element={<AllGirlsTrainingAcademy />} ></Route>
-         <Route path='/LeadershipCamps' element={<LeadershipCamps />} ></Route>
+        <Route path='/update-program/:id' element={<UpdateProgram />} ></Route>
+        <Route path='/success' element={<Success />} ></Route>
+        <Route path='/cancel' element={<Cancel />} ></Route>
+        <Route path='/survey' element={<Survey />} ></Route>
+        <Route path='/OurProgram' element={<OurProgram />} ></Route>
+        <Route path='/FAQ' element={<FAQ />} ></Route>
+        <Route path='/Contact' element={<Contact />} ></Route>
+        <Route path='/Content1' element={<Content1 />} ></Route>
+        <Route path='/Content2' element={<Content2 />} ></Route>
+        <Route path='/Content3' element={<Content3 />} ></Route>
+        <Route path='/BTraining' element={<BTraining />} ></Route>
+        <Route path='/AllGirlsTrainingAcademy' element={<AllGirlsTrainingAcademy />} ></Route>
+        <Route path='/LeadershipCamps' element={<LeadershipCamps />} ></Route>
+        <Route path='/HelpOnProgram' element={<HelpOnProgram />} ></Route>
+        <Route path='/HelpOnProgram2' element={<HelpOnProgram2 />} ></Route>
       </Routes>
     </Router>
   );

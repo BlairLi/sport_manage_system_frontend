@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import Card from './Card'; // Adjust the import path as necessary
-import p1 from '../../../public/All_Girls_Training_Academy.webp';
 import p2 from '../../../public/Basketball_Group_Training_Academy.webp';
 import p3 from '../../../public/Leadership_Camps.webp';
-import basketball_badge from '../../../public/basketball_badge.webp';
-import leadership_badge from '../../../public/leadership_badge.webp';
-import allGirls_badge from '../../../public/allGrils_badge.webp';
+import p4 from '../../../public/26.webp';
+import smallGroup_badge from '../../../public/smallGroup_badge.png';
+import oneOnOne_badge from '../../../public/oneOnOne_badge.png';
+import fall_house_badge from '../../../public/fall_house_badge.png';
 import Reviews from './Reviews';
 import { PROGRAMS } from '../../constants/ProgramNames';
 
@@ -161,8 +161,8 @@ const OurProgram = () => {
         </TopSection>
         <ProgramContainer>
           <Card
-            backgroundImage={p1}
-            badgeSrc={basketball_badge}
+            backgroundImage={p2}
+            badgeSrc={smallGroup_badge}
             programName={PROGRAMS.PROGRAM_1}
             oldPrice="$120 per month"
             specialPrice="AUGUST SPECIAL"
@@ -178,8 +178,8 @@ const OurProgram = () => {
             link="/survey?class=Basketball Group Academy Training"
           />
           <Card
-            backgroundImage={p2}
-            badgeSrc={allGirls_badge}
+            backgroundImage={p4}
+            badgeSrc={oneOnOne_badge}
             programName={PROGRAMS.PROGRAM_2}
             oldPrice="$200 per month"
             specialPrice="AUGUST SPECIAL"
@@ -196,7 +196,7 @@ const OurProgram = () => {
           />
           <Card
             backgroundImage={p3}
-            badgeSrc={leadership_badge}
+            badgeSrc={fall_house_badge}
             programName={PROGRAMS.PROGRAM_3}
             oldPrice="$100 per month"
             specialPrice="AUGUST SPECIAL"
