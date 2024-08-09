@@ -102,7 +102,9 @@ function ProgramFiltering() {
       <Title>THANKS FOR YOUR PATIENCE</Title>
       <Subtitle>We would recommend that you enroll in...</Subtitle>
       <DescriptionTitle>Fall House League</DescriptionTitle>
-      <Description>Your score indicates that <strong>Small Group Training</strong> is ideal for your child. It is designed for children who enjoy learning and playing in a team environment as it focuses on fundamental skills and team strategies.</Description>
+      <Description>
+      Your score indicates that <strong>Fall House League</strong> is ideal for your child. It is designed for children who enjoy learning and playing in a team environment as it focuses on applying skill to team strategies.
+      </Description>
       <ImageContainer>
         <Link to="/OurProgram">
           <StyledImage src={signUpButtonImage} alt="Sign Me Up" />
