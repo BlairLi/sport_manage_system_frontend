@@ -39,7 +39,7 @@ const Header = () => {
                 <NavLink to="/" > <Logo src={logo} alt="logo" /></NavLink>
 
             <ContactInfo>
-                <span ><a href="tel:+16472609736" className="activeLink">647-260-9736</a></span>
+                <span ><a href="tel:+12897955412" className="activeLink">289-795-5412</a></span>
                 <span > | </span>
                 <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink"><SignInButton>SIGN IN</SignInButton></NavLink>
                 {/* <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink"><SignInImage src={signin}></SignInImage></NavLink> */}
