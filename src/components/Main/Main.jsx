@@ -3,7 +3,7 @@ import p13 from './headerlogo.png';
 import registernow from './goldenregister.png';
 import main1 from './main1.png';
 import main2 from './main2.png';
-import main3 from './main3.png';
+import main3 from './main33.png';
 import mainTop from './mainTop.png';
 import phonePic from './mainpagephonesize2.png';
 import { Link } from "react-router-dom";
@@ -44,6 +44,10 @@ const PhoneImageContainer = styled.div`
   @media (max-width: 1024px) {
     display: block;
   }
+  @media (max-width: 640px) {
+    visibility: visible;
+    opacity: 0.9;
+  }
 `;
 
 const PhoneImage = styled.img`
@@ -52,7 +56,7 @@ const PhoneImage = styled.img`
   height: auto;
   visibility: hidden;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 640px) {
     visibility: visible;
     opacity: 0.9;
   }
@@ -68,10 +72,11 @@ const TopSection = styled.div`
   padding: 20px;
   padding-top: 400px;
   overflow: hidden;
-
+  padding-bottom: 8vw;
   @media (max-width: 1024px) {
     padding-top: 200px;
     justify-content: center;
+    padding-bottom: 5vw;
   }
 
   @media (max-width: 640px) {
