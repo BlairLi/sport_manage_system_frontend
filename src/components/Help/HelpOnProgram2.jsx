@@ -157,7 +157,7 @@ const SurveyPage2 = () => {
         </Options>
       </QuestionGroup>
 
-      <NextButton to="/final-page">
+      <NextButton to="/result1">
         Next <AiOutlineArrowRight />
       </NextButton>
     </Container>

@@ -41,6 +41,12 @@ import LeadershipCamps from './components/Program/LeadershipCamps';
 import HelpOnProgram from './components/Help/HelpOnProgram';
 import HelpOnProgram2 from './components/Help/HelpOnProgram2';
 
+import PgFilter from './components/Help/PgFilter';
+
+import Result1 from './components/Help/Result1';
+import Result2 from './components/Help/Result2';
+import Result3 from './components/Help/Result3';
+
 
 
 function App() {
@@ -79,7 +85,11 @@ function App() {
         <Route path='/LeadershipCamps' element={<LeadershipCamps />} ></Route>
         <Route path='/HelpOnProgram' element={<HelpOnProgram />} ></Route>
         <Route path='/HelpOnProgram2' element={<HelpOnProgram2 />} ></Route>
-      </Routes>
+        <Route path='/PgFilter' element={<PgFilter />} ></Route>
+        <Route path='/Result1' element={<Result1 />} ></Route>
+        <Route path='/Result2' element={<Result2 />} ></Route>
+        <Route path='/Result3' element={<Result3 />} ></Route>
+        </Routes>
     </Router>
   );
 }

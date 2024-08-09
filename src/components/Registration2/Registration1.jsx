@@ -406,18 +406,22 @@ const RegistrationForm = () => {
                     <Step2InputLabel>Class:</Step2InputLabel>
                     <StyledInput type="text" name="childClass" value={childClass} readOnly required />
                   </InputField>
+                {/* 
                   <InputField>
                     <Step2InputLabel>Location:</Step2InputLabel>
                     <StyledInput type="text" name="childClassPlace" value={childClassPlace} readOnly required />
                   </InputField>
+                  */}
                   <InputField>
                     <Step2InputLabel>Start Day:</Step2InputLabel>
                     <StyledInput type="text" name="childDayOfClass" value={childDay} readOnly required />
                   </InputField>
+                   {/* 
                   <InputField>
                     <Step2InputLabel>Time:</Step2InputLabel>
                     <StyledInput type="text" name="childDayOfClassTime" value={childDayOfClassTime} readOnly required />
                   </InputField>
+                   */}
                 </Step2FormRow>
 
                 {secondClass && (
