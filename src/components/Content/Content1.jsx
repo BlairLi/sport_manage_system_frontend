@@ -44,8 +44,8 @@ const Content1 = () => {
 
             <p>Here's to basketball, teamwork, and endless opportunities for growth and success!</p>
 
-            <p>Warm regards,</p>
-            <p>Youth Development Basketball Team :)</p>
+            <p>Warm regards, <br/>
+            Youth Development Basketball Team :)</p>
             <p><Logo src={logo} alt="Youth Development Basketball Logo" /></p>
             <StyledHorizontalLine2 />
 

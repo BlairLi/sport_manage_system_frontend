@@ -31,7 +31,7 @@ const RegisterImage = styled.img`
   }
 
   @media (max-width: 640px) {
-    width: 150px;
+    width: 250px;
   }
 `;
 
@@ -76,7 +76,7 @@ const TopSection = styled.div`
 
   @media (max-width: 640px) {
     padding-top: 60px;
-    background-size: contain;
+    background-size: cover;
   }
 
   &::before {
@@ -220,6 +220,14 @@ const LinkContainer = styled.div`
   background-color: white;
   margin-top: 78px;
   overflow: hidden;
+
+  @media (max-width: 640px) {
+    display: flex;
+    justify-content: flex-start;
+    background-color: white;
+    margin: 0;
+    overflow: hidden;
+  }
 `;
 
 const LinkContainer2 = styled.div`

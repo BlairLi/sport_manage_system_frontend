@@ -14,28 +14,37 @@ const Content3 = () => {
         <Content>
           <Texts>
             <h1>Empowering Girls: The Importance of Female Athletics from a Young Age</h1>
+            <p><strong>Why Female Athletics Matter from a Young Age</strong></p>
             <p>From playgrounds to professional arenas, the importance of female athletics cannot be overstated. Engaging in sports like basketball from a young age offers countless benefits that extend far beyond the court. Here’s why encouraging girls to participate in athletics early on is crucial for their development and future success:</p>
 
-            <p><strong>Building Confidence and Self-Esteem:</strong> Participating in sports helps girls build confidence in their abilities and strengths. Whether dribbling a basketball or scoring a goal, each achievement reinforces a sense of accomplishment that boosts self-esteem.</p>
+            <p><strong>1. Building Confidence and Self-Esteem</strong> </p>
+            <p>Participating in sports helps girls build confidence in their abilities and strengths. Whether dribbling a basketball or scoring a goal, each achievement reinforces a sense of accomplishment that boosts self-esteem. Through sports, girls learn to set goals, push their limits, and overcome challenges, laying a solid foundation for facing life's obstacles with resilience.</p>
 
-            <p><strong>Developing Physical and Mental Strength:</strong> Athletics promote physical fitness and overall well-being. Regular exercise strengthens muscles, improves cardiovascular health, and enhances coordination. Beyond physical fitness, sports also foster mental resilience by teaching girls to handle pressure, manage stress, and stay focused—a skill set that proves invaluable in all aspects of life.</p>
+            <p><strong>2. Developing Physical and Mental Strength</strong> </p>
+            <p>Athletics promote physical fitness and overall well-being. Regular exercise strengthens muscles, improves cardiovascular health, and enhances coordination. Beyond physical fitness, sports also foster mental resilience by teaching girls to handle pressure, manage stress, and stay focused—a skill set that proves invaluable in all aspects of life.</p>
 
-            <p><strong>Cultivating Leadership and Teamwork Skills:</strong> Team sports like basketball teach girls the value of collaboration and communication. By working towards a common goal alongside teammates, girls learn to trust others, take on leadership roles, and contribute effectively to a group effort. These skills are essential in school, career settings, and community involvement, preparing girls to become confident leaders and team players.</p>
+            <p><strong>3. Cultivating Leadership and Teamwork Skills</strong> </p>
+            <p>Team sports like basketball teach girls the value of collaboration and communication. By working towards a common goal alongside teammates, girls learn to trust others, take on leadership roles, and contribute effectively to a group effort. These skills are essential in school, career settings, and community involvement, preparing girls to become confident leaders and team players.</p>
 
-            <p><strong>Fostering Lifelong Health and Fitness Habits:</strong> Engaging in sports from a young age establishes healthy habits that can last a lifetime. Girls who participate in athletics are more likely to remain physically active as adults, reducing their risk of chronic diseases such as heart disease and diabetes.</p>
+            <p><strong>4. Fostering Lifelong Health and Fitness Habits</strong> </p>
+            <p>Engaging in sports from a young age establishes healthy habits that can last a lifetime. Girls who participate in athletics are more likely to remain physically active as adults, reducing their risk of chronic diseases such as heart disease and diabetes. By instilling a love for physical activity early on, we set the stage for a healthier future generation.</p>
 
-            <p><strong>Challenging Gender Stereotypes and Breaking Barriers:</strong> Female athletes in sports like basketball challenge societal norms and stereotypes about women's capabilities. By excelling in a sport traditionally dominated by men, they inspire others to defy expectations and pursue their passions fearlessly.</p>
+            <p><strong>5. Challenging Gender Stereotypes and Breaking Barriers</strong> </p>
+            <p>Female athletes in sports like basketball challenge societal norms and stereotypes about women's capabilities. By excelling in a sport traditionally dominated by men, they inspire others to defy expectations and pursue their passions fearlessly. Through their achievements, girls learn that gender should never limit their dreams or aspirations.</p>
 
-            <p><strong>Promoting Social Inclusion and Diversity:</strong> Basketball and other team sports bring people together from diverse backgrounds and cultures, fostering inclusivity and mutual respect. Girls learn to appreciate and celebrate differences while forging friendships that transcend boundaries.</p>
+            <p><strong>6. Promoting Social Inclusion and Diversity</strong> </p>
+            <p>Basketball and other team sports bring people together from diverse backgrounds and cultures, fostering inclusivity and mutual respect. Girls learn to appreciate and celebrate differences while forging friendships that transcend boundaries. Athletics provide a platform for girls to connect, learn from one another, and build lasting bonds rooted in shared experiences and mutual respect.</p>
 
-            <p><strong>The Impact of Female Coaches:</strong> Having female coaches in coaching girls' athletics is not just beneficial—it's essential. They bring a unique set of skills, perspectives, and experiences that positively impact the development and success of young female athletes.</p>
+            <p><strong>7. The Impact of Female Coaches</strong> </p>
+            <p>Having female coaches in coaching girls' athletics is not just beneficial—it's essential. They bring a unique set of skills, perspectives, and experiences that positively impact the development and success of young female athletes. By serving as role models, mentors, and advocates, female coaches inspire the next generation of girls to pursue their athletic dreams with confidence and determination. Female coaches empower girls to believe in their abilities, cultivate leadership skills, and create safe and inclusive environments where girls feel valued and respected.</p>
 
-            <p>Conclusion: Encouraging girls to participate in sports like basketball from a young age is more than just a physical activity—it's a pathway to empowerment, leadership, and personal growth. Let's continue to support and celebrate female athletes and coaches in basketball and all sports, ensuring that every girl has the opportunity to thrive both on and off the court.</p>
+            <p><strong>Conclusion</strong>  </p>
+            <p>Encouraging girls to participate in sports like basketball from a young age is more than just a physical activity—it's a pathway to empowerment, leadership, and personal growth. Let's continue to support and celebrate female athletes and coaches in basketball and all sports, ensuring that every girl has the opportunity to thrive both on and off the court.</p>
 
-            <p>Join us in empowering girls through basketball and athletics today!</p>
+            <p><strong>Join us in empowering girls through basketball and athletics today!</strong></p>
 
-            <p>Warm regards,</p>
-            <p>Youth Development Basketball Team :)</p>
+            <p>Warm regards, <br/>
+            Youth Development Basketball Team :)</p>
             <p><Logo src={logo} alt="Youth Development Basketball Logo" /></p>
             <StyledHorizontalLine2 />
           </Texts>

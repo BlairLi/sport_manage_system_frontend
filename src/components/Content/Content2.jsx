@@ -32,8 +32,8 @@ const Content2 = () => {
 
             <p>Contact us today to learn more about our personalized training programs and take the first step towards. Together, let's elevate your child's game and set them on the path to Rep Basketball success!</p>
 
-            <p>Warm regards,</p>
-            <p>Youth Development Basketball Team :)</p>
+            <p>Warm regards, <br/>
+            Youth Development Basketball Team :)</p>
             <Logo src={logo} alt="Youth Development Basketball Logo" />
             <StyledHorizontalLine2 />
           </Texts>
