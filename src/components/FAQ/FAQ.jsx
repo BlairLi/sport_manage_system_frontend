@@ -326,10 +326,8 @@ const MissionSection = styled.div`
   justify-content: flex-end;
   background-image: url(${aboutbgi});
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
-  height: 110vh; 
-  padding-right: 5%;  
-  padding-top: 8%;  
 
   @media (max-width: 1024px) { 
     background-image: url(${aboutbgi3}); 
