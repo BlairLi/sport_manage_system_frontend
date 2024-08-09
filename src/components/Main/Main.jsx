@@ -5,7 +5,7 @@ import main1 from './main1.png';
 import main2 from './main2.png';
 import main3 from './main3.png';
 import mainTop from './mainTop.png';
-
+import phonePic from './mainpagephonesize2.png';
 import { Link } from "react-router-dom";
 import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
@@ -31,7 +31,7 @@ const RegisterImage = styled.img`
   }
 
   @media (max-width: 640px) {
-    width: 250px;
+    width: 210px;
   }
 `;
 
@@ -77,6 +77,7 @@ const TopSection = styled.div`
   @media (max-width: 640px) {
     padding-top: 60px;
     background-size: cover;
+    display: none;
   }
 
   &::before {
@@ -129,6 +130,7 @@ const BottomSection = styled.div`
 
   @media (max-width: 640px) {
     padding: 10px;
+    display: none;
   }
 `;
 
@@ -231,17 +233,23 @@ const LinkContainer = styled.div`
 `;
 
 const LinkContainer2 = styled.div`
-  display: none;
-
+ display: none;
+  width: 100%;
+  max-width: 860px;
+  overflow: hidden;
+  position: relative; 
   @media (max-width: 1024px) {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    visibility: visible;
+    opacity: 0.9;
+    bottom: 21vw;
     display: flex;
     justify-content: center;
-    background-color: transparent;
-    z-index: 2;
-  }
+    z-index: 2; 
+  } 
 `;
 
 const ImageGallery = styled.div`
@@ -641,6 +649,14 @@ const Main = () => {
       <TopSection>
         <TopTitle></TopTitle>
       </TopSection>
+      <PhoneImageContainer>
+        <PhoneImage src={phonePic} alt="Phone Image" />
+        <LinkContainer2>
+          <Link to={`/PgFilter`}>
+            <RegisterImage src={registernow} alt="Register Now" />
+          </Link>
+        </LinkContainer2>
+      </PhoneImageContainer>
       <BottomSection>
         <LeftColumn>
           <ParagraphContainer>
@@ -650,7 +666,7 @@ const Main = () => {
             </ParagraphText>
           </ParagraphContainer>
           <LinkContainer>
-            <Link to={`/survey`}>
+            <Link to={`/PgFilter`}>
               <RegisterImage src={registernow} alt="Register Now" />
             </Link>
           </LinkContainer>

@@ -76,7 +76,7 @@ const StyledImage = styled.img`
   max-width: 400px;
 
   @media (max-width: 768px) {
-    max-width: 100%;
+    max-width: 90%;
     padding: 2vw 15vw;
   }
 `;
