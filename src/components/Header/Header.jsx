@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import logo from './headerlogo.png';
 import letsconnect from './letsconnect.png';
 import signin from './signin.png';
-import {Link, NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
@@ -20,23 +20,23 @@ const Header = () => {
     return (
         <Container bar={bar}>
             <Nav bar={bar}>
-            <span>
-        <NavLink to="/OurProgram" className="activeLink activeTextLink">Programs</NavLink>
-    </span>
-    <span className='disinHeader'> |</span>
-    <span>
-        <NavLink to="/FAQ" className="activeLink activeTextLink">FAQ</NavLink>
-    </span>
-    <span className='disinHeader'> | </span>
-    <span>
-        <NavLink to="/Contact" className="activeLink">
-            {/* <LetsConnectImage src={letsconnect} alt="Connect" /> */}
-            <SignInButton2>Let's Connect</SignInButton2>
-        </NavLink>
-    </span>
-    {/*   {bar && <button style={{ marginLeft:'100px',padding: '10px 20px', backgroundColor: '#95071A', color: 'white', border: 'none', borderRadius: '25px', cursor: 'pointer' }}>Sign Up</button>}*/} 
-                </Nav>
-                <NavLink to="/" > <Logo src={logo} alt="logo" /></NavLink>
+                <span>
+                    <NavLink to="/OurProgram" className="activeLink activeTextLink">Programs</NavLink>
+                </span>
+                <span className='disinHeader'> |</span>
+                <span>
+                    <NavLink to="/FAQ" className="activeLink activeTextLink">FAQ</NavLink>
+                </span>
+                <span className='disinHeader'> | </span>
+                <span>
+                    <NavLink to="/Contact" className="activeLink">
+                        {/* <LetsConnectImage src={letsconnect} alt="Connect" /> */}
+                        <SignInButton2>Let's Connect</SignInButton2>
+                    </NavLink>
+                </span>
+                {/*   {bar && <button style={{ marginLeft:'100px',padding: '10px 20px', backgroundColor: '#95071A', color: 'white', border: 'none', borderRadius: '25px', cursor: 'pointer' }}>Sign Up</button>}*/}
+            </Nav>
+            <NavLink to="/" > <Logo src={logo} alt="logo" /></NavLink>
 
             <ContactInfo>
                 <span ><a href="tel:+12897798344" className="activeLink">289-779-8344</a></span>
@@ -44,9 +44,9 @@ const Header = () => {
                 <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink"><SignInButton>SIGN IN</SignInButton></NavLink>
                 {/* <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink"><SignInImage src={signin}></SignInImage></NavLink> */}
             </ContactInfo>
-       {/*  <Bars onClick={() => setBar(!bar)} bar={bar}>
+            {/*  <Bars onClick={() => setBar(!bar)} bar={bar}>
                 <div className="bar"></div>
-            </Bars> */}   
+            </Bars> */}
         </Container>
     );
 };
@@ -60,7 +60,7 @@ const Container = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    height: 8%;
+    height: 4rem;
     z-index: 1000;
     background-color: #0C3469;
     padding: 0rem 10px;
@@ -74,7 +74,7 @@ const Container = styled.div`
     @media(max-width: 640px){
         //justify-content: space-around; 
         //padding: 1rem;
-                height: 5vh;
+        height: 7vh;
         padding: 0 1vw;
     }
 `;
@@ -90,21 +90,9 @@ const Logo = styled.img`
 
         @media(max-width: 640px){
     position:absolute;
-    top: 20%;
-    left:42%;    
-    height: 65px;
-    width: 65px;
-    transform: translate(-50%, -8%);  
-
-    }
-    @media(max-width: 480px){
-    position:absolute;
-    top: 20%;
-    left:42%;    
-    height: 65px;
-    width: 65px;
-    transform: translate(0%, 0%); 
-
+    height: 5rem;
+    width: 5rem;
+    transform: translate(-50%, -8%); 
     }
 `;
 
