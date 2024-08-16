@@ -19,6 +19,10 @@ const Container = styled.div`
   padding: 0;
   overflow: hidden;
   box-sizing: border-box;
+
+  @media (max-width: 1024px) {
+    padding-top: 1.1rem;
+  }
 `;
 
 const RegisterImage = styled.img`
@@ -42,11 +46,12 @@ const PhoneImageContainer = styled.div`
   overflow: hidden;
 
   @media (max-width: 1024px) {
-    display: block;
+    display: none;
   }
   @media (max-width: 640px) {
     visibility: visible;
     opacity: 0.9;
+    display: block;
   }
 `;
 
@@ -76,7 +81,8 @@ const TopSection = styled.div`
   @media (max-width: 1024px) {
     padding-top: 200px;
     justify-content: center;
-    padding-bottom: 5vw;
+    background-size: cover;
+    // padding-bottom: 5vw;
   }
 
   @media (max-width: 640px) {
@@ -92,7 +98,6 @@ const TopSection = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    // background-color: rgba(0, 0, 0, 0.5); // Darken overlay for better text visibility
     z-index: 1;
   }
 

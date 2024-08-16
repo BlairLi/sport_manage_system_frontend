@@ -30,11 +30,9 @@ const Header = () => {
                 <span className='disinHeader'> | </span>
                 <span>
                     <NavLink to="/Contact" className="activeLink">
-                        {/* <LetsConnectImage src={letsconnect} alt="Connect" /> */}
                         <SignInButton2>Let's Connect</SignInButton2>
                     </NavLink>
                 </span>
-                {/*   {bar && <button style={{ marginLeft:'100px',padding: '10px 20px', backgroundColor: '#95071A', color: 'white', border: 'none', borderRadius: '25px', cursor: 'pointer' }}>Sign Up</button>}*/}
             </Nav>
             <NavLink to="/" > <Logo src={logo} alt="logo" /></NavLink>
 
@@ -42,11 +40,7 @@ const Header = () => {
                 <span ><a href="tel:+12897798344" className="activeLink">289-779-8344</a></span>
                 <span > | </span>
                 <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink"><SignInButton>SIGN IN</SignInButton></NavLink>
-                {/* <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink"><SignInImage src={signin}></SignInImage></NavLink> */}
             </ContactInfo>
-            {/*  <Bars onClick={() => setBar(!bar)} bar={bar}>
-                <div className="bar"></div>
-            </Bars> */}
         </Container>
     );
 };
@@ -72,8 +66,6 @@ const Container = styled.div`
     border-bottom-style: solid;
     border-bottom-color: #000000;
     @media(max-width: 640px){
-        //justify-content: space-around; 
-        //padding: 1rem;
         height: 7vh;
         padding: 0 1vw;
     }
@@ -88,11 +80,11 @@ const Logo = styled.img`
     left: 50%;
     transform: translate(-50%, -8%);  
 
-        @media(max-width: 640px){
-    position:absolute;
-    height: 5rem;
-    width: 5rem;
-    transform: translate(-50%, -8%); 
+    @media(max-width: 640px){
+        position:absolute;
+        height: 6rem;
+        width: 6rem;
+        transform: translate(-50%, -8%); 
     }
 `;
 
@@ -115,7 +107,7 @@ const ContactInfo = styled.div`
         }
 
     @media(max-width: 640px){
-        font-size: 1.1vh;
+        font-size: 1.7vh;
     }
 
     .contact-number {
@@ -147,7 +139,7 @@ const SignInButton = styled.button`
     }
     @media(max-width: 640px){
        padding: 0.2vh 1.5vw;
-       font-size: 1.2vh;
+       font-size: 1.7vh;
     }
 `;
 
@@ -257,7 +249,7 @@ const Nav = styled.div`
         }
         @media(max-width: 640px){
             margin-left: 0;
-            font-size: 3vw;
+            font-size: 3.5vw;
         }
         a {
             color: #fff;
