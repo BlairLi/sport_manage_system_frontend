@@ -28,7 +28,6 @@ const Container = styled.div`
 const RegisterImage = styled.img`
   width: 40%;
   height: auto;
-  margin-top: 20px;
 
   @media (max-width: 1024px) {
     width: 200px;
@@ -255,7 +254,7 @@ const LinkContainer2 = styled.div`
   @media (max-width: 640px) {
     visibility: visible;
     opacity: 0.9;
-    bottom: 21vw;
+    bottom: 15vw;
     display: flex;
     justify-content: center;
     z-index: 2; 
