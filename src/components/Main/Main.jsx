@@ -341,6 +341,7 @@ const TitleContainer = styled.div`
 
   @media (max-width: 640px) {
     padding-left: 2vw;
+    margin-top: 0px;
   }
 `;
 
