@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import Card from './Card'; // Adjust the import path as necessary
-import p2 from '../../../public/Basketball_Group_Training_Academy.webp';
-import p3 from '../../../public/Leadership_Camps.webp';
-import p4 from '../../../public/26.webp';
-import smallGroup_badge from '../../../public/smallGroup_badge.png';
-import oneOnOne_badge from '../../../public/oneOnOne_badge.png';
-import fall_house_badge from '../../../public/fall_house_badge.png';
+import p2 from '../../../public/pp1.png';
+import p3 from '../../../public/pp2.png';
+import p4 from '../../../public/pp3.png';
+import smallGroup_badge from '../../../public/smallGroup_badge2.png';
+import oneOnOne_badge from '../../../public/oneOnOne_badge2.png';
+import fall_house_badge from '../../../public/fall_house_badge2.png';
 import Reviews from './Reviews';
 import { PROGRAMS } from '../../constants/ProgramNames';
 
