@@ -163,6 +163,9 @@ const BestsellerBadge = styled.img`
   width: 75px;  
   height: auto;
   z-index: 10; 
+  @media (max-width: 640px) {
+    left: -10px; 
+  }
 `;
 
 const OurProgram = () => {

@@ -19,6 +19,8 @@ const Header = () => {
     const toggleBar = () => {
         setBar(!bar);
     };
+
+
     return (
         <Container>
             <GlobalStyles />
@@ -26,7 +28,7 @@ const Header = () => {
                 <div className="bar"></div>
             </Bars>
 
-            <Nav bar={bar}>
+                <Nav bar={bar} onClick={() => bar && setBar(false)}> 
                 <NavLink to="/OurProgram" className="activeLink activeTextLink">Programs</NavLink>
                 <span className='disinHeader'> |</span>
                 <NavLink to="/FAQ" className="activeLink activeTextLink">FAQ</NavLink>
