@@ -245,7 +245,7 @@ const Nav = styled.div`
         height: ${props => props.bar ? "100vh" : "0"};
         display: flex;
         flex-direction: column;
-        background-color: #0C3469;
+        background-color: #0C3469E6;
         justify-content: center;
         align-items: center;
         font-size: 2rem;
@@ -253,7 +253,6 @@ const Nav = styled.div`
         font-weight: 700;
         overflow: hidden;
         transition: height 400ms ease-in-out;
-        opacity: 0.9;
         .disinHeader { display: none; }
 
 
