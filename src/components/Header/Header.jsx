@@ -16,35 +16,43 @@ const GlobalStyles = createGlobalStyle`
 
 const Header = () => {
     const [bar, setBar] = useState(false);
-
+    const toggleBar = () => {
+        setBar(!bar);
+    };
     return (
-        <Container bar={bar}>
+        <Container>
+            <GlobalStyles />
+            <Bars onClick={toggleBar}>
+                <div className="bar"></div>
+            </Bars>
+
             <Nav bar={bar}>
-                <span>
-                    <NavLink to="/OurProgram" className="activeLink activeTextLink">Programs</NavLink>
-                </span>
+                <NavLink to="/OurProgram" className="activeLink activeTextLink">Programs</NavLink>
                 <span className='disinHeader'> |</span>
-                <span>
-                    <NavLink to="/FAQ" className="activeLink activeTextLink">FAQ</NavLink>
-                </span>
+                <NavLink to="/FAQ" className="activeLink activeTextLink">FAQ</NavLink>
                 <span className='disinHeader'> | </span>
-                <span>
-                    <NavLink to="/Contact" className="activeLink">
-                        <SignInButton2>Let's Connect</SignInButton2>
-                    </NavLink>
-                </span>
+                <NavLink to="/Contact" className="activeLink">
+                    <SignInButton2>Let's Connect</SignInButton2>
+                </NavLink>
+                <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink signInLink">
+                    <SignInButton3>SIGN IN</SignInButton3>
+                </NavLink>
             </Nav>
-            <NavLink to="/" > <Logo src={logo} alt="logo" /></NavLink>
+
+            <NavLink to="/" ><Logo src={logo} alt="logo" /></NavLink>
 
             <ContactInfo>
-                <span ><a href="tel:+12897798344" className="activeLink">289-779-8344</a></span>
-                <span > | </span>
-                <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink"><SignInButton>SIGN IN</SignInButton></NavLink>
+                <span><a href="tel:+12897798344" className="activeLink">289-779-8344</a></span>
+                <DisplayNone>
+                <span> | </span>
+                <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink">
+                    <SignInButton>SIGN IN</SignInButton>
+                </NavLink>
+                </DisplayNone>
             </ContactInfo>
         </Container>
     );
 };
-
 
 export default Header;
 
@@ -119,7 +127,7 @@ const ContactInfo = styled.div`
     span{
         margin-Right:20px;
         @media(max-width: 640px){
-            margin-Right:1vw;
+            margin-Right:2vw;
     }
     }
 `;
@@ -146,11 +154,10 @@ const SignInButton = styled.button`
 const SignInButton2 = styled.button`
     padding: 0px 45px;
     background-color: #95071A;
-    color: white; 
+    color: white;
     border-radius: 20px;
     font-weight: 700;
     border: none;
-    borderRadius: 5px;
     cursor: pointer;
     @media(max-width: 1024px){
        padding: 1vh 3vw;
@@ -158,33 +165,54 @@ const SignInButton2 = styled.button`
     }
     @media(max-width: 640px){
        padding: 0.2vh 1.5vw;
-       font-size: 1.2vh;
+       font-size: 3vh !important;  // Increased font size for mobile with !important to ensure application
+
     }
 `;
+
+const SignInButton3 = styled.button`
+    padding: 0px 45px;
+    background-color: #95071A;
+    color: white;
+    border-radius: 20px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    display: none;
+    @media(max-width: 1024px){
+       padding: 1vh 3vw;
+       font-size: 1.3vh;
+    }
+    @media(max-width: 640px){
+       padding: 0.2vh 1.5vw;
+       font-size: 3vh !important;  // Increased font size for mobile with !important
+       display: flex;
+    }
+`;
+
 
 const Bars = styled.div`
     display: none;
     @media(max-width: 640px){
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        z-index: 100;
-        order: 3; // Ensures it stays on the right
+            width: 35px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 10px;
+            z-index: 100;
+            order: 3; // Ensures it stays on the right
         .bar{
             width: 100%;
             height: 2px;
-            background-color: ${props => props.bar ? "transparent" : "#fff"};
+            background-color: ${props => props.bar ? "transparent" : "#95071A"};
             transition: all 400ms ease-in-out;
             &:before, &:after{
                 content: "";
                 width: 100%;
                 height: 2px;
-                background-color: #fff;
+                background-color: #95071A;
                 position: absolute;
             }
             &:before{
@@ -203,12 +231,12 @@ const Nav = styled.div`
     gap: 1rem;
     font-size: 1.5rem;
     font-weight: 500;
-    order: 0; 
-    display: flex; 
-    align-items: center; 
+    order: 0;
+    display: flex;
+    align-items: center;
 
     @media(max-width: 640px){
-        /* position: fixed;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -226,19 +254,24 @@ const Nav = styled.div`
         opacity: 0.9;
         .disinHeader { display: none; }
 
-        button { // Additional styling for the button to ensure it matches other links
-            padding: 10px 20px; // Padding to ensure button is large enough to be easily clickable
+
+        .signInLink {
+            text-decoration: none !important; 
+        }
+
+
+        button {
+            padding: 10px 20px;
             background-color: #95071A;
-            color: white; // White text color
-            border: none; // No border
-            borderRadius: 5px; // Rounded corners
-            font-weight: 700; // Bold font weight
-            cursor: pointer; // Pointer cursor on hover
-            margin: 0 auto; // Center the button horizontally
-            text-align: center; // Center the text inside the button
-        } */
-            gap: 0.5vw;
-            font-size: 1.2vh;
+            color: white;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1rem; 
+        }
+            font-size: 5vh;
     }
 
     span {
@@ -256,7 +289,7 @@ const Nav = styled.div`
             text-decoration: none;
             font-weight: 400;
             position: relative;
-            /* &:before {
+             &:before {
                 content: "";
                 position: absolute;
                 left: 0;
@@ -271,7 +304,7 @@ const Nav = styled.div`
             &:hover:before {
                 transform: scale(1);
                 transform-origin: left;
-            } */
+            } 
             &:hover {
                 opacity: 0.7;
             }
@@ -282,7 +315,7 @@ const Nav = styled.div`
         color: #fff;
 
         &.activeLink {
-      //      text-decoration: underline;  // Underline for active link
+           text-decoration: underline;  // Underline for active link
         }
     }
 `;
@@ -324,3 +357,10 @@ const LetsConnectImage = styled.img`
 
 `;
 
+
+const DisplayNone = styled.div`
+    @media(max-width: 640px){
+    display: none;
+    }
+
+`;

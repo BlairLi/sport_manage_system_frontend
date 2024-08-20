@@ -7,6 +7,7 @@ import p4 from '../../../public/pp1.png';
 import smallGroup_badge from '../../../public/smallGroup_badge2.png';
 import oneOnOne_badge from '../../../public/oneOnOne_badge2.png';
 import fall_house_badge from '../../../public/fall_house_badge2.png';
+import bestseller from '../../../public/bestseller.png';
 import Reviews from './Reviews';
 import { PROGRAMS } from '../../constants/ProgramNames';
 
@@ -151,6 +152,19 @@ const ApproachText = styled.p`
   }
 `;
 
+const CardWithBadge = styled.div`
+  position: relative;
+`;
+
+const BestsellerBadge = styled.img`
+  position: absolute;
+  top: -25px;
+  left: -30px; 
+  width: 75px;  
+  height: auto;
+  z-index: 10; 
+`;
+
 const OurProgram = () => {
   return (
     <Containerr>
@@ -160,23 +174,26 @@ const OurProgram = () => {
           <Subtitle>There is a one-time fee of $25 as you register for your child's jersey, and drawstring bag</Subtitle>
         </TopSection>
         <ProgramContainer>
-          <Card
-            backgroundImage={p2}
-            badgeSrc={smallGroup_badge}
-            programName={PROGRAMS.PROGRAM_1}
-            oldPrice="$120 per month"
-            specialPrice="AUGUST SPECIAL"
-            price="95"
-            perMonth="per month"
-            details={["Level: Beginner-Intermediate", "4 sessions per month", "60 minute sessions"]}
-            outcomes={["Comprehensive basketball skill training", "Teamwork and sportsmanship focus"]}
-            notes={[
-              "Parent receive 1-4 monthly coupons to local stores",
-              "24/7 live WhatsApp communication for parents",
-              "Personalized progress report cards"
-            ]}
-            link="/survey?class=Basketball Group Academy Training"
-          />
+          <CardWithBadge>
+            <Card
+              backgroundImage={p2}
+              badgeSrc={smallGroup_badge}
+              programName={PROGRAMS.PROGRAM_1}
+              oldPrice="$120 per month"
+              specialPrice="AUGUST SPECIAL"
+              price="95"
+              perMonth="per month"
+              details={["Level: Beginner-Intermediate", "4 sessions per month", "60 minute sessions"]}
+              outcomes={["Comprehensive basketball skill training", "Teamwork and sportsmanship focus"]}
+              notes={[
+                "Parent receive 1-4 monthly coupons to local stores",
+                "24/7 live WhatsApp communication for parents",
+                "Personalized progress report cards"
+              ]}
+              link="/survey?class=Basketball Group Academy Training"
+            />
+            <BestsellerBadge src={bestseller} alt="Bestseller" />
+          </CardWithBadge>
           <Card
             backgroundImage={p4}
             badgeSrc={oneOnOne_badge}
