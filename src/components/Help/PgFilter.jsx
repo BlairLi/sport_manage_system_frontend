@@ -3,10 +3,39 @@ import { Link } from 'react-router-dom';
 import p1 from './Yes.png';
 import p2 from './No.png';
 import backgroundLogo from './backgroundlogo.png';
+import background from './background.png';
+
+// const Container = styled.div`
+//   text-align: center;
+//   margin-top: 100px;
+//   position: relative;
+//   min-height: 85vh;
+//   padding: 20px 0 0 0;
+
+//   &::before {
+//     content: ""; 
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background-image: url(${backgroundLogo});
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-attachment: fixed;
+//     opacity: 0.05;
+//     z-index: -1;
+//   }
+
+//   @media (max-width: 768px) {
+//     margin-top: 50px;
+//     padding: 10px 0;
+//   }
+// `;
 
 const Container = styled.div`
   text-align: center;
-  margin-top: 100px;
+  margin-top: 80px;
   position: relative;
   min-height: 85vh;
   padding: 20px 0 0 0;
@@ -18,19 +47,37 @@ const Container = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(${backgroundLogo});
+    background-image: url(${background});
     background-position: center;
+    background-size: cover;  // Ensures the background image covers the full area of the element
     background-repeat: no-repeat;
     background-attachment: fixed;
-    opacity: 0.05;
     z-index: -1;
   }
 
   @media (max-width: 768px) {
-    margin-top: 50px;
-    padding: 10px 0;
+
+
+      &::before {
+     content: ""; 
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-image: url(${background});
+     background-position: center;
+     background-repeat: no-repeat;
+    background-size: auto;
+     background-attachment: fixed;
+    opacity: 0.5;
+     z-index: -1;
+   }
+   margin-top: 50px;
+     padding: 10px 0;
   }
 `;
+
 
 const Title = styled.h1`
   font-size: 5rem;

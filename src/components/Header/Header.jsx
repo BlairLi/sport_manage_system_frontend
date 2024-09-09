@@ -6,7 +6,7 @@ import letsconnect from './letsconnect.png';
 import signin from './signin.png';
 import { Link, NavLink } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-
+import CountdownTimer from './CountdownTimer'
 const GlobalStyles = createGlobalStyle`
   .activeLink {
       text-decoration: underline;
@@ -31,20 +31,24 @@ const Header = () => {
                 <Nav bar={bar} onClick={() => bar && setBar(false)}> 
                 <NavLink to="/OurProgram" className="activeLink activeTextLink">Programs</NavLink>
                 <span className='disinHeader'> |</span>
-                <NavLink to="/FAQ" className="activeLink activeTextLink">FAQ</NavLink>
+                {/* <NavLink to="/FAQ" className="activeLink activeTextLink">FAQ</NavLink>
                 <span className='disinHeader'> | </span>
                 <NavLink to="/Contact" className="activeLink">
                     <SignInButton2>Let's Connect</SignInButton2>
-                </NavLink>
+                </NavLink> */}
+                <span><a href="tel:+16477609051" className="activeLink">647-760-9051</a></span>
+
                 <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink signInLink">
                     <SignInButton3>SIGN IN</SignInButton3>
                 </NavLink>
             </Nav>
 
+            {/* <CountdownTimer /> */}
+
             <NavLink to="/" ><Logo src={logo} alt="logo" /></NavLink>
 
             <ContactInfo>
-                <span><a href="tel:+12897798344" className="activeLink">289-779-8344</a></span>
+                <span><a href="tel:+16477609051" className="activeLink">647-760-9051</a></span>
                 <DisplayNone>
                 <span> | </span>
                 <NavLink to="https://sport-manage-system.vercel.app/api/auth/signin?callbackUrl=/Dashboard" className="activeLink">
@@ -114,6 +118,7 @@ const ContactInfo = styled.div`
             &:hover {
                 opacity: 0.7;
             }
+
         }
 
     @media(max-width: 640px){
@@ -128,8 +133,15 @@ const ContactInfo = styled.div`
 
     span{
         margin-Right:20px;
+        display: none;
+
         @media(max-width: 640px){
             margin-Right:2vw;
+    }
+    
+    @media(max-width: 640px){
+
+                display: flex;
     }
     }
 `;

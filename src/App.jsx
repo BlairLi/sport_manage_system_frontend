@@ -1,5 +1,6 @@
 import './App.css'
 // eslint-disable-next-line no-unused-vars
+import styled from 'styled-components';
 import React, { useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
@@ -12,6 +13,7 @@ import UpdateUserPayroll from './UpdateUserPayroll'
 
 import Home from "./components/Home";
 import Header from "./components/Header/Header";
+import HeaderPhone from "./components/Header/HeaderPhone";
 import Login from "./components/Login/Login";
 // import Registration from "./components/Registration/Registration";
 import Registration1 from "./components/Registration2/Registration1";
@@ -47,15 +49,31 @@ import Result1 from './components/Help/Result1';
 import Result2 from './components/Help/Result2';
 import Result3 from './components/Help/Result3';
 
+const DesktopHeader = styled.div`
+    display: block;
 
+    @media (max-width: 768px) {  // Adjust this breakpoint as needed
+        display: none;
+    }
+`;
+const MobileHeader = styled.div`
+    display: none;
+
+    @media (max-width: 768px) {  // Adjust this breakpoint as needed
+        display: block;
+    }
+`;
 
 function App() {
 
   return (
     <Router>
-      {/* Conditionally render Header */}
-     {/* <ConditionalHeader />*/}
-      <Header /> 
+            <DesktopHeader>
+                <Header /> 
+            </DesktopHeader>
+            <MobileHeader>
+                <HeaderPhone />
+            </MobileHeader>
       <Routes>
         {/* Define routes */}
         <Route path="/" element={<Home />} />
@@ -101,6 +119,5 @@ function App() {
 
  // return showHeader ? <Header /> : null;
 //}
-
 
 export default App;

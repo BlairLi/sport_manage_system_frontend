@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Main from "./Main/Main";
-import Popup from "./Popup/Popup";
+import DiscountPopup from "./Popup/DiscountPopup";
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(true);
@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <Container>
-      {showPopup && <Popup onClose={handleClosePopup} />}
+      {showPopup && <DiscountPopup onClose={handleClosePopup} />}
       <br/>
       <br/>
       <Main />

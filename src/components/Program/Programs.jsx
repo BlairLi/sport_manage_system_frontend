@@ -17,6 +17,7 @@ const Container = styled.div`
   min-height: 100vh;
   padding-bottom: 5vh;
   padding-top: 10vh;
+  
 `;
 
 const TableContainer = styled.div`

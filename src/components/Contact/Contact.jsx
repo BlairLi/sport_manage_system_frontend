@@ -327,7 +327,8 @@ function ContactPage() {
                   <Section marginRight order={2}>
                       <p>Questions about our programs? Feel free to get in touch using any of the information below, we look forward to hearing from you!</p>
                       <Address>
-                        <div><img src={c1} alt="Phone Icon"/><a href="tel:+12897798344" className="activeLink"><span>+1 (289) 779-8344</span></a></div>
+                        <div><img src={c1} alt="Phone Icon"/><a href="tel:+16477609051" className="activeLink"><span>+1 (647) 760-9051</span></a></div>
+
                         <div>                                
                             <img src={c2} alt="Website Icon"/>
                             <a href="mailto:contact@juniorathletics.ca">

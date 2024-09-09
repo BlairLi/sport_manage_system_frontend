@@ -35,13 +35,13 @@ const Faq = () => {
         </Content>
       </Container>
       
-      <MissionSection>
+      {/* <MissionSection>
         <MissionContent>
           <MissionLogo src={logoImg} alt="Logo" /> 
           <MissionTitle>Our Mission</MissionTitle>
           <MissionText>To empower young athletes with additional tools to assist them through life, in their personal and academic journeys.</MissionText>
         </MissionContent>
-      </MissionSection>
+      </MissionSection> */}
      {/*   <TitleContainer>
         <NewTitle>Is Your Child New to Sports?</NewTitle>
         <StyledHorizontalLine />

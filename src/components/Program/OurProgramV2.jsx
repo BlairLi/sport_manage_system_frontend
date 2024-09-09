@@ -4,15 +4,21 @@ import Card from './Card'; // Adjust the import path as necessary
 import p2 from '../../../public/pp2.png';
 import p3 from '../../../public/pp3.png';
 import p4 from '../../../public/pp1.png';
-import smallGroup_badge from '../../../public/smallGroup_badge2.png';
-import oneOnOne_badge from '../../../public/oneOnOne_badge2.png';
+import smallGroup_badge from '../../../public/workshop.png';
+import oneOnOne_badge from '../../../public/group.png';
 import fall_house_badge from '../../../public/fall_house_badge2.png';
 import bestseller from '../../../public/bestseller.png';
+import Off50 from './50off.png';
 import Reviews from './Reviews';
 import { PROGRAMS } from '../../constants/ProgramNames';
 
 const Containerr = styled.div`
   padding-top: 50px;
+
+  @media (max-width: 480px) {
+    padding-top: 0px;
+
+  }
 `;
 
 const Container = styled.div`
@@ -31,6 +37,10 @@ const TopSection = styled.div`
   color: #95071A;
   font-weight: 800;
   width: 100%;
+  @media (max-width: 480px) {
+    padding-top: 0px;
+
+  }
 `;
 
 const Title = styled.h1`
@@ -68,9 +78,10 @@ const ProgramContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 200px;  // Increased gap for more space between cards
   height: auto;
-  margin-top: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 
   @media (max-width: 1024px) {
     flex-direction: column;
@@ -78,10 +89,11 @@ const ProgramContainer = styled.div`
   }
 
   @media (max-width: 640px) {
-    padding: 10px; 
-    gap: 3rem; /* Increased gap for more space between cards */
+    padding: 10px;
+    gap: 5rem; // Further increased gap for better spacing in mobile view
   }
 `;
+
 
 const InfoBlocks = styled.div`
   display: flex;
@@ -177,36 +189,18 @@ const OurProgram = () => {
           <Subtitle>There is a one-time fee of $25 as you register for your child's jersey, and drawstring bag</Subtitle>
         </TopSection>
         <ProgramContainer>
+         
           <CardWithBadge>
-            <Card
-              backgroundImage={p2}
-              badgeSrc={smallGroup_badge}
-              programName={PROGRAMS.PROGRAM_1}
-              oldPrice="$120 per month"
-              specialPrice="AUGUST SPECIAL"
-              price="95"
-              perMonth="per month"
-              details={["Level: Beginner-Intermediate", "4 sessions per month", "60 minute sessions"]}
-              outcomes={["Comprehensive basketball skill training", "Teamwork and sportsmanship focus"]}
-              notes={[
-                "Parent receive 1-4 monthly coupons to local stores",
-                "24/7 live WhatsApp communication for parents",
-                "Personalized progress report cards"
-              ]}
-              link="/survey?class=Basketball Group Academy Training"
-            />
-            <BestsellerBadge src={bestseller} alt="Bestseller" />
-          </CardWithBadge>
           <Card
             backgroundImage={p4}
             badgeSrc={oneOnOne_badge}
-            programName={PROGRAMS.PROGRAM_2}
-            oldPrice="$200 per month"
-            specialPrice="AUGUST SPECIAL"
-            price="160"
+            programName={PROGRAMS.PROGRAM_1}
+            oldPrice="$120 per month"
+            specialPrice="SEPTEMBER SPECIAL"
+            price="95"
             perMonth="per month"
-            details={["Level: Beginner-Elite", "4 sessions per month", "60 minute sessions"]}
-            outcomes={["Weekly access to practice drills (homework)", "Improved skills, fitness, and self-esteem"]}
+            details={["Level: Beginner-Intermediate", "4 sessions per month", "60 minute sessions"]}
+            outcomes={["Comprehensive basketball skill training", "Teamwork and sportsmanship focus"]}
             notes={[
               "Parent receive 1-4 monthly coupons to local stores",
               "24/7 live WhatsApp communication for parents",
@@ -214,7 +208,30 @@ const OurProgram = () => {
             ]}
             link="/survey?class=All-Girls Training Academy"
           />
-          <Card
+            <BestsellerBadge src={bestseller} alt="Bestseller" />            
+
+            </CardWithBadge>
+            <CardWithBadge>
+            <Card
+              backgroundImage={p2}
+              badgeSrc={smallGroup_badge}
+              programName={PROGRAMS.PROGRAM_2}
+              oldPrice="$100 per month"
+              specialPrice="SEPTEMBER SPECIAL"
+              price="50"
+              perMonth="per month"
+              details={["Level: Beginner-Elite", "Special 1x Event", "2 hours"]}
+              outcomes={["Access to practice drills (homework)", "Improved skills, fitness, and self-esteem"]}
+              notes={[
+                "Parent receive 1-4 monthly coupons to local stores",
+                "24/7 live WhatsApp communication for parents",
+              ]}
+              link="/survey?class=Basketball Group Academy Training"
+            />
+            <BestsellerBadge src={Off50} alt="Off50" />     
+            </CardWithBadge>
+
+          {/* <Card
             backgroundImage={p3}
             badgeSrc={fall_house_badge}
             programName={PROGRAMS.PROGRAM_3}
@@ -230,7 +247,7 @@ const OurProgram = () => {
               "Metals and prizes"
             ]}
             link="/survey?class=Leadership Retreats"
-          />
+          /> */}
         </ProgramContainer>
 
         <InfoBlocks>

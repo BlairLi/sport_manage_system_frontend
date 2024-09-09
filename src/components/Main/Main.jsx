@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 import p13 from './headerlogo.png';
 import registernow from './goldenregister.png';
+import registernow2 from './blackregister.png';
 import main1 from './main1.png';
 import main2 from './main2.png';
 import main3 from './main33.png';
-import mainTop from './mainTop.png';
-import phonePic from './mainpagephonesize2.png';
+import mainTop from './mainTop2.png';
+import phonePic from './mainpagephonesize3.png';
 import { Link } from "react-router-dom";
 import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { useEffect } from 'react';
 import axios from "axios";
+import Countdown from '../Counter/CountDown';
+import Programs from '../Program/OurProgramV2';
+
+
 
 const Container = styled.div`
   display: flex;
@@ -21,7 +26,7 @@ const Container = styled.div`
   box-sizing: border-box;
 
   @media (max-width: 1024px) {
-    padding-top: 1.1rem;
+    padding-top: 1rem;
   }
 `;
 
@@ -34,9 +39,15 @@ const RegisterImage = styled.img`
   }
 
   @media (max-width: 640px) {
-    width: 210px;
+    width: 130px;
   }
 `;
+const RegisterImage2 = styled.img`
+  width: 20%;  // Default width
+  height: auto;
+  // Removed positioning from here to control it via LinkContainer
+`;
+
 
 const PhoneImageContainer = styled.div`
   display: none;
@@ -49,7 +60,6 @@ const PhoneImageContainer = styled.div`
   }
   @media (max-width: 640px) {
     visibility: visible;
-    opacity: 0.9;
     display: block;
   }
 `;
@@ -62,7 +72,6 @@ const PhoneImage = styled.img`
 
   @media (max-width: 640px) {
     visibility: visible;
-    opacity: 0.9;
   }
 `;
 
@@ -74,11 +83,11 @@ const TopSection = styled.div`
   align-items: center;
   justify-content: center;
   padding: 20px;
-  padding-top: 400px;
+  padding-top: 505px;
   overflow: hidden;
   padding-bottom: 8vw;
   @media (max-width: 1024px) {
-    padding-top: 200px;
+    padding-top: 300px;
     justify-content: center;
     background-size: cover;
     // padding-bottom: 5vw;
@@ -226,20 +235,27 @@ const ParagraphText = styled.p`
 `;
 
 const LinkContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  background-color: white;
-  margin-top: 78px;
-  overflow: hidden;
+  display: inline-flex;  // Using flex to keep the link tightly around the image
+  justify-content: center;  // Center the image within the link if needed
+  align-items: center;  // Align items vertically
+  position: relative;  // Ensure it can be positioned relative to its normal position
+  left: -60px;  // Adjust this value based on your previous positioning
+  top: 80px;  // Same as above
+  padding: 0;  // Remove any padding if present
+  margin: 0;  // Remove any margin to fit exactly the size of the image
+
+  @media (max-width: 1024px) {
+    left: -10px;  // Adjust for medium screens
+    top: 60px;
+  }
 
   @media (max-width: 640px) {
-    display: flex;
-    justify-content: flex-start;
-    background-color: white;
-    margin: 0;
-    overflow: hidden;
+    left: 0;  // Adjust for small screens
+    top: 20px;
+    width: 30%;  // Adjust width to match image resizing
   }
 `;
+
 
 const LinkContainer2 = styled.div`
  display: none;
@@ -253,8 +269,7 @@ const LinkContainer2 = styled.div`
 
   @media (max-width: 640px) {
     visibility: visible;
-    opacity: 0.9;
-    bottom: 15vw;
+    bottom: 30vw;
     display: flex;
     justify-content: center;
     z-index: 2; 
@@ -658,16 +673,25 @@ const Main = () => {
     <Container>
       <TopSection>
         <TopTitle></TopTitle>
-      </TopSection>
+        <LinkContainer>
+        <Link to="/PgFilter">  {/* Add this Link wrapper */}
+          <RegisterImage2 src={registernow} alt="Register Now" />
+        </Link>    
+        </LinkContainer>
+
+          </TopSection>
       <PhoneImageContainer>
         <PhoneImage src={phonePic} alt="Phone Image" />
         <LinkContainer2>
           <Link to={`/PgFilter`}>
-            <RegisterImage src={registernow} alt="Register Now" />
+            <RegisterImage src={registernow2} alt="Register Now" />
           </Link>
         </LinkContainer2>
       </PhoneImageContainer>
-      <BottomSection>
+<Countdown />
+<Programs />
+
+      {/* <BottomSection>
         <LeftColumn>
           <ParagraphContainer>
             <ParagraphTitle>Welcome to Junior Athletics!</ParagraphTitle>
@@ -684,7 +708,7 @@ const Main = () => {
         <RightColumn>
           <Image1 src={p13} alt="p13" />
         </RightColumn>
-      </BottomSection>
+      </BottomSection> */}
       {/* <FormSection>
         <FormHeader>
           <TrialOffer>OR ENJOY A FREE TRIAL</TrialOffer>
@@ -722,7 +746,7 @@ const Main = () => {
           </ButtonContainer>
         </Form>
       </FormSection> */}
-      <TitleContainer>
+      {/* <TitleContainer>
         <NewTitle>Is Your Child New to Sports?</NewTitle>
         <StyledHorizontalLine />
       </TitleContainer>
@@ -742,7 +766,7 @@ const Main = () => {
           <ImageDescription>Empowering Girls: The Importance of Female Athletics from a Young Age</ImageDescription>
           <Link to="/Content3"><ReadMoreLink>Read more</ReadMoreLink></Link>
         </GalleryItem>
-      </ImageGallery>
+      </ImageGallery> */}
       <SocialMediaIcons>
         <a href="https://www.facebook.com/profile.php?id=61563322405603" target="_blank" rel="noopener noreferrer">
           <BsFacebook />

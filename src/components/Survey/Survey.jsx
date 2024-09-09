@@ -111,7 +111,7 @@ const Survey = () => {
           <FormRow>
             <InputLabel>Program of Choice<tag> * </tag></InputLabel>
             <RadioGroup>
-              {[`${PROGRAMS.PROGRAM_1}`, `${PROGRAMS.PROGRAM_2}`, `${PROGRAMS.PROGRAM_3}`].map(sportOption => (
+              {[`${PROGRAMS.PROGRAM_1}`, `${PROGRAMS.PROGRAM_2}`].map(sportOption => (
                 <RadioButton key={sportOption}>
                   <input type="radio" name="sport" value={sportOption} checked={sport === sportOption} onChange={handleRadioButtonChange(setSport)} />
                   {sportOption}
@@ -122,7 +122,7 @@ const Survey = () => {
           <FormRow>
             <InputLabel>Preferred day(s) of program<tag> * </tag></InputLabel>
             <RadioGroup>
-              {['Saturday', 'Sunday'].map(dayOption => (
+              {['Monday','Friday','Saturday', 'Sunday'].map(dayOption => (
                 <RadioButton key={dayOption}>
                   <input type="checkbox" name="day" value={dayOption} checked={selectedDays.includes(dayOption)} onChange={handleCheckboxChange(selectedDays, setSelectedDays, dayOption, 2)} />
                   {dayOption}
@@ -133,7 +133,7 @@ const Survey = () => {
           <FormRow>
             <InputLabel>Desired Location<tag> * </tag></InputLabel>
             <RadioGroup>
-              {['Meadowvale', 'Port Credit', 'Dixie', 'Etobicoke'].map(locationOption => (
+              {['Scarborough', 'Mississauga/Brampton'].map(locationOption => (
                 <RadioButton key={locationOption}>
                   <input type="checkbox" name="location" value={locationOption} checked={selectedLocations.includes(locationOption)} onChange={handleCheckboxChange(selectedLocations, setSelectedLocations, locationOption, 2)} />
                   {locationOption}
