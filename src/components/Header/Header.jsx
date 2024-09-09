@@ -9,10 +9,15 @@ import { createGlobalStyle } from 'styled-components';
 import CountdownTimer from './CountdownTimer'
 const GlobalStyles = createGlobalStyle`
   .activeLink {
-      text-decoration: underline;
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+      &:hover {
+          opacity: 0.7;
+          text-decoration: underline; // Applies underline only on hover
+      }
   }
 `;
-
 
 const Header = () => {
     const [bar, setBar] = useState(false);
@@ -315,8 +320,8 @@ const Nav = styled.div`
                 transition: transform 400ms ease-in-out;
             }
             &:hover:before {
-                transform: scale(1);
-                transform-origin: left;
+                /* transform: scale(1);
+                transform-origin: left; */
             } 
             &:hover {
                 opacity: 0.7;
@@ -328,7 +333,7 @@ const Nav = styled.div`
         color: #fff;
 
         &.activeLink {
-           text-decoration: underline;  // Underline for active link
+           /* text-decoration: underline;  // Underline for active link */
         }
     }
 `;
