@@ -69,7 +69,7 @@ const CardBody = styled.div`
   min-height: 300px; /* Adjust based on typical content height */
 
   @media (max-width: 640px) {
-    padding: 55px;
+    padding: 10px 55px;
   }
 `;
 
