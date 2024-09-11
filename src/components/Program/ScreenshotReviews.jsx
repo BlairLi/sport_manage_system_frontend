@@ -65,7 +65,7 @@ const ApproachSection = styled.div`
 `;
 
 const ApproachTitle = styled.h2`
-  font-size: 7vw;
+  font-size: 6vw;
   margin: 0;
   font-family: 'League Spartan', sans-serif;
   font-weight: 800;
