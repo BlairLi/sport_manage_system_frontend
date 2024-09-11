@@ -41,7 +41,6 @@ const RegisterImage = styled.img`
   }
 
   @media (max-width: 640px) {
-    width: 130px;
   }
 `;
 const RegisterImage2 = styled.img`
@@ -271,7 +270,7 @@ const LinkContainer2 = styled.div`
 
   @media (max-width: 640px) {
     visibility: visible;
-    bottom: 30vw;
+    bottom: 33vw;
     display: flex;
     justify-content: center;
     z-index: 2; 
