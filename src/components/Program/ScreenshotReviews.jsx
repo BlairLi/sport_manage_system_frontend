@@ -74,7 +74,7 @@ const ApproachTitle = styled.h2`
   font-family: 'League Spartan', sans-serif;
 
   @media (max-width: 480px) {
-    font-size: 6vw;
+    font-size: 9vw;
   }
 `;
 

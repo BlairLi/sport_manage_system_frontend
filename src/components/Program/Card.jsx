@@ -26,7 +26,8 @@ const CardWrapper = styled.div`
   @media (max-width: 640px) {
     width: 100%;
     height: auto;
-    margin-top: 0;
+    margin-top: 0;  
+
   }
 `;
 
@@ -40,6 +41,7 @@ const CardHeader = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100px; 
 
   @media (max-width: 640px) {
     font-size: 1.2rem;
@@ -64,11 +66,13 @@ const CardBody = styled.div`
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
   height: 100%;
+  min-height: 300px; /* Adjust based on typical content height */
 
   @media (max-width: 640px) {
-    padding: 10px;
+    padding: 55px;
   }
 `;
+
 
 const OldPrice = styled.div`
   font-size: 1rem;
