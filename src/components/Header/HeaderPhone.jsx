@@ -45,8 +45,7 @@ const Logo = styled.img`
     cursor: pointer;
     margin-right: 0.5rem;  // Reduces spacing between the logo and the next nav item
     @media (max-width: 640px) {
-        height: 2.5rem;  // Smaller logo for smaller screens
-        margin-right: 0.25rem;  // Even less spacing on smaller screens
+
     }
 `;
 
@@ -60,8 +59,7 @@ const Nav = styled.nav`
             text-decoration: underline;
         }
         @media (max-width: 640px) {
-            padding: 0.2rem;  // Smaller padding for smaller screens
-            font-size: 0.8rem;  // Smaller font size for readability on small devices
+            font-size: 0.9rem;  // Smaller font size for readability on small devices
             font-weight: bold;
         }
     }
@@ -69,7 +67,7 @@ const Nav = styled.nav`
         color: white;
         padding: 0 5px;  // Reduced padding for dividers
         @media (max-width: 640px) {
-            font-size: 0.4rem;  // Smaller font size for dividers
+            font-size: 0.7rem;  // Smaller font size for dividers
             padding: 0 3px;  // Even less padding for dividers on smaller screens
         }
     }
