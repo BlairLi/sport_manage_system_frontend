@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import profilePic1 from '../../../public/review/reviewer1.webp';
 import profilePic2 from '../../../public/review/reviewer2.webp';

@@ -11,6 +11,10 @@ import bestseller from '../../../public/bestseller.png';
 import Off50 from './50off.png';
 import Reviews from './Reviews';
 import { PROGRAMS } from '../../constants/ProgramNames';
+import InfoBlockss from './InfoBlocks';
+import ScreenshotReviews from './ScreenshotReviews';
+import { useLocation } from 'react-router-dom';
+
 
 const Containerr = styled.div`
   padding-top: 50px;
@@ -101,7 +105,19 @@ const InfoBlocks = styled.div`
   padding: 20px;
   width: 100%;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 20px;  // Maintain this for regular screens
+  @media (max-width: 480px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  // Two columns
+    gap: 10px;  // Reduced gap
+    padding: 10px;  // Reduced padding
+  }
+  @media (max-width: 320px) {
+    gap: 5px;  // Further reduced gap for very narrow screens
+    padding: 5px;  // Minimal padding to maximize space
+    width: 90%;
+
+  }
 `;
 
 const InfoBlock = styled.div`
@@ -110,16 +126,26 @@ const InfoBlock = styled.div`
   border-radius: 10px;
   padding: 20px;
   width: 20%;
-  height: 7rem;
+  height: auto;  // Adjust height to be dynamic
   min-width: 200px;
   text-align: center;
+  margin: 10px;  // Adds margin to create space around blocks
 
   @media (max-width: 768px) {
     width: 40%;
+    padding: 15px;  // Slightly reduced padding
   }
 
   @media (max-width: 480px) {
-    width: 80%;
+    width: 100%;  // Each block takes full width of its column
+    padding: 10px;  // Reduce padding for more space
+    min-width: 0;  // Remove minimum width restriction
+    margin: 5px;  // Reduced margin
+  }
+
+  @media (max-width: 320px) {
+    padding: 8px;  // Even smaller padding
+    margin: 3px;  // Reduced margin to fit better
   }
 `;
 
@@ -128,12 +154,29 @@ const InfoTitle = styled.div`
   color: #95071A;
   font-weight: bold;
   margin-bottom: 10px;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;  // Smaller font size
+  }
+
+  @media (max-width: 320px) {
+    font-size: 0.9rem;  // Even smaller font size for very small screens
+  }
 `;
 
 const InfoText = styled.div`
   font-size: 0.9rem;
   color: #333;
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;   
+  }
+
+  @media (max-width: 320px) {
+    font-size: 0.7rem;   
+  }
 `;
+
 
 const ApproachSection = styled.div`
   text-align: center;
@@ -181,9 +224,12 @@ const BestsellerBadge = styled.img`
 `;
 
 const OurProgram = () => {
+  const location = useLocation();
+  const isOurProgramPage = location.pathname === '/OurProgram';
   return (
     <Containerr>
       <Container>
+
         <TopSection>
           <Title>CHOOSE YOUR PROGRAM</Title>
           <Subtitle>There is a one-time fee of $25 as you register for your child's jersey, and drawstring bag</Subtitle>
@@ -207,6 +253,7 @@ const OurProgram = () => {
               "Personalized training plan"
             ]}
             link="/survey?class=All-Girls Training Academy"
+            ShowLink={true}
           />
             <BestsellerBadge src={bestseller} alt="Bestseller" />            
 
@@ -226,7 +273,7 @@ const OurProgram = () => {
                 "Parent receive 1-4 monthly coupons to local stores",
                 "24/7 live WhatsApp communication for parents",
               ]}
-              link="/survey?class=Basketball Group Academy Training"
+              showSpecialButtons={true}
             />
             <BestsellerBadge src={Off50} alt="Off50" />     
             </CardWithBadge>
@@ -250,32 +297,20 @@ const OurProgram = () => {
           /> */}
         </ProgramContainer>
 
-        <InfoBlocks>
-          <InfoBlock>
-            <InfoTitle>5+ YEARS</InfoTitle>
-            <InfoText>of Coaching Experience</InfoText>
-          </InfoBlock>
-          <InfoBlock>
-            <InfoTitle>99%</InfoTitle>
-            <InfoText>Athlete Skill Improvement Rate</InfoText>
-          </InfoBlock>
-          <InfoBlock>
-            <InfoTitle>250+</InfoTitle>
-            <InfoText>Successful Training Sessions</InfoText>
-          </InfoBlock>
-          <InfoBlock>
-            <InfoTitle>100%</InfoTitle>
-            <InfoText>Supportive Coaches</InfoText>
-          </InfoBlock>
-        </InfoBlocks>
-
+{/* 
         <ApproachSection>
           <ApproachTitle>OUR APPROACH</ApproachTitle>
           <ApproachText>
             Cater to the individual needs of the athlete, in a supportive and inclusive way!
           </ApproachText>
         </ApproachSection>
-        <Reviews />
+        <Reviews /> */}
+ {isOurProgramPage && (
+          <>
+            <InfoBlockss />
+            <ScreenshotReviews />
+          </>
+        )}
       </Container>
     </Containerr>
   );

@@ -45,7 +45,7 @@ const Logo = styled.img`
     cursor: pointer;
     margin-right: 0.5rem;  // Reduces spacing between the logo and the next nav item
     @media (max-width: 640px) {
-        height: 2rem;  // Smaller logo for smaller screens
+        height: 2.5rem;  // Smaller logo for smaller screens
         margin-right: 0.25rem;  // Even less spacing on smaller screens
     }
 `;
@@ -53,17 +53,15 @@ const Logo = styled.img`
 const Nav = styled.nav`
     display: flex;
     align-items: center;
-    gap: 5px;  // Reduced gap
     .navLink {
         color: white;
         text-decoration: none;
-        padding: 0.5rem;
         &:hover {
             text-decoration: underline;
         }
         @media (max-width: 640px) {
             padding: 0.2rem;  // Smaller padding for smaller screens
-            font-size: 0.6rem;  // Smaller font size for readability on small devices
+            font-size: 0.8rem;  // Smaller font size for readability on small devices
             font-weight: bold;
         }
     }

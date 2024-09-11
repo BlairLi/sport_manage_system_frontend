@@ -14,6 +14,8 @@ import { useEffect } from 'react';
 import axios from "axios";
 import Countdown from '../Counter/CountDown';
 import Programs from '../Program/OurProgramV2';
+import InfoBlockss from '../Program/InfoBlocks';
+import ScreenshotReviews from '../Program/ScreenshotReviews';
 
 
 
@@ -689,6 +691,8 @@ const Main = () => {
         </LinkContainer2>
       </PhoneImageContainer>
 <Countdown />
+<ScreenshotReviews />
+<InfoBlockss />
 <Programs />
 
       {/* <BottomSection>

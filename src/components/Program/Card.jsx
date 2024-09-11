@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import redcheck from '../../../public/redcheck.webp';
 import registernow from './registernow.png';
 
+
 const CardWrapper = styled.div`
   background-color: #f5f5f5;
   border-radius: 10px;
@@ -182,8 +183,74 @@ const FeatureItem = styled.li`
     background-repeat: no-repeat;
   }
 `;
+const Button = styled.button`
+  font-family: 'League Spartan', sans-serif;
+  background-color: #95071A;
+  color: white;
+  border: none;
+  margin: 5px;
+  padding: 4px 18px;
+  border-radius: 18px;
+  border: 3px solid #000000;
+  font-size: 15px;
+  cursor: pointer;
+  flex-grow: 1;
 
-const Card = ({ backgroundImage, badgeSrc, programName, oldPrice, specialPrice, price, perMonth, details, outcomes, notes, link }) => {
+  @media(max-width: 480px) {
+    flex-grow: 1;  
+    margin: 2.5px;
+
+    font-size: 15px;
+    padding: 5px 17px;
+  }
+`;
+
+
+  
+
+const Button2 = styled.button`
+  font-family: 'League Spartan', sans-serif;
+  background-color: #014AAD;
+  color: white;
+  border: none;
+  margin-right: 5px;
+  padding: 4px 10px;
+  border-radius: 18px;
+  border: 3px solid #000000;
+  font-size: 15px;
+  cursor: pointer;
+  flex-grow: 1;
+
+  @media(max-width: 480px) {
+    font-size: 15px;
+    padding: 5px 10px;
+    flex-grow: 1; //
+  margin-right: 2.5px;
+
+  }
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 480px) {
+    flex-direction: row;  
+    justify-content: space-evenly;
+    width: 100%;  
+  }
+`;
+
+const Card = ({ backgroundImage, badgeSrc, programName, oldPrice, specialPrice, price, perMonth, details, outcomes, notes, link, showSpecialButtons, ShowLink }) => {
+  const handleScarboroughClick = () => {
+    window.location.href = 'https://forms.gle/vGC1KKTgKVD4WLAN7';
+  };
+
+  const handleMississaugaClick = () => {
+    window.location.href = 'https://forms.gle/N5mpYSf1kELE47nt8';
+  };
+
   return (
     <CardWrapper style={{ backgroundImage: `url(${backgroundImage})` }}>
       <CardHeader>
@@ -222,12 +289,21 @@ const Card = ({ backgroundImage, badgeSrc, programName, oldPrice, specialPrice, 
             ))}
           </FeatureList>
         </Notes>
+        {ShowLink &&(
         <Link to={link}>
           <RegisterNowImage src={registernow} alt="Register Now" />
         </Link>
+        )}
+        {showSpecialButtons && (
+          <ButtonGroup>
+            <Button onClick={handleMississaugaClick}>MISSISSAUGA</Button>
+            <Button2 onClick={handleScarboroughClick}>SCARBOROUGH</Button2>
+            </ButtonGroup>
+        )}
       </CardBody>
     </CardWrapper>
   );
 };
 
 export default Card;
+
