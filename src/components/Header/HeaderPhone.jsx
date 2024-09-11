@@ -59,8 +59,9 @@ const Nav = styled.nav`
             text-decoration: underline;
         }
         @media (max-width: 640px) {
-            font-size: 0.9rem;  // Smaller font size for readability on small devices
+            font-size: 1rem;  // Smaller font size for readability on small devices
             font-weight: bold;
+            margin: 5px;
         }
     }
     .divider {
