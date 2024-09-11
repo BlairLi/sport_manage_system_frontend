@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <Container>
             <Nav>
-                <Logo src={logo} alt="logo" />
+            <NavLink to="/" ><Logo src={logo} alt="logo" /></NavLink>
                 <NavLink to="/OurProgram" className="navLink">Programs</NavLink>
                 <span className='divider'>|</span>
                 <a href="tel:+16477609051" className="navLink">647-760-9051</a>
