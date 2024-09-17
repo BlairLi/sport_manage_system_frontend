@@ -127,7 +127,7 @@ const DiscountPopup = ({ onClose }) => {
   };
 
   const handleMississaugaClick = () => {
-    window.location.href = 'https://forms.gle/N5mpYSf1kELE47nt8';
+    window.location.href = 'https://form.jotform.com/242575648974272';
   };
 
   return (
