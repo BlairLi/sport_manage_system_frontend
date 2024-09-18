@@ -42,50 +42,57 @@ const PopupImage = styled.img`
 const Title = styled.h1`
   font-size: 20px;
   margin-bottom: 10px;
-  font-family: 'League Spartan', sans-serif;
+  font-family: 'Gagalin', sans-serif;
   font-weight: bold;
+  color: #C62323;
   @media(max-width: 480px) {
-    font-size: 16px;
+    font-size: 23px;
   }
 `;
 
 const Icon = styled.img`
-  width: 65px;  // Set the size of the icon
+  width: 50px;  
   height: auto;
   position: absolute;
-  left: 0px; // Position on the right side of the input
-  top: 38%;    // Center vertically with respect to the input
+  left: 20%; 
+  top: 85%;    
   transform: translateY(-50%);
   @media(max-width: 480px) {
-    width: 50px; 
-  top: 30%;    
+    width: 45px; 
+    top: 87%;    
+    left: 13%; 
   }
 `;
 
-const Input = styled.input`
-  width: calc(100% - 60px); // Adjust width to make space for the icon
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  padding-right: 60px; // Padding to prevent text from overlapping the icon
-`;
+// const Input = styled.input`
+//   width: calc(100% - 60px);  
+//   padding: 10px;
+//   margin-bottom: 20px;
+//   border: 1px solid #ccc;
+//   border-radius: 20px;
+//   padding-right: 60px;  
+// `;
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: space-between; // Ensures the buttons are spaced out on larger screens
+  justify-content: space-between;  
   margin-bottom: 20px;
+  margin: 10px 20px;
+  padding: 10px 0px;
+  margin-bottom: 20px;
+
   @media(max-width: 768px) {  
-    flex-direction: column;  // Stack elements vertically on small screens
-    width: 80%;  // Adjust width to better fit mobile screens
-    margin: 0 auto;  // Center the container horizontally
+    flex-direction: column;  
+    width: 95%;   
+    margin: 0 auto;   
     margin-bottom: 20px;
+    padding: 0px 0px;
   }
 `;
 
 const Button = styled.button`
   font-family: 'League Spartan', sans-serif;
-  background-color: #95071A;
+  background-color: #014AAD;
   color: white;
   border: none;
   padding: 8px 10px;
@@ -97,16 +104,17 @@ const Button = styled.button`
   &:not(:last-child) {
     margin-right: 10px;
     @media(max-width: 768px) {
-      margin-right: 0; // Remove right margin on mobile
-      margin-bottom: 10px; // Add bottom margin to stack the buttons
+      margin-right: 0;  
+      margin-bottom: 10px;  
     }
   }
   &:hover {
-    background-color: #700211;
+    background-color: #033c8b;
   }
   @media(max-width: 480px) {
-    font-size: 25px;
-    padding: 5px 0px;
+    font-size: 35px;
+    padding: 30px 0px;
+    margin: 10px 0px;
   }
 `;
 
@@ -119,12 +127,17 @@ const CloseLink = styled.p`
   font-weight: bold;
 `;
 
-const DiscountPopup = ({ onClose }) => {
-  const [email, setEmail] = useState('');
+const Price = styled.span`
+  text-decoration: line-through;  
+  color: inherit; 
+`;
 
-  const handleScarboroughClick = () => {
-    window.location.href = 'https://forms.gle/vGC1KKTgKVD4WLAN7';
-  };
+const DiscountPopup = ({ onClose }) => {
+  // const [email, setEmail] = useState('');
+
+  // const handleScarboroughClick = () => {
+  //   window.location.href = 'https://forms.gle/vGC1KKTgKVD4WLAN7';
+  // };
 
   const handleMississaugaClick = () => {
     window.location.href = 'https://form.jotform.com/242575648974272';
@@ -134,18 +147,17 @@ const DiscountPopup = ({ onClose }) => {
     <PopupContainer>
       <PopupContent>
         <PopupImage src={PUT} alt="Popup Title" />
-        <Title>Enter email and click location</Title>
-        <Icon src={PUL} alt="Popup Icon" />
-        <Input
+        <Title>FALL SPECIAL  <Price>$100.00</Price> </Title>
+        {/* <Input
           type="email"
           placeholder="Enter your email here"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        />
+        /> */}
         <ButtonContainer>
-          <Button onClick={handleScarboroughClick}>SCARBOROUGH</Button>
           <Button onClick={handleMississaugaClick}>MISSISSAUGA</Button>
         </ButtonContainer>
+        <Icon src={PUL} alt="Popup Icon" />
         <CloseLink onClick={onClose}>NO DISCOUNT, THANKS</CloseLink>
       </PopupContent>
     </PopupContainer>
