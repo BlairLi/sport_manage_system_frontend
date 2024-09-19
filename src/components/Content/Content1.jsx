@@ -1,3 +1,4 @@
+//inactive page
 /* eslint-disable react/no-unescaped-entities */
 import styled from "styled-components";
 import logo from './logo.jpg'; 

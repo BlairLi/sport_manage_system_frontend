@@ -1,7 +1,8 @@
+//inactive page
 /* eslint-disable react/no-unescaped-entities */
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import p1 from './p32.png';  // Ensure this path is correct according to your project structure
+// import p1 from './p32.png'; 
 import registernow from './registernow.png';
 
 const LeadershipCamps = () => {

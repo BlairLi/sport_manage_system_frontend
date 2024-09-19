@@ -1,3 +1,4 @@
+//inactive page
 import styled from "styled-components";
 // import { Link } from "react-router-dom";
 // import main1 from '../Main/main1.png';
@@ -6,9 +7,9 @@ import styled from "styled-components";
 // import { BsFacebook, BsTwitter } from "react-icons/bs";
 // import { AiOutlineInstagram, AiFillLinkedin } from "react-icons/ai";
 import { useState } from "react";
-import logoImg from './headerlogo2.png'; 
-import aboutbgi from './aboutbgi.png'; 
-import aboutbgi3 from './aboutbgi3.png'; 
+// import logoImg from './headerlogo2.png'; 
+// import aboutbgi from './aboutbgi.png'; 
+// import aboutbgi3 from './aboutbgi3.png'; 
 
 
 const Faq = () => {
@@ -321,82 +322,82 @@ const questions = [
 
 // our mission 
 
-const MissionSection = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  background-image: url(${aboutbgi});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+// const MissionSection = styled.div`
+//   display: flex;
+//   justify-content: flex-end;
+//   background-image: url(${aboutbgi});
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-position: center;
 
-  @media (max-width: 1024px) { 
-    background-image: url(${aboutbgi3}); 
-    justify-content: flex-end; 
-    align-items: flex-end; 
-    padding: 5% 5% 10% 20%;
-    height: 120vh; 
-  }
+//   @media (max-width: 1024px) { 
+//     background-image: url(${aboutbgi3}); 
+//     justify-content: flex-end; 
+//     align-items: flex-end; 
+//     padding: 5% 5% 10% 20%;
+//     height: 120vh; 
+//   }
 
-  @media (max-width: 640px) { 
-    padding: 5% 1% 10% 30%; 
-    height: 60vh; 
-  }
-`;
+//   @media (max-width: 640px) { 
+//     padding: 5% 1% 10% 30%; 
+//     height: 60vh; 
+//   }
+// `;
 
 
-const MissionContent = styled.div`
-  width: 40%;  
-  text-align: center;
+// const MissionContent = styled.div`
+//   width: 40%;  
+//   text-align: center;
 
-  @media (max-width: 1024px) {
-    width: 100%;
-  }
+//   @media (max-width: 1024px) {
+//     width: 100%;
+//   }
 
-  @media (max-width: 640px) {
-    width: 90%;
-  }
+//   @media (max-width: 640px) {
+//     width: 90%;
+//   }
   
-`;
+// `;
 
-const MissionLogo = styled.img`
-  width: 25rem;  
-  height: auto;
-  margin-bottom: 20px;
-  @media (max-width: 1024px) {
-    width: 50%; 
-  }
+// const MissionLogo = styled.img`
+//   width: 25rem;  
+//   height: auto;
+//   margin-bottom: 20px;
+//   @media (max-width: 1024px) {
+//     width: 50%; 
+//   }
 
-  @media (max-width: 640px) {
-    width: 50%; 
-  }
+//   @media (max-width: 640px) {
+//     width: 50%; 
+//   }
  
-`;
+// `;
 
-const MissionTitle = styled.h2`
-  font-size: 3rem;  
-  margin-bottom: 10px;
-  font-style: italic;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-  @media (max-width: 1024px) {
-    font-size: 2rem; 
-  }
-  @media (max-width: 640px) {
-    font-size: 1rem; 
-  }
-`;
+// const MissionTitle = styled.h2`
+//   font-size: 3rem;  
+//   margin-bottom: 10px;
+//   font-style: italic;
+//   font-weight: bold;
+//   font-family: 'Poppins', sans-serif;
+//   @media (max-width: 1024px) {
+//     font-size: 2rem; 
+//   }
+//   @media (max-width: 640px) {
+//     font-size: 1rem; 
+//   }
+// `;
 
-const MissionText = styled.p`
-  font-size: 1.5rem;
-  padding: 0px 5rem;
-  font-family: 'Poppins', sans-serif;
-  @media (max-width: 1024px) {
-    font-size: 1.2rem; // Adjust font size for readability
-    padding: 0 2rem; // Adjust padding for smaller screens
-  }
-  @media (max-width: 640px) {
-    font-size: 0.6rem; 
-  }
-`;
+// const MissionText = styled.p`
+//   font-size: 1.5rem;
+//   padding: 0px 5rem;
+//   font-family: 'Poppins', sans-serif;
+//   @media (max-width: 1024px) {
+//     font-size: 1.2rem; // Adjust font size for readability
+//     padding: 0 2rem; // Adjust padding for smaller screens
+//   }
+//   @media (max-width: 640px) {
+//     font-size: 0.6rem; 
+//   }
+// `;
 
 // our mission 

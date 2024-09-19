@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
-import { BsFacebook, BsTwitter } from "react-icons/bs";
+import { BsFacebook } from "react-icons/bs";
 import axios from 'axios';
 import logo from './headerlogo2.png';
 import contactBg from './contactBg.png';

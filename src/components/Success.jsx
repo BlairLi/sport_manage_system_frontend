@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect } from "react";
 import axios from "axios";
-import logo from '../../public/image.png';  // Ensure you have the logo image path correctly
+import logo from '../../public/image.png';  
 import check from '../../public/check.png';
 
 const Container = styled.div`

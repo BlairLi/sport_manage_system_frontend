@@ -1,6 +1,7 @@
+//inactive page
 /* eslint-disable react/no-unescaped-entities */
 import styled from 'styled-components';
-import p1 from './p42.jpg';  // Ensure this path is correct according to your project structure
+// import p1 from './p42.jpg';  
 import { useNavigate } from 'react-router-dom';
 import registernow from './registernow.png';
 
@@ -16,7 +17,7 @@ const AllGirlsTrainingAcademy = () => {
       <None><Title2>All-Girls <br />Training Academy</Title2></None>
       <Content>
         <ColumnLeft>
-          <Image src={p1} alt="All-Girls Training Academy" />
+          {/* <Image src={p1} alt="All-Girls Training Academy" /> */}
         </ColumnLeft>
         <ColumnRight>
           <Box>

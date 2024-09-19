@@ -1,17 +1,17 @@
 import styled from 'styled-components';
-import p13 from './headerlogo.png';
+// import p13 from './headerlogo.png';
 import registernow from './goldenregister.png';
 import registernow2 from './blackregister.png';
-import main1 from './main1.png';
-import main2 from './main2.png';
-import main3 from './main33.png';
+// import main1 from './main1.png';
+// import main2 from './main2.png';
+// import main3 from './main33.png';
 import mainTop from './mainTop2.png';
 import phonePic from './mainpagephonesize3.png';
 import { Link } from "react-router-dom";
 import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { useEffect } from 'react';
-import axios from "axios";
+// import axios from "axios";
 import Countdown from '../Counter/CountDown';
 import Programs from '../Program/OurProgramV2';
 import InfoBlockss from '../Program/InfoBlocks';
@@ -133,107 +133,107 @@ const TopTitle = styled.h1`
   }
 `;
 
-const BottomSection = styled.div`
-  flex: 4;
-  background-color: white;
-  display: flex;
-  padding: 40px;
-  overflow: hidden;
-  flex-direction: row;
+// const BottomSection = styled.div`
+//   flex: 4;
+//   background-color: white;
+//   display: flex;
+//   padding: 40px;
+//   overflow: hidden;
+//   flex-direction: row;
 
-  @media (max-width: 1024px) {
-    padding: 20px;
-    flex-direction: column;
-    align-items: center;
-  }
+//   @media (max-width: 1024px) {
+//     padding: 20px;
+//     flex-direction: column;
+//     align-items: center;
+//   }
 
-  @media (max-width: 640px) {
-    padding: 10px;
-    display: none;
-  }
-`;
+//   @media (max-width: 640px) {
+//     padding: 10px;
+//     display: none;
+//   }
+// `;
 
-const LeftColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 3;
-  padding-right: 40px;
-  overflow: hidden;
+// const LeftColumn = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   flex: 3;
+//   padding-right: 40px;
+//   overflow: hidden;
 
-  @media (max-width: 1024px) {
-    padding-right: 0;
-    align-items: center;
-    text-align: center;
-  }
-`;
+//   @media (max-width: 1024px) {
+//     padding-right: 0;
+//     align-items: center;
+//     text-align: center;
+//   }
+// `;
 
-const RightColumn = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  padding-top: 20px;
+// const RightColumn = styled.div`
+//   flex: 1;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   overflow: hidden;
+//   padding-top: 20px;
 
-  @media (max-width: 1024px) {
-    padding-top: 20px;
-    align-items: center;
-  }
-`;
+//   @media (max-width: 1024px) {
+//     padding-top: 20px;
+//     align-items: center;
+//   }
+// `;
 
-const Image1 = styled.img`
-  max-height: 300px;
-  max-width: 300px;
+// const Image1 = styled.img`
+//   max-height: 300px;
+//   max-width: 300px;
 
-  @media (max-width: 1024px) {
-    max-height: 200px;
-    max-width: 200px;
-  }
+//   @media (max-width: 1024px) {
+//     max-height: 200px;
+//     max-width: 200px;
+//   }
 
-  @media (max-width: 640px) {
-    max-height: 150px;
-    max-width: 150px;
-  }
-`;
+//   @media (max-width: 640px) {
+//     max-height: 150px;
+//     max-width: 150px;
+//   }
+// `;
 
-const ParagraphContainer = styled.div`
-  max-width: 100%;
-  text-align: left;
-  overflow: hidden;
+// const ParagraphContainer = styled.div`
+//   max-width: 100%;
+//   text-align: left;
+//   overflow: hidden;
 
-  @media (max-width: 1024px) {
-    text-align: center;
-  }
-`;
+//   @media (max-width: 1024px) {
+//     text-align: center;
+//   }
+// `;
 
-const ParagraphTitle = styled.h2`
-  font-size: 2rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  margin-bottom: 20px;
+// const ParagraphTitle = styled.h2`
+//   font-size: 2rem;
+//   font-family: 'Poppins', sans-serif;
+//   font-weight: 800;
+//   margin-bottom: 20px;
 
-  @media (max-width: 1024px) {
-    font-size: 1.5rem;
-  }
+//   @media (max-width: 1024px) {
+//     font-size: 1.5rem;
+//   }
 
-  @media (max-width: 640px) {
-    font-size: 1.2rem;
-  }
-`;
+//   @media (max-width: 640px) {
+//     font-size: 1.2rem;
+//   }
+// `;
 
-const ParagraphText = styled.p`
-  font-size: 1.2rem;
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
+// const ParagraphText = styled.p`
+//   font-size: 1.2rem;
+//   font-family: 'Poppins', sans-serif;
+//   line-height: 1.6;
 
-  @media (max-width: 1024px) {
-    font-size: 1rem;
-  }
+//   @media (max-width: 1024px) {
+//     font-size: 1rem;
+//   }
 
-  @media (max-width: 640px) {
-    font-size: 0.9rem;
-  }
-`;
+//   @media (max-width: 640px) {
+//     font-size: 0.9rem;
+//   }
+// `;
 
 const LinkContainer = styled.div`
   display: inline-flex;  // Using flex to keep the link tightly around the image
@@ -277,120 +277,120 @@ const LinkContainer2 = styled.div`
   } 
 `;
 
-const ImageGallery = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 1cm;
-  gap: 1.5rem;
-  overflow: hidden;
+// const ImageGallery = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   margin: 1cm;
+//   gap: 1.5rem;
+//   overflow: hidden;
 
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
+//   @media (max-width: 1024px) {
+//     flex-direction: column;
+//     align-items: center;
+//   }
+// `;
 
-const GalleryItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+// const GalleryItem = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   overflow: hidden;
 
-  @media (max-width: 1024px) {
-    width: 100%;
-    padding-bottom: 5vw;
-  }
-`;
+//   @media (max-width: 1024px) {
+//     width: 100%;
+//     padding-bottom: 5vw;
+//   }
+// `;
 
-const GalleryImage = styled.img`
-  height: 305px;
-  width: 475px;
-  margin-bottom: 10px;
-  overflow: hidden;
+// const GalleryImage = styled.img`
+//   height: 305px;
+//   width: 475px;
+//   margin-bottom: 10px;
+//   overflow: hidden;
 
-  @media (max-width: 640px) {
-    width: 100%;
-    height: auto;
-  }
-`;
+//   @media (max-width: 640px) {
+//     width: 100%;
+//     height: auto;
+//   }
+// `;
 
-const ImageDescription = styled.div`
-  text-align: left;
-  margin-bottom: 5px;
-  font-size: 1.1rem;
-  font-weight: 800;
-  font-family: 'Poppins', sans-serif;
-  padding: 20px 0;
-  overflow: hidden;
+// const ImageDescription = styled.div`
+//   text-align: left;
+//   margin-bottom: 5px;
+//   font-size: 1.1rem;
+//   font-weight: 800;
+//   font-family: 'Poppins', sans-serif;
+//   padding: 20px 0;
+//   overflow: hidden;
 
-  @media (max-width: 640px) {
-    font-size: 3vw;
-    opacity: 0.9;
-    padding: 0;
-  }
-`;
+//   @media (max-width: 640px) {
+//     font-size: 3vw;
+//     opacity: 0.9;
+//     padding: 0;
+//   }
+// `;
 
-const ReadMoreLink = styled.div`
-  text-decoration: underline;
-  cursor: pointer;
-  color: black;
-  text-align: left;
-  width: 250px;
-  font-size: 1.2rem;
-  overflow: hidden;
+// const ReadMoreLink = styled.div`
+//   text-decoration: underline;
+//   cursor: pointer;
+//   color: black;
+//   text-align: left;
+//   width: 250px;
+//   font-size: 1.2rem;
+//   overflow: hidden;
 
-  @media (max-width: 640px) {
-    width: 100%;
-    text-align: center;
-    font-size: 3vw;
-    opacity: 0.9;
-  }
-`;
+//   @media (max-width: 640px) {
+//     width: 100%;
+//     text-align: center;
+//     font-size: 3vw;
+//     opacity: 0.9;
+//   }
+// `;
 
-const TitleContainer = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin-top: 20px;
-  padding-left: 40px;
-  overflow: hidden;
+// const TitleContainer = styled.div`
+//   display: flex;
+//   align-items: center;
+//   width: 100%;
+//   margin-top: 20px;
+//   padding-left: 40px;
+//   overflow: hidden;
 
-  @media (max-width: 640px) {
-    padding-left: 2vw;
-    margin-top: 0px;
-  }
-`;
+//   @media (max-width: 640px) {
+//     padding-left: 2vw;
+//     margin-top: 0px;
+//   }
+// `;
 
-const NewTitle = styled.h2`
-  font-size: 1.5vw;
-  text-align: left;
-  margin: 0;
-  padding-right: 20px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  overflow: hidden;
+// const NewTitle = styled.h2`
+//   font-size: 1.5vw;
+//   text-align: left;
+//   margin: 0;
+//   padding-right: 20px;
+//   font-family: 'Poppins', sans-serif;
+//   font-weight: bold;
+//   overflow: hidden;
 
-  @media (max-width: 640px) {
-    font-size: 4vw;
-    opacity: 0.9;
-  }
-`;
+//   @media (max-width: 640px) {
+//     font-size: 4vw;
+//     opacity: 0.9;
+//   }
+// `;
 
-const StyledHorizontalLine = styled.hr`
-  border: none;
-  height: 4px;
-  background-color: black;
-  flex-grow: 1;
-  margin: 0 20px;
-  color: black;
-  opacity: 1;
-  overflow: hidden;
+// const StyledHorizontalLine = styled.hr`
+//   border: none;
+//   height: 4px;
+//   background-color: black;
+//   flex-grow: 1;
+//   margin: 0 20px;
+//   color: black;
+//   opacity: 1;
+//   overflow: hidden;
 
-  @media (max-width: 640px) {
-    height: 2px;
-    margin: 0;
-    opacity: 0.9;
-  }
-`;
+//   @media (max-width: 640px) {
+//     height: 2px;
+//     margin: 0;
+//     opacity: 0.9;
+//   }
+// `;
 
 const StyledHorizontalLine2 = styled.hr`
   border: none;
@@ -421,183 +421,183 @@ const SocialMediaIcons = styled.div`
   }
 `;
 
-const FormSection = styled.section`
-  padding: 40px;
-  background-color: #fff;
-  overflow: hidden;
+// const FormSection = styled.section`
+//   padding: 40px;
+//   background-color: #fff;
+//   overflow: hidden;
 
-  @media (max-width: 1024px) {
-    padding: 20px;
-  }
+//   @media (max-width: 1024px) {
+//     padding: 20px;
+//   }
 
-  @media (max-width: 640px) {
-    padding: 10px;
-  }
-`;
+//   @media (max-width: 640px) {
+//     padding: 10px;
+//   }
+// `;
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+// const Form = styled.form`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
 
-  p {
-    font-style: italic;
-  }
+//   p {
+//     font-style: italic;
+//   }
 
-  tag {
-    color: #ff0022;
-  }
-`;
+//   tag {
+//     color: #ff0022;
+//   }
+// `;
 
-const InputGroup = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  align-items: center;
-  overflow: hidden;
+// const InputGroup = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   gap: 10px;
+//   align-items: center;
+//   overflow: hidden;
 
-  @media (max-width: 640px) {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-`;
+//   @media (max-width: 640px) {
+//     flex-direction: column;
+//     align-items: flex-start;
+//   }
+// `;
 
-const Input = styled.input`
-  flex: 1;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #000;
-  border-radius: 20px;
-  margin-bottom: 10px;
-  overflow: hidden;
+// const Input = styled.input`
+//   flex: 1;
+//   padding: 10px;
+//   font-size: 16px;
+//   border: 1px solid #000;
+//   border-radius: 20px;
+//   margin-bottom: 10px;
+//   overflow: hidden;
 
-  @media (max-width: 640px) {
-    font-size: 14px;
-    padding: 8px;
-    width: 100%;
-  }
-`;
+//   @media (max-width: 640px) {
+//     font-size: 14px;
+//     padding: 8px;
+//     width: 100%;
+//   }
+// `;
 
-const InputLabel = styled.div`
-  flex: 1;
-  padding: 5px 0;
-  font-size: 20px;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden;
+// const InputLabel = styled.div`
+//   flex: 1;
+//   padding: 5px 0;
+//   font-size: 20px;
+//   font-family: 'Poppins', sans-serif;
+//   overflow: hidden;
 
-  @media (max-width: 640px) {
-    font-size: 16px;
-    width: 100%;
-  }
-`;
+//   @media (max-width: 640px) {
+//     font-size: 16px;
+//     width: 100%;
+//   }
+// `;
 
-const Label = styled.label`
-  font-size: 40px;
-  font-weight: bold;
-  display: block;
-  color: #95071A;
-  font-family: 'League Spartan', sans-serif;
-`;
+// const Label = styled.label`
+//   font-size: 40px;
+//   font-weight: bold;
+//   display: block;
+//   color: #95071A;
+//   font-family: 'League Spartan', sans-serif;
+// `;
 
-const FormHeader = styled.div`
-  text-align: center;
-`;
+// const FormHeader = styled.div`
+//   text-align: center;
+// `;
 
-const TrialOffer = styled.h2`
-  font-size: 38px;
-  margin: 0;
-  line-height: 1.1;
-  font-family: 'Poppins', sans-serif;
+// const TrialOffer = styled.h2`
+//   font-size: 38px;
+//   margin: 0;
+//   line-height: 1.1;
+//   font-family: 'Poppins', sans-serif;
 
-  @media (max-width: 1024px) {
-    font-size: 28px;
-  }
+//   @media (max-width: 1024px) {
+//     font-size: 28px;
+//   }
 
-  @media (max-width: 640px) {
-    font-size: 24px;
-  }
-`;
+//   @media (max-width: 640px) {
+//     font-size: 24px;
+//   }
+// `;
 
-const BookYour = styled.h3`
-  font-size: 30px;
-  color: #95071A;
-  font-family: 'League Spartan', sans-serif;
+// const BookYour = styled.h3`
+//   font-size: 30px;
+//   color: #95071A;
+//   font-family: 'League Spartan', sans-serif;
 
-  @media (max-width: 1024px) {
-    font-size: 22px;
-  }
+//   @media (max-width: 1024px) {
+//     font-size: 22px;
+//   }
 
-  @media (max-width: 640px) {
-    font-size: 18px;
-  }
-`;
+//   @media (max-width: 640px) {
+//     font-size: 18px;
+//   }
+// `;
 
-const FreeSessionNow = styled.h3`
-  font-size: 28px;
-  color: #95071A;
-  margin-bottom: 0;
-  font-family: 'League Spartan', sans-serif;
+// const FreeSessionNow = styled.h3`
+//   font-size: 28px;
+//   color: #95071A;
+//   margin-bottom: 0;
+//   font-family: 'League Spartan', sans-serif;
 
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+//   @media (max-width: 1024px) {
+//     font-size: 20px;
+//   }
 
-  @media (max-width: 640px) {
-    font-size: 16px;
-  }
-`;
+//   @media (max-width: 640px) {
+//     font-size: 16px;
+//   }
+// `;
 
-const SessionValidity = styled.p`
-  font-size: 16px;
-  font-family: 'Poppins', sans-serif;
+// const SessionValidity = styled.p`
+//   font-size: 16px;
+//   font-family: 'Poppins', sans-serif;
 
-  @media (max-width: 1024px) {
-    font-size: 14px;
-  }
+//   @media (max-width: 1024px) {
+//     font-size: 14px;
+//   }
 
-  @media (max-width: 640px) {
-    font-size: 12px;
-  }
-`;
+//   @media (max-width: 640px) {
+//     font-size: 12px;
+//   }
+// `;
 
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
+// const ButtonContainer = styled.div`
+//   display: flex;
+//   justify-content: flex-end;
 
-  @media (max-width: 1024px) {
-    justify-content: center;
-  }
-`;
+//   @media (max-width: 1024px) {
+//     justify-content: center;
+//   }
+// `;
 
-const Button = styled.button`
-  font-size: 18px;
-  color: black;
-  border: none;
-  cursor: pointer;
-  background: none;
-  text-decoration: underline;
+// const Button = styled.button`
+//   font-size: 18px;
+//   color: black;
+//   border: none;
+//   cursor: pointer;
+//   background: none;
+//   text-decoration: underline;
 
-  @media (max-width: 640px) {
-    font-size: 16px;
-  }
-`;
+//   @media (max-width: 640px) {
+//     font-size: 16px;
+//   }
+// `;
 
-const FormLine = styled.hr`
-  border: none;
-  height: 1px;
-  background-color: black;
-  flex-grow: 1;
-  color: black;
-  opacity: 1;
-  overflow: hidden;
+// const FormLine = styled.hr`
+//   border: none;
+//   height: 1px;
+//   background-color: black;
+//   flex-grow: 1;
+//   color: black;
+//   opacity: 1;
+//   overflow: hidden;
 
-  @media (max-width: 640px) {
-    margin: 0;
-    opacity: 0.9;
-  }
-`;
+//   @media (max-width: 640px) {
+//     margin: 0;
+//     opacity: 0.9;
+//   }
+// `;
 
-const url = import.meta.env.VITE_MONGODB_URL;
+// const url = import.meta.env.VITE_MONGODB_URL;
 
 const Main = () => {
   useEffect(() => {
@@ -620,55 +620,55 @@ const Main = () => {
     };
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    const isConfirmed = window.confirm("Are you sure you want to submit the form?");
+  //   const isConfirmed = window.confirm("Are you sure you want to submit the form?");
 
-    if (!isConfirmed) {
-      return;
-    }
+  //   if (!isConfirmed) {
+  //     return;
+  //   }
 
-    const newRegistration = {
-      bookingID: `freetrial_${Date.now()}_${Math.floor(Math.random() * 10000)}`,
-      parentName: e.target.parentFirstName.value + " " + e.target.parentLastName.value,
-      email: e.target.parentEmail.value,
-      phone: e.target.parentPhone.value,
-      child1Name: e.target.child1Name.value,
-      child1Birth: e.target.child1DOB.value,
-      child1Program: 'Free Trial',
-      child1ProgramPlace: 'Free Trial',
-      childDayOfClassTime: 'Free Trial',
-      child1Amount: 0,
-      child1Start: '2029-12-31',
-      child1End: "2029-12-31", // TODO: Update end date
-      child2Name: e.target.child2Name.value,
-      child2DOB: e.target.child2DOB.value,
-      child1Start2: '2029-12-31',
-      child1End2: "2029-12-31", // TODO: Update end date
-      makeupClasses: "None",
-      notes: 'Free Trial',
-    };
-    console.log("newRegistration", newRegistration);
+  //   const newRegistration = {
+  //     bookingID: `freetrial_${Date.now()}_${Math.floor(Math.random() * 10000)}`,
+  //     parentName: e.target.parentFirstName.value + " " + e.target.parentLastName.value,
+  //     email: e.target.parentEmail.value,
+  //     phone: e.target.parentPhone.value,
+  //     child1Name: e.target.child1Name.value,
+  //     child1Birth: e.target.child1DOB.value,
+  //     child1Program: 'Free Trial',
+  //     child1ProgramPlace: 'Free Trial',
+  //     childDayOfClassTime: 'Free Trial',
+  //     child1Amount: 0,
+  //     child1Start: '2029-12-31',
+  //     child1End: "2029-12-31", // TODO: Update end date
+  //     child2Name: e.target.child2Name.value,
+  //     child2DOB: e.target.child2DOB.value,
+  //     child1Start2: '2029-12-31',
+  //     child1End2: "2029-12-31", // TODO: Update end date
+  //     makeupClasses: "None",
+  //     notes: 'Free Trial',
+  //   };
+  //   console.log("newRegistration", newRegistration);
 
-    try {
-      const response = await axios.post(`${url}/api/createRegistration`, newRegistration);
-    } catch (error) {
-      if (error.response && error.response.status === 400) {
-        // Handle 400 error (Capacity reached)
-        console.error('Error creating Registration:', error.response.data.message);
-        alert(`Registration Error: ${error.response.data.message}`);
-      } else {
-        // Handle other errors
-        console.error('Error creating Registration:', error.message);
-        alert('An error occurred while creating the registration. Please try again.');
-      }
-      // Stop the process if there is an error
-      return;
-    }
+  //   try {
+  //     const response = await axios.post(`${url}/api/createRegistration`, newRegistration);
+  //   } catch (error) {
+  //     if (error.response && error.response.status === 400) {
+  //       // Handle 400 error (Capacity reached)
+  //       console.error('Error creating Registration:', error.response.data.message);
+  //       alert(`Registration Error: ${error.response.data.message}`);
+  //     } else {
+  //       // Handle other errors
+  //       console.error('Error creating Registration:', error.message);
+  //       alert('An error occurred while creating the registration. Please try again.');
+  //     }
+  //     // Stop the process if there is an error
+  //     return;
+  //   }
 
-    alert('Registration submitted successfully! We will contact you shortly to confirm the details.');
-  }
+  //   alert('Registration submitted successfully! We will contact you shortly to confirm the details.');
+  // }
 
   return (
     <Container>
